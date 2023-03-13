@@ -13,18 +13,20 @@ const App = () => {
   ]
 
   const [selected, setSelected] = useState(0)
-  const [voteNum, setvoteNum] = useState(Array(anecdotes.length).fill(0))
-    let points=voteNum
-    let max=0
-   for (let i=0;i<anecdotes.length;++i){
-       if (voteNum[i]>voteNum[max]) max=i
-   }
-  const Change= ()=> setSelected(Math.floor(Math.random()*anecdotes.length))
+  const [voteNum, setVoteNum] = useState(anecdotes.map(_=>0))
+  const [maxIndex, setMax] = useState(0)
+
+  const Change= ()=> {
+      while (true){
+          const geneNum=Math.floor(Math.random()*anecdotes.length)
+          if (geneNum!==selected) return setSelected(geneNum)}}
 
   const Vote= ()=> {
+      const points=voteNum
       points[selected]++
-       const copy= [...points]
-       setvoteNum(copy)
+      const copy= [...points]
+      if (points[maxIndex]<points[selected])setMax(selected)
+      setVoteNum(copy)
   }
 
 
@@ -37,7 +39,9 @@ const App = () => {
       <Button text="vote" Onclick={Vote}/>
       <Button text="nextanecdote" Onclick={Change}/>
       <h1>Anecdote with most votes</h1>
-      {anecdotes[max]}
+      {anecdotes[maxIndex]}
+        <h1>Current maximal votes: {voteNum[maxIndex]} </h1>
+        <h1>Current votes: {voteNum[selected]} </h1>
     </div>
   )
 }
