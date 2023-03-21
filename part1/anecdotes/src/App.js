@@ -22,11 +22,10 @@ const App = () => {
           if (geneNum!==selected) return setSelected(geneNum)}}
 
   const Vote= ()=> {
-      const points=voteNum
+      const points=[...voteNum]
       points[selected]++
-      const copy= [...points]
       if (points[maxIndex]<points[selected])setMax(selected)
-      setVoteNum(copy)
+      setVoteNum(points)
   }
 
 
