@@ -1,50 +1,84 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import PersonsShow from './components/PersonsShow'
+import service from './services/persons'
+
+const Notification = ({message}) => {
+    if (message === null) {
+        return null
+    }
+
+    return (
+        <div className='error'>
+            {message}
+        </div>
+    )
+}
 
 const App = () => {
-    const [persons, setPersons] = useState([
-        {name: 'Arto Hellas', number: '040-123456', id: 1},
-        {name: 'Ada Lovelace', number: '39-44-5323523', id: 2},
-        {name: 'Dan Abramov', number: '12-43-234345', id: 3},
-        {name: 'Mary Poppendieck', number: '39-23-6423122', id: 4}
-    ])
-    const [personsShow, setPersonsShow] = useState(persons)
-    const [newName, setNewName] = useState('')
-    const [newNum, setNewNum] = useState('')
+
+    const [persons, setPersons] = useState([])
+    const [add, setAdd] = useState({name: '', num: ''})
     const [search, setSearch] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
+    useEffect(() => {
+        service.getAll().then(response => {
+            setPersons(response)
+        })
+    }, [])
     const subChange = (event) => {
         event.preventDefault()
-        if (!persons.find(person => person.name === newName)) {
-            const newValue = {name: newName, number: newNum}
-            setPersons(persons.concat(newValue))
-            setPersonsShow(persons.concat(newValue))
-        } else alert(`${newName} is already added to phonebook`)
-        setNewName('')
-        setNewNum('')
+        const newValue = {name: add.name, number: add.num}
+        if (!persons.find(person => person.name === add.name)) {
+            service.create(newValue).then(response => setPersons(persons.concat(response)))
+        } else {
+            if (window.confirm(`${add.name} is already added to phonebook, replace the older number with a new one?`)) {
+                const target = persons.find(person => person.name === add.name)
+                service.update(target.id, newValue).then(response => setPersons(persons.map(person => person.id !== target.id ? person : response)))
+            }
+        }
+        setAdd({name: '', num: ''})
     }
     const handleChange = (event) => {
-        setNewName(event.target.value)
+        setAdd({...add, name: event.target.value})
     }
     const handleNumChange = (event) => {
-        setNewNum(event.target.value)
+        setAdd({...add, num: event.target.value})
+    }
+    const persondelete = (id) => {
+        const target = persons.find(person => person.id === id)
+        if (window.confirm(`Delete ${target.name}?`)) {
+            service.del(id).then().catch(error => {
+                setErrorMessage(
+                    `Imformation of '${target.name}' has already been removed from server`
+                )
+                setTimeout(() => {
+                    setErrorMessage(null)
+                }, 5000)
+                setPersons(persons.filter(person => person.id !== id))
+            })
+            setPersons(persons.filter(person => person.id !== id))
+        }
     }
 
     const handleSearch = (event) => {
         setSearch(event.target.value)
-        setPersonsShow(persons.filter(person => person.name.toLowerCase().includes(event.target.value.toLowerCase())))
     }
+
+    const res = persons.filter(person => person.name.toLowerCase().includes(search.toLowerCase()))
 
     return (
         <div>
+
+            <Notification message={errorMessage}/>
             <h2>Phonebook</h2>
             <Filter search={search} handleSearch={handleSearch}/>
             <h2>Add a new</h2>
-            <PersonForm newName={newName} handleChange={handleChange} newNum={newNum}
+            <PersonForm newone={add} handleChange={handleChange}
                         handleNumChange={handleNumChange} subChange={subChange}/>
             <h2>Numbers</h2>
-            <PersonsShow personsShow={personsShow}/>
+            <PersonsShow personsShow={res} persondelete={persondelete}/>
         </div>
     )
 }
