@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="" />
+    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="sad">
+      <change afterPath="$PROJECT_DIR$/part3/http-client.env.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part3/trail.rest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/saveactions_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/src/services/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/services/notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Public Environment File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -15,7 +36,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Mu9cDajb34pCt1LLFPWNvzEAXI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,20 +48,54 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "E:/project_webcourse",
+    "last_opened_file_path": "E:/project_webcourse/part3/Phonebook_end",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "http.proxy",
+    "settings.editor.selected.configurable": "settings.saveactions",
     "ts.external.directory.path": "D:\\Scoop\\apps\\webstorm\\current\\IDE\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.try | #1">
+    <configuration name="trail | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/trail.rest" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.try | #1" />
+        <item itemvalue="HTTP Request.try | #3" />
+        <item itemvalue="HTTP Request.try | #4" />
+        <item itemvalue="HTTP Request.try | #2" />
+        <item itemvalue="HTTP Request.trail | #2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="" />
@@ -52,7 +109,8 @@
       <workItem from="1678609766260" duration="15738000" />
       <workItem from="1678628852946" duration="2277000" />
       <workItem from="1679148552412" duration="408000" />
-      <workItem from="1679724839775" duration="139000" />
+      <workItem from="1679724839775" duration="64084000" />
+      <workItem from="1680500664971" duration="19819000" />
     </task>
     <task id="LOCAL-00001" summary="sad">
       <created>1678628874641</created>
@@ -82,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678631507707</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sad">
+      <created>1679725191029</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679725191029</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
