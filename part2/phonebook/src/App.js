@@ -4,6 +4,36 @@ import PersonForm from './components/PersonForm'
 import PersonsShow from './components/PersonsShow'
 import service from './services/persons'
 
+const FooterLink= ()=>{
+const footerStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#f8f8f8',
+  padding: '20px',
+  position: 'fixed', // Add this line
+  width: '100%', // Add this line
+  bottom: '0', // Add this line
+};
+
+  const linkStyle = {
+    color: '#333',
+    textDecoration: 'none',
+    margin: '0 10px',
+  };
+
+  const hoverStyle = {
+    color: '#007bff',
+  };
+
+  return (
+    <div style={footerStyle}>
+      <a href="https://beian.miit.gov.cn/"target="_blank" style={linkStyle} onMouseOver={() => {linkStyle.color = hoverStyle.color}} onMouseOut={() => {linkStyle.color = '#333'}}>浙ICP备2023009285号</a>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013040"target="_blank" style={linkStyle} onMouseOver={() => {linkStyle.color = hoverStyle.color}} onMouseOut={() => {linkStyle.color = '#333'}}>浙公网安备 33010602013040号</a>
+    </div>)
+}
+
+
 const Notification = ({message}) => {
     if (message === null) {
         return null
@@ -79,6 +109,7 @@ const App = () => {
                         handleNumChange={handleNumChange} subChange={subChange}/>
             <h2>Numbers</h2>
             <PersonsShow personsShow={res} persondelete={persondelete}/>
+            <FooterLink/>
         </div>
     )
 }

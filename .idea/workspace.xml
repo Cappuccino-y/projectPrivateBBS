@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/part3/mongo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part2/phonebook/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/services/persons.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/services/persons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +55,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse\part3" />
       <recent name="E:\project_webcourse\part3\Phonebook_end" />
     </key>
   </component>
@@ -110,7 +118,15 @@
       <workItem from="1680584253786" duration="2429000" />
       <workItem from="1680590412302" duration="4663000" />
       <workItem from="1680598589945" duration="1688000" />
-      <workItem from="1680600337508" duration="9000" />
+      <workItem from="1680600337508" duration="21000" />
+      <workItem from="1680606648083" duration="1851000" />
+      <workItem from="1680845263855" duration="5498000" />
+      <workItem from="1680871082909" duration="338000" />
+      <workItem from="1680950232846" duration="129000" />
+      <workItem from="1681380296559" duration="3365000" />
+      <workItem from="1681385113369" duration="1348000" />
+      <workItem from="1681387370231" duration="385000" />
+      <workItem from="1681906763801" duration="1570000" />
     </task>
     <task id="LOCAL-00001" summary="sad">
       <created>1678628874641</created>
@@ -189,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680599968019</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="security">
+      <created>1680600350953</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680600350953</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
