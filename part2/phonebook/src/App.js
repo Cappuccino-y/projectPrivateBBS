@@ -9,27 +9,26 @@ const footerStyle = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#f8f8f8',
+  backgroundColor: '#ffffff',
   padding: '20px',
   position: 'fixed', // Add this line
   width: '100%', // Add this line
   bottom: '0', // Add this line
 };
+  const [linkColorICP, setLinkColorICP] = useState('#133');
+  const [linkColorPolice, setLinkColorPolice] = useState('#133');
 
+  const hoverColor = '#007bff';
   const linkStyle = {
-    color: '#333',
     textDecoration: 'none',
-    margin: '0 10px',
-  };
-
-  const hoverStyle = {
-    color: '#007bff',
+    fontSize:'12px',
+    margin: '0 10px'
   };
 
   return (
     <div style={footerStyle}>
-      <a href="https://beian.miit.gov.cn/"target="_blank" style={linkStyle} onMouseOver={() => {linkStyle.color = hoverStyle.color}} onMouseOut={() => {linkStyle.color = '#333'}}>浙ICP备2023009285号</a>
-      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013040"target="_blank" style={linkStyle} onMouseOver={() => {linkStyle.color = hoverStyle.color}} onMouseOut={() => {linkStyle.color = '#333'}}>浙公网安备 33010602013040号</a>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013040" target="_blank" style={{ ...linkStyle, color: linkColorPolice}} onMouseOver={() => {setLinkColorPolice(hoverColor)}} onMouseOut={() => setLinkColorPolice('#333')}>浙公网安备 33010602013040号</a>
+      <a href="https://beian.miit.gov.cn/" target="_blank" style={{ ...linkStyle, color: linkColorICP }} onMouseOver={() => {setLinkColorICP(hoverColor)}} onMouseOut={() => setLinkColorICP('#333')}>浙ICP备2023009285号</a>
     </div>)
 }
 
