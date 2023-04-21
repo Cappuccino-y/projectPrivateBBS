@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="">
+    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="security">
+      <change afterPath="$PROJECT_DIR$/part3/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part3/Phonebook_end/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part3/Phonebook_end/models/person.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part3/models/note.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/services/persons.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/service/persons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/Phonebook_end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/Phonebook_end/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +49,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/project_webcourse/part3/Phonebook_end&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project_webcourse/part3/Phonebook_end&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.saveactions&quot;,
@@ -46,7 +58,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse\part3\Phonebook_end" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse\part2\phonebook\src" />
       <recent name="E:\project_webcourse\part3\Phonebook_end" />
       <recent name="D:\project_webcourse\part3" />
     </key>
@@ -58,8 +74,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.try | #3">
-    <configuration name="trail | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/trail.rest" index="2" requestIdentifier="#2" runType="Run single request">
+  <component name="RunManager" selected="HTTP Request.trail | #1">
+    <configuration name="trail | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/trail.rest" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="try | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" requestIdentifier="#1" runType="Run single request">
@@ -79,11 +95,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.trail | #1" />
         <item itemvalue="HTTP Request.try | #3" />
         <item itemvalue="HTTP Request.try | #1" />
         <item itemvalue="HTTP Request.try | #4" />
         <item itemvalue="HTTP Request.try | #2" />
-        <item itemvalue="HTTP Request.trail | #2" />
       </list>
     </recent_temporary>
   </component>
@@ -121,6 +137,9 @@
       <workItem from="1681906763801" duration="1570000" />
       <workItem from="1681968251137" duration="32000" />
       <workItem from="1681984665077" duration="370000" />
+      <workItem from="1682053934815" duration="1138000" />
+      <workItem from="1682057604935" duration="7966000" />
+      <workItem from="1682065763734" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="sad">
       <created>1678628874641</created>
