@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/saveactions_settings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/components/Filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/components/PersonForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/components/PersonForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/components/PersonsShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/components/PersonsShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/phonebook/src/service/persons.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/phonebook/src/services/persons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/Phonebook_end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/Phonebook_end/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/Phonebook_end/models/person.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/Phonebook_end/models/person.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +37,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
@@ -140,6 +133,9 @@
       <workItem from="1682057604935" duration="7966000" />
       <workItem from="1682065763734" duration="256000" />
       <workItem from="1682066028555" duration="318000" />
+      <workItem from="1682066817574" duration="5308000" />
+      <workItem from="1682331861869" duration="111000" />
+      <workItem from="1682478700641" duration="1483000" />
     </task>
     <task id="LOCAL-00001" summary="sad">
       <created>1678628874641</created>
@@ -246,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682065845274</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="23">
+      <created>1682067118197</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682067118197</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +277,7 @@
     <MESSAGE value="sad" />
     <MESSAGE value="url change" />
     <MESSAGE value="security" />
-    <option name="LAST_COMMIT_MESSAGE" value="security" />
+    <MESSAGE value="23" />
+    <option name="LAST_COMMIT_MESSAGE" value="23" />
   </component>
 </project>
