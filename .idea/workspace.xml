@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="23a">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project_webcourse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_webcourse.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part3/models/note.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/models/note.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Public Environment File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Mu9cDajb34pCt1LLFPWNvzEAXI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project_webcourse/part3/Phonebook_end&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.webpack&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse\part3\Phonebook_end" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse\part2\phonebook\src" />
+      <recent name="E:\project_webcourse\part3\Phonebook_end" />
+      <recent name="D:\project_webcourse\part3" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.trail | #1">
+    <configuration name="trail | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/trail.rest" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="try | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part3/Phonebook_end/try.rest" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.try | #2" />
+      <item itemvalue="HTTP Request.trail | #1" />
+      <item itemvalue="HTTP Request.try | #1" />
+      <item itemvalue="HTTP Request.try | #3" />
+      <item itemvalue="HTTP Request.try | #4" />
+      <item itemvalue="JavaScript Debug.Debug Application" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.trail | #1" />
+        <item itemvalue="HTTP Request.try | #3" />
+        <item itemvalue="HTTP Request.try | #1" />
+        <item itemvalue="HTTP Request.try | #4" />
+        <item itemvalue="HTTP Request.try | #2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="" />
+      <created>1678606678114</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678606678114</updated>
+      <workItem from="1678606679234" duration="197000" />
+      <workItem from="1678606890514" duration="7000" />
+      <workItem from="1678606923375" duration="2641000" />
+      <workItem from="1678609766260" duration="15738000" />
+      <workItem from="1678628852946" duration="2277000" />
+      <workItem from="1679148552412" duration="408000" />
+      <workItem from="1679724839775" duration="64084000" />
+      <workItem from="1680500664971" duration="68305000" />
+      <workItem from="1680578488414" duration="450000" />
+      <workItem from="1680584253786" duration="2429000" />
+      <workItem from="1680590412302" duration="4663000" />
+      <workItem from="1680598589945" duration="1688000" />
+      <workItem from="1680600337508" duration="21000" />
+      <workItem from="1680606648083" duration="1851000" />
+      <workItem from="1680845263855" duration="5498000" />
+      <workItem from="1680871082909" duration="338000" />
+      <workItem from="1680950232846" duration="129000" />
+      <workItem from="1681380296559" duration="3365000" />
+      <workItem from="1681385113369" duration="1348000" />
+      <workItem from="1681387370231" duration="385000" />
+      <workItem from="1681906763801" duration="1570000" />
+      <workItem from="1681968251137" duration="32000" />
+      <workItem from="1681984665077" duration="370000" />
+      <workItem from="1682053934815" duration="1138000" />
+      <workItem from="1682057604935" duration="7966000" />
+      <workItem from="1682065763734" duration="256000" />
+      <workItem from="1682066028555" duration="318000" />
+      <workItem from="1682066817574" duration="5308000" />
+      <workItem from="1682331861869" duration="111000" />
+      <workItem from="1682478700641" duration="1483000" />
+      <workItem from="1688438376657" duration="78000" />
+    </task>
+    <task id="LOCAL-00001" summary="sad">
+      <created>1678628874641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678628874641</updated>
+    </task>
+    <task id="LOCAL-00002" summary="sad">
+      <created>1678628947246</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678628947246</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sad">
+      <created>1678630358738</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678630358738</updated>
+    </task>
+    <task id="LOCAL-00004" summary="sad">
+      <created>1678631507707</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678631507707</updated>
+    </task>
+    <task id="LOCAL-00005" summary="sad">
+      <created>1679725191029</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679725191029</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sad">
+      <created>1680529667682</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680529667682</updated>
+    </task>
+    <task id="LOCAL-00007" summary="some">
+      <created>1680529683223</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680529683223</updated>
+    </task>
+    <task id="LOCAL-00008" summary="some">
+      <created>1680578548522</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680578548522</updated>
+    </task>
+    <task id="LOCAL-00009" summary="sad">
+      <created>1680590427331</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680590427331</updated>
+    </task>
+    <task id="LOCAL-00010" summary="url change">
+      <created>1680594380060</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680594380060</updated>
+    </task>
+    <task id="LOCAL-00011" summary="security">
+      <created>1680599968019</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680599968019</updated>
+    </task>
+    <task id="LOCAL-00012" summary="security">
+      <created>1680600350953</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680600350953</updated>
+    </task>
+    <task id="LOCAL-00013" summary="security">
+      <created>1681968266289</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681968266289</updated>
+    </task>
+    <task id="LOCAL-00014" summary="security">
+      <created>1681984807168</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681984807168</updated>
+    </task>
+    <task id="LOCAL-00015" summary="security">
+      <created>1682065845274</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682065845274</updated>
+    </task>
+    <task id="LOCAL-00016" summary="23">
+      <created>1682067118197</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682067118197</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/part1" />
+      <path value="$PROJECT_DIR$/unicafe" />
+    </ignored-roots>
+    <MESSAGE value="some" />
+    <MESSAGE value="sad" />
+    <MESSAGE value="url change" />
+    <MESSAGE value="security" />
+    <MESSAGE value="23" />
+    <option name="LAST_COMMIT_MESSAGE" value="23" />
+  </component>
+</project>

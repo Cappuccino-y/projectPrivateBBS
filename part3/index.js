@@ -71,11 +71,6 @@ app.put('/api/notes/:id', (req, res, next) => {
         date: new Date(),
         important: body.important
     }
-    git
-    pull
-    origin
-    master--
-    allow - unrelated - histories
     Note.findByIdAndUpdate(req.params.id, note, {new: true, runValidators: true, context: 'query'})
         .then(updatedNote => {
             res.json(updatedNote)
