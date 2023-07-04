@@ -4,32 +4,38 @@ import PersonForm from './components/PersonForm'
 import PersonsShow from './components/PersonsShow'
 import service from './services/persons'
 
-const FooterLink= ()=>{
-const footerStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: '#ffffff',
-  padding: '20px',
-  position: 'fixed', // Add this line
-  width: '100%', // Add this line
-  bottom: '0', // Add this line
-};
-  const [linkColorICP, setLinkColorICP] = useState('#133');
-  const [linkColorPolice, setLinkColorPolice] = useState('#133');
+const FooterLink = () => {
+    const footerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        padding: '20px',
+        position: 'fixed', // Add this line
+        width: '100%', // Add this line
+        bottom: '0', // Add this line
+    };
+    const [linkColorICP, setLinkColorICP] = useState('#133');
+    const [linkColorPolice, setLinkColorPolice] = useState('#133');
 
-  const hoverColor = '#007bff';
-  const linkStyle = {
-    textDecoration: 'none',
-    fontSize:'12px',
-    margin: '0 10px'
-  };
+    const hoverColor = '#007bff';
+    const linkStyle = {
+        textDecoration: 'none',
+        fontSize: '12px',
+        margin: '0 10px'
+    };
 
-  return (
-    <div style={footerStyle}>
-      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013040" target="_blank" style={{ ...linkStyle, color: linkColorPolice}} onMouseOver={() => {setLinkColorPolice(hoverColor)}} onMouseOut={() => setLinkColorPolice('#333')}>浙公网安备 33010602013040号</a>
-      <a href="https://beian.miit.gov.cn/" target="_blank" style={{ ...linkStyle, color: linkColorICP }} onMouseOver={() => {setLinkColorICP(hoverColor)}} onMouseOut={() => setLinkColorICP('#333')}>浙ICP备2023009285号</a>
-    </div>)
+    return (
+        <div style={footerStyle}>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013040" target="_blank"
+               style={{...linkStyle, color: linkColorPolice}} onMouseOver={() => {
+                setLinkColorPolice(hoverColor)
+            }} onMouseOut={() => setLinkColorPolice('#333')}>浙公网安备 33010602013040号</a>
+            <a href="https://beian.miit.gov.cn/" target="_blank" style={{...linkStyle, color: linkColorICP}}
+               onMouseOver={() => {
+                   setLinkColorICP(hoverColor)
+               }} onMouseOut={() => setLinkColorICP('#333')}>浙ICP备2023009285号</a>
+        </div>)
 }
 
 
@@ -51,6 +57,7 @@ const App = () => {
     const [add, setAdd] = useState({name: '', num: ''})
     const [search, setSearch] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
+    const [errorMessageLength, seterrorMessageLength] = useState(null)
     useEffect(() => {
         service.getAll().then(response => {
             setPersons(response)
@@ -60,7 +67,14 @@ const App = () => {
         event.preventDefault()
         const newValue = {name: add.name, number: add.num}
         if (!persons.find(person => person.name === add.name)) {
-            service.create(newValue).then(response => setPersons(persons.concat(response)))
+            service.create(newValue).then(response => setPersons(persons.concat(response))).catch(error => {
+                seterrorMessageLength(
+                    `Person validation failed: '${add.name}' is shorter than the minimum allowed length.`
+                )
+                setTimeout(() => {
+                    seterrorMessageLength(null)
+                }, 5000)
+            })
         } else {
             if (window.confirm(`${add.name} is already added to phonebook, replace the older number with a new one?`)) {
                 const target = persons.find(person => person.name === add.name)
@@ -102,6 +116,7 @@ const App = () => {
 
             <Notification message={errorMessage}/>
             <h2>Phonebook</h2>
+            <Notification message={errorMessageLength}/>
             <Filter search={search} handleSearch={handleSearch}/>
             <h2>Add a new</h2>
             <PersonForm newone={add} handleChange={handleChange}
