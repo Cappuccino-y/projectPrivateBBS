@@ -2,12 +2,26 @@ GET http://localhost:3003/api/blogs
 Accept: application/json
 
 ###
+PUT http://localhost:3003/api/blogs/64a3ca2325d9fd675dc174b2
+Content-Type:application/json
+
+{
+  "title": "Asking_for2",
+  "author": "lyy",
+  "url": "Myine",
+  "likes": 10
+}
+
+###
 POST http://localhost:3003/api/blogs
 Content-Type:application/json
 
 {
-  "title": "Asking_for",
+  "title": "Asking_for2",
   "author": "lyy",
   "url": "Myine",
-  "likes": 7
+  "likes": 10
 }
+
+###
+DELETE http://localhost:3003/api/blogs/64a3ca2325d9fd675dc174b2
