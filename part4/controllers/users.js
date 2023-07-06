@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
     const users = await User
-        .find({}).populate('notes', {content: 1, date: 1})
+        .find({}).populate('blogs', {title: 1, author: 1, url: 1})
     response.json(users)
 })
 usersRouter.delete('/:id', async (request, response) => {
@@ -15,6 +15,11 @@ usersRouter.delete('/:id', async (request, response) => {
 usersRouter.post('/', async (request, response) => {
     const {username, name, password} = request.body
 
+    if (username.length < 3 || password.length < 3) {
+        return response.status(400).json({
+            error: "username or password should be at least 3 words"
+        })
+    }
 
     const existingUser = await User.findOne({username})
     if (existingUser) {
