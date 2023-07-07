@@ -4,28 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="21">
-      <change afterPath="$PROJECT_DIR$/part3/controllers/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/part3/models/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/part4/controllers/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/part4/controllers/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/part4/models/user.js" afterDir="false" />
+    <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="some commits on the authorization">
+      <change afterPath="$PROJECT_DIR$/part2/src/services/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/BlogForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/LoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/Toggable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/services/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/.env" beforeDir="false" afterPath="$PROJECT_DIR$/part3/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/controllers/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/controllers/notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/controllers/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part3/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/trial.rest" beforeDir="false" afterPath="$PROJECT_DIR$/part3/trial.rest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part3/utils/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/part3/utils/middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part4/.env" beforeDir="false" afterPath="$PROJECT_DIR$/part4/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/controllers/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/blogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/models/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/models/blog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part4/t.rest" beforeDir="false" afterPath="$PROJECT_DIR$/part4/t.rest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/utils/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/utils/middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,31 +54,31 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/project_webcourse-master/part4/models&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project_webcourse-master/part5/bloglist-frontend/src&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.saveactions&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;E:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse-master\part5\bloglist-frontend\src" />
       <recent name="D:\project_webcourse-master\part4\models" />
       <recent name="D:\project_webcourse-master\part4\controllers" />
       <recent name="D:\project_webcourse-master\part3" />
       <recent name="D:\project_webcourse-master\part4\utils" />
-      <recent name="D:\project_webcourse-master\part4" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse-master\part5" />
       <recent name="D:\project_webcourse-master\part3\controllers" />
       <recent name="D:\project_webcourse-master\part3" />
       <recent name="D:\project_webcourse\part2\phonebook\src" />
       <recent name="E:\project_webcourse\part3\Phonebook_end" />
-      <recent name="D:\project_webcourse\part3" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -99,10 +88,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.t | #5">
-    <configuration name="t | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="HTTP Request.t | #4">
     <configuration name="t | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -115,24 +101,27 @@
     <configuration name="t | #7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="7" requestIdentifier="#7" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="t | #9" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="9" requestIdentifier="#9" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.t | #5" />
-      <item itemvalue="HTTP Request.t | #7" />
       <item itemvalue="HTTP Request.t | #3" />
       <item itemvalue="HTTP Request.t | #4" />
-      <item itemvalue="HTTP Request.t | #2" />
+      <item itemvalue="HTTP Request.t | #5" />
+      <item itemvalue="HTTP Request.t | #7" />
+      <item itemvalue="HTTP Request.t | #9" />
       <item itemvalue="JavaScript Debug.Debug Application" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.t | #5" />
-        <item itemvalue="HTTP Request.t | #7" />
         <item itemvalue="HTTP Request.t | #4" />
         <item itemvalue="HTTP Request.t | #3" />
-        <item itemvalue="HTTP Request.t | #2" />
+        <item itemvalue="HTTP Request.t | #9" />
+        <item itemvalue="HTTP Request.t | #5" />
+        <item itemvalue="HTTP Request.t | #7" />
       </list>
     </recent_temporary>
   </component>
@@ -182,6 +171,10 @@
       <workItem from="1688461545447" duration="19000" />
       <workItem from="1688542127424" duration="3856000" />
       <workItem from="1688605598625" duration="20189000" />
+      <workItem from="1688633647780" duration="52000" />
+      <workItem from="1688691778857" duration="709000" />
+      <workItem from="1688692511804" duration="43000" />
+      <workItem from="1688692574221" duration="23659000" />
     </task>
     <task id="LOCAL-00001" summary="sad">
       <created>1678628874641</created>
@@ -319,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688546020929</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="some commits on the authorization">
+      <option name="closed" value="true" />
+      <created>1688633685841</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1688633685841</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +343,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/part1" />
       <path value="$PROJECT_DIR$/unicafe" />
+      <path value="$PROJECT_DIR$/bloglist-frontend" />
+      <path value="$PROJECT_DIR$/part5/bloglist-frontend" />
     </ignored-roots>
     <MESSAGE value="some" />
     <MESSAGE value="sad" />
@@ -350,6 +353,7 @@
     <MESSAGE value="23" />
     <MESSAGE value="23a" />
     <MESSAGE value="21" />
-    <option name="LAST_COMMIT_MESSAGE" value="21" />
+    <MESSAGE value="some commits on the authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="some commits on the authorization" />
   </component>
 </project>
