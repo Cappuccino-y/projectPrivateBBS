@@ -102,8 +102,10 @@ const App = () => {
                 const res = await blogService.getAll()
                 setBlogs(res)
             } catch {
-                window.confirm('expired logging')
-                setUser(null)
+                if (user) {
+                    window.confirm('expired logging')
+                    setUser(null)
+                }
             }
         }
         initial()
@@ -170,7 +172,7 @@ const App = () => {
     }
     const deleteItem = (id) => {
         const target = blogs.find(blog => blog.id === id)
-        if (window.confirm(`Delete this note?`)) {
+        if (window.confirm(`Delete this blog?`)) {
             const delItem = async () => {
                 try {
                     await blogService.del(id)

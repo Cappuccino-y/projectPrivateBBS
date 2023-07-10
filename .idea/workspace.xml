@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aed79a67-b773-4569-bc97-0527ac76ca5f" name="Changes" comment="additional commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/controllers/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/blogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/utils/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/utils/middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part5/bloglist-frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/part5/bloglist-frontend/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part5/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/Blog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part5/bloglist-frontend/src/services/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/services/blogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part5/bloglist-frontend/src/services/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/services/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +169,7 @@
       <workItem from="1688691778857" duration="709000" />
       <workItem from="1688692511804" duration="43000" />
       <workItem from="1688692574221" duration="23659000" />
-      <workItem from="1688950577737" duration="17738000" />
+      <workItem from="1688950577737" duration="19719000" />
     </task>
     <task id="LOCAL-00001" summary="sad">
       <created>1678628874641</created>
@@ -327,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688951090131</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="additional commits">
+      <option name="closed" value="true" />
+      <created>1688975215600</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1688975215600</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
