@@ -35,6 +35,14 @@ const userExtractor = (request, response, next) => {
     next()
 }
 
+const sessionExamine = (req, res, next) => {
+    if (!req.token) return res.status(400).send({error: 'session missing'})
+    jwt.verify(req.token, process.env.SECRET, (error, user) => {
+        if (error) return res.status(400).send({error: 'session expired'})
+    })
+    next()
+}
+
 const errorHandler = (error, request, response, next) => {
     logger.error(error.message)
 
@@ -59,6 +67,7 @@ module.exports = {
     requestLogger,
     tokenExtractor,
     userExtractor,
+    sessionExamine,
     unknownEndpoint,
     errorHandler
 }

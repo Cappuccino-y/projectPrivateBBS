@@ -4,6 +4,7 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 
 blogsRouter.get('/', async (request, response) => {
+
     const notes = await Blog
         .find({}).populate('user', {username: 1, name: 1})
 
@@ -42,7 +43,6 @@ blogsRouter.delete('/:id', async (request, response, next) => {
     if (!decodedToken.id) {
         return response.status(401).json({error: 'token missing or invalid'})
     }
-    console.log(decodedToken.id, blog.user.id)
     if (decodedToken.id != blog.user.id) {
         return response.status(401).json({error: 'no permission to delete the blog'})
     }

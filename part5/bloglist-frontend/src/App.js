@@ -6,6 +6,39 @@ import loginService from './services/login'
 import LoginForm from "./components/LoginForm";
 import Togglable from "./components/Toggable";
 
+const FooterLink = () => {
+    const footerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        padding: '20px',
+        position: 'fixed', // Add this line
+        width: '100%', // Add this line
+        bottom: '0', // Add this line
+    };
+    const [linkColorICP, setLinkColorICP] = useState('#133');
+    const [linkColorPolice, setLinkColorPolice] = useState('#133');
+
+    const hoverColor = '#007bff';
+    const linkStyle = {
+        textDecoration: 'none',
+        fontSize: '12px',
+        margin: '0 10px'
+    };
+
+    return (
+        <div style={footerStyle}>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013040" target="_blank"
+               style={{...linkStyle, color: linkColorPolice}} onMouseOver={() => {
+                setLinkColorPolice(hoverColor)
+            }} onMouseOut={() => setLinkColorPolice('#333')}>浙公网安备 33010602013040号</a>
+            <a href="https://beian.miit.gov.cn/" target="_blank" style={{...linkStyle, color: linkColorICP}}
+               onMouseOver={() => {
+                   setLinkColorICP(hoverColor)
+               }} onMouseOut={() => setLinkColorICP('#333')}>浙ICP备2023009285号</a>
+        </div>)
+}
 const Notification = ({message}) => {
     if (message === null) {
         return null
@@ -21,12 +54,13 @@ const Notification = ({message}) => {
 
 const App = () => {
     const [blogs, setBlogs] = useState([])
-    const [blogsShow, setblogsShow] = useState([])
     const [newBlog, setNewBlog] = useState({title: '', author: '', url: ''})
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [user, setUser] = useState(null)
     const [errormessage, setErrorMessage] = useState(null)
+    const [isPrivate, setisPrivate] = useState(false)
+    let privateBlogs = null
 
     const handleBlogTitleChange = (event) => {
         setNewBlog({...newBlog, title: event.target.value})
@@ -40,32 +74,39 @@ const App = () => {
     const addBlog = (event) => {
         event.preventDefault()
         const newValue = {title: newBlog.title, author: newBlog.author, url: newBlog.url}
-        blogService.create(newValue).then(response => setBlogs(blogs.concat(response))).catch(error => {
+        blogService.create(newValue).then(response => {
+            response.user = {username: user.username}
+            setBlogs(blogs.concat(response))
+        }).catch(error => {
             setErrorMessage(
                 `Blog add failed.`
             )
             setTimeout(() => {
                 setErrorMessage(null)
             }, 5000)
+
         })
         setNewBlog({title: '', author: '', url: ''})
     }
 
 
     useEffect(() => {
-        blogService.getAll().then(blogs => {
-                setBlogs(blogs)
-                const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
-                if (loggedUserJSON) {
-                    const user = JSON.parse(loggedUserJSON)
-                    setUser(user)
-                    setblogsShow(blogs.filter(blog => blog.user.username === user.username))
-                    console.log('heeloo')
-                    blogService.setToken(user.token)
-                }
+        const initial = async () => {
+            const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
+            if (loggedUserJSON) {
+                const user = JSON.parse(loggedUserJSON)
+                setUser(user)
+                blogService.setToken(user.token)
             }
-        )
-
+            try {
+                const res = await blogService.getAll()
+                setBlogs(res)
+            } catch {
+                window.confirm('expired logging')
+                setUser(null)
+            }
+        }
+        initial()
     }, [])
 
     const handleLogin = async (event) => {
@@ -78,8 +119,7 @@ const App = () => {
                 'loggedBlogappUser', JSON.stringify(user)
             )
             blogService.setToken(user.token)
-
-            setblogsShow(blogs.filter(blog => blog.user.username === user.username))
+            setBlogs(await blogService.getAll())
 
             setUser(user)
             setUsername('')
@@ -102,7 +142,6 @@ const App = () => {
             )
             blogService.setToken(user.token)
 
-            setblogsShow(blogs.filter(blog => blog.user.username === user.username))
 
             setUser(user)
             setUsername('')
@@ -121,11 +160,37 @@ const App = () => {
         }
     }
     const setToPrivate = () => {
-        setblogsShow(blogs.filter(blog => blog.user.username === user.username))
+        setisPrivate(true)
     }
     const setToPublic = () => {
-        setblogsShow([...blogs])
+        setisPrivate(false)
     }
+    const editItem = () => {
+
+    }
+    const deleteItem = (id) => {
+        const target = blogs.find(blog => blog.id === id)
+        if (window.confirm(`Delete this note?`)) {
+            const delItem = async () => {
+                try {
+                    await blogService.del(id)
+                    setBlogs(blogs.filter(blog => blog.id !== id))
+                } catch (error) {
+                    setErrorMessage(
+                        `Imformation has already been removed from server`
+                    )
+                    setTimeout(() => {
+                        setErrorMessage(null)
+                    }, 5000)
+                    setBlogs(blogs.filter(blog => blog.id !== id))
+                }
+
+            }
+            delItem()
+        }
+    }
+    if (user) privateBlogs = blogs.filter(blog => blog.user.username === user.username)
+
     return (
         <div>
             {user === null ?
@@ -186,18 +251,26 @@ const App = () => {
                         />
                     </Togglable>
                     <br/>
-                    <button onClick={setToPrivate}>Private</button>
+                    <Notification message={errormessage}/>
                     <button onClick={setToPublic}>Public</button>
+                    <button onClick={setToPrivate}>Private</button>
 
                     <br/>
                     <br/>
-                    {blogsShow.map(blog =>
-                        <Blog key={blog.id} blog={blog}/>)}
+                    {isPrivate === true ? privateBlogs.map(blog =>
+                        <Blog key={blog.id} blog={blog} isPrivate={isPrivate} editItem={editItem}
+                              deleteItem={deleteItem}/>) : blogs.map(blog =>
+                        <Blog key={blog.id} blog={blog} isPrivate={isPrivate} editItem={editItem}
+                              deleteItem={deleteItem}/>)}
                 </div>
             }
-
+            <FooterLink/>
         </div>
     )
 }
 
 export default App
+
+
+
+
