@@ -2,15 +2,11 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-<<<<<<< HEAD
-    <orderEntry type="module" module-name="Phonebook_end" />
-=======
->>>>>>> be28daa62842e294f3ebe3b6c7d575e7bd445d20
   </component>
 </module>

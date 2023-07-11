@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/../Phonebook_end-master/.idea/Phonebook_end.iml" filepath="$PROJECT_DIR$/../Phonebook_end-master/.idea/Phonebook_end.iml" />
-=======
->>>>>>> be28daa62842e294f3ebe3b6c7d575e7bd445d20
-      <module fileurl="file://$PROJECT_DIR$/.idea/project_webcourse.iml" filepath="$PROJECT_DIR$/.idea/project_webcourse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project_webcourse-master.iml" filepath="$PROJECT_DIR$/.idea/project_webcourse-master.iml" />
     </modules>
   </component>
 </project>

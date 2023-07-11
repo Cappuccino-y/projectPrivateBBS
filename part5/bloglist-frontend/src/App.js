@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import Blog from './components/Blog'
 import BlogForm from './components/BlogForm'
 import blogService from './services/blogs'
@@ -51,43 +51,44 @@ const Notification = ({message}) => {
     )
 }
 
+const BlogShow = ({isPrivate, privateBlogs, deleteItem, updateLikes, blogs, buttonColor}) => {
+    let res = [];
+    if (isPrivate) {
+        if (buttonColor !== 'white') {
+            res = privateBlogs.slice().sort((a, b) => {
+                return b.likes - a.likes
+            })
+        } else {
+            res = [...privateBlogs]
+        }
+        return res.map(blog =>
+            <Blog key={blog.id} blog={blog} isPrivate={isPrivate}
+                  deleteItem={deleteItem} updateLikes={updateLikes}/>)
+    } else {
+        if (buttonColor !== 'white') {
+            res = blogs.slice().sort((a, b) => {
+                return b.likes - a.likes
+            })
+        } else {
+            res = [...blogs]
+        }
+        return res.map(blog =>
+            <Blog key={blog.id} blog={blog} isPrivate={isPrivate}
+                  deleteItem={deleteItem} updateLikes={updateLikes}/>)
+    }
+
+}
 
 const App = () => {
     const [blogs, setBlogs] = useState([])
-    const [newBlog, setNewBlog] = useState({title: '', author: '', url: ''})
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [user, setUser] = useState(null)
     const [errormessage, setErrorMessage] = useState(null)
     const [isPrivate, setisPrivate] = useState(false)
+    const blogFormRef = useRef()
+    const [buttonColor, setButtonColor] = useState('white')
     let privateBlogs = null
-
-    const handleBlogTitleChange = (event) => {
-        setNewBlog({...newBlog, title: event.target.value})
-    }
-    const handleBlogAuthorChange = (event) => {
-        setNewBlog({...newBlog, author: event.target.value})
-    }
-    const handleBlogUrlChange = (event) => {
-        setNewBlog({...newBlog, url: event.target.value})
-    }
-    const addBlog = (event) => {
-        event.preventDefault()
-        const newValue = {title: newBlog.title, author: newBlog.author, url: newBlog.url}
-        blogService.create(newValue).then(response => {
-            response.user = {username: user.username}
-            setBlogs(blogs.concat(response))
-        }).catch(error => {
-            setErrorMessage(
-                `Blog add failed.`
-            )
-            setTimeout(() => {
-                setErrorMessage(null)
-            }, 5000)
-
-        })
-        setNewBlog({title: '', author: '', url: ''})
-    }
 
 
     useEffect(() => {
@@ -95,8 +96,8 @@ const App = () => {
             const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
             if (loggedUserJSON) {
                 const user = JSON.parse(loggedUserJSON)
-                setUser(user)
                 blogService.setToken(user.token)
+                setUser(user)
             }
             try {
                 const res = await blogService.getAll()
@@ -110,9 +111,24 @@ const App = () => {
         }
         initial()
     }, [])
+    const addBlog = (blogObject) => {
+        blogFormRef.current.toggleVisibility()
+        const newValue = blogObject
+        blogService.create(newValue).then(response => {
+            response.user = {username: user.username}
+            setBlogs(blogs.concat(response))
+        }).catch(error => {
+            setErrorMessage(
+                `Blog add failed.`
+            )
+            setTimeout(() => {
+                setErrorMessage(null)
+            }, 5000)
 
-    const handleLogin = async (event) => {
-        event.preventDefault()
+        })
+    }
+
+    const handleLogin = async (username, password) => {
         try {
             const user = await loginService.login({
                 username, password,
@@ -124,30 +140,6 @@ const App = () => {
             setBlogs(await blogService.getAll())
 
             setUser(user)
-            setUsername('')
-            setPassword('')
-        } catch (exception) {
-            setErrorMessage('Wrong username or password')
-            setTimeout(() => {
-                setErrorMessage(null)
-            }, 5000)
-        }
-    }
-    const handleCancelAccount = async (event) => {
-        event.preventDefault()
-        try {
-            const user = await loginService.login({
-                username, password,
-            })
-            window.localStorage.setItem(
-                'loggedBlogappUser', JSON.stringify(user)
-            )
-            blogService.setToken(user.token)
-
-
-            setUser(user)
-            setUsername('')
-            setPassword('')
         } catch (exception) {
             setErrorMessage('Wrong username or password')
             setTimeout(() => {
@@ -167,7 +159,20 @@ const App = () => {
     const setToPublic = () => {
         setisPrivate(false)
     }
-    const editItem = () => {
+    const updateLikes = async (blog) => {
+        if (!blog.likes) blog.likes = 1
+        else blog.likes += 1
+        try {
+            const updatedBlog = await blogService.update(blog.id, blog)
+            setBlogs(blogs.map(b => b.id !== updatedBlog.id ? b : updatedBlog))
+        } catch (error) {
+            setErrorMessage(
+                `update failed`
+            )
+            setTimeout(() => {
+                setErrorMessage(null)
+            }, 5000)
+        }
 
     }
     const deleteItem = (id) => {
@@ -179,17 +184,18 @@ const App = () => {
                     setBlogs(blogs.filter(blog => blog.id !== id))
                 } catch (error) {
                     setErrorMessage(
-                        `Imformation has already been removed from server`
+                        `delete failed`
                     )
                     setTimeout(() => {
                         setErrorMessage(null)
                     }, 5000)
-                    setBlogs(blogs.filter(blog => blog.id !== id))
                 }
-
             }
             delItem()
         }
+    }
+    const sortedByLikes = () => {
+        setButtonColor(buttonColor === 'white' ? '#00a7d0' : 'white');
     }
     if (user) privateBlogs = blogs.filter(blog => blog.user.username === user.username)
 
@@ -199,36 +205,9 @@ const App = () => {
                 <div>
                     <Togglable buttonLabel='Log in'>
                         <div>
-                            <h3>Login Interface</h3>
                             <Notification message={errormessage}/>
                             <LoginForm
                                 handleLogin={handleLogin}
-                                username={username}
-                                password={password}
-                                setUsername={setUsername}
-                                setPassword={setPassword}
-                            />
-                        </div>
-                    </Togglable>
-                    <Togglable buttonLabel='Sign up'>
-                        <div>
-                            <h3>Sign up interface</h3>
-                            <Notification message={errormessage}/>
-                            <LoginForm
-                                handleLogin={handleLogin}
-                                username={username}
-                                password={password}
-                                setUsername={setUsername}
-                                setPassword={setPassword}
-                            />
-                        </div>
-                    </Togglable>
-                    <Togglable buttonLabel='Cancel account'>
-                        <div>
-                            <h3>Delete account</h3>
-                            <Notification message={errormessage}/>
-                            <LoginForm
-                                handleLogin={handleCancelAccount}
                                 username={username}
                                 password={password}
                                 setUsername={setUsername}
@@ -242,28 +221,20 @@ const App = () => {
                     <h3>Blog</h3>
                     <p>{user.name} logged-in <button onClick={logOut}>Sign out</button>
                     </p>
-                    <h3>Create</h3>
-                    <Togglable buttonLabel='new blog'>
+                    <Togglable buttonLabel='new blog' ref={blogFormRef}>
                         <BlogForm
-                            newBlog={newBlog}
-                            handleBlogTitleChange={handleBlogTitleChange}
-                            handleBlogAuthorChange={handleBlogAuthorChange}
-                            handleBlogUrlChange={handleBlogUrlChange}
-                            addBlog={addBlog}
+                            createBlog={addBlog}
                         />
                     </Togglable>
                     <br/>
                     <Notification message={errormessage}/>
                     <button onClick={setToPublic}>Public</button>
                     <button onClick={setToPrivate}>Private</button>
-
+                    <button onClick={sortedByLikes} style={{backgroundColor: buttonColor}}>Sorted</button>
                     <br/>
                     <br/>
-                    {isPrivate === true ? privateBlogs.map(blog =>
-                        <Blog key={blog.id} blog={blog} isPrivate={isPrivate} editItem={editItem}
-                              deleteItem={deleteItem}/>) : blogs.map(blog =>
-                        <Blog key={blog.id} blog={blog} isPrivate={isPrivate} editItem={editItem}
-                              deleteItem={deleteItem}/>)}
+                    <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} privateBlogs={privateBlogs}
+                              deleteItem={deleteItem} blogs={blogs} updateLikes={updateLikes}/>
                 </div>
             }
             <FooterLink/>
