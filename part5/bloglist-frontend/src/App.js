@@ -6,6 +6,11 @@ import loginService from './services/login'
 import LoginForm from "./components/LoginForm";
 import Togglable from "./components/Toggable";
 
+import {
+    BrowserRouter as Router,
+    Routes, Route, Link
+} from "react-router-dom"
+
 const FooterLink = () => {
     const footerStyle = {
         display: 'flex',
@@ -115,7 +120,6 @@ const App = () => {
         blogFormRef.current.toggleVisibility()
         const newValue = blogObject
         blogService.create(newValue).then(response => {
-            response.user = {username: user.username}
             setBlogs(blogs.concat(response))
         }).catch(error => {
             setErrorMessage(
