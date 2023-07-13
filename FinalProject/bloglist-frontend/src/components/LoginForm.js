@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useNavigate} from "react-router-dom";
-import {TextField, Button} from '@mui/material'
+import {Button, TextField, Typography, Box, Card, CardContent, Container} from "@mui/material";
 
 const LoginForm = ({handleLogin, setMessage}) => {
     const [username, setUsername] = useState('')
@@ -13,7 +13,6 @@ const LoginForm = ({handleLogin, setMessage}) => {
         handleLogin(username, password, navigate).then(() => {
             setUsername('')
             setPassword('')
-            setMessage({content: ''})
         })
     }
 
@@ -22,7 +21,8 @@ const LoginForm = ({handleLogin, setMessage}) => {
         <form onSubmit={userLogin}>
             <h2>Hi~</h2>
             <div>
-                <TextField label="username" value={username} onChange={({target}) => setUsername(target.value)}/>
+                <TextField sx={{color: 'white'}} label="username" value={username}
+                           onChange={({target}) => setUsername(target.value)}/>
             </div>
             <br/>
             <div>

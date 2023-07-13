@@ -5,13 +5,13 @@ import {
     TableCell,
     TableContainer,
     TableRow,
-    Paper,
+    Paper, Typography,
 } from '@mui/material'
 
 const BlogShow = ({isPrivate, privateBlogs, deleteItem, updateLikes, blogs, buttonColor}) => {
     let res = [];
     if (isPrivate) {
-        if (buttonColor !== 'white') {
+        if (buttonColor !== 'grey') {
             res = privateBlogs.slice().sort((a, b) => {
                 return b.likes - a.likes
             })
@@ -19,7 +19,7 @@ const BlogShow = ({isPrivate, privateBlogs, deleteItem, updateLikes, blogs, butt
             res = [...privateBlogs]
         }
     } else {
-        if (buttonColor !== 'white') {
+        if (buttonColor !== 'grey') {
             res = blogs.slice().sort((a, b) => {
                 return b.likes - a.likes
             })
@@ -27,7 +27,7 @@ const BlogShow = ({isPrivate, privateBlogs, deleteItem, updateLikes, blogs, butt
             res = [...blogs]
         }
     }
-    return <TableContainer component={Paper}>
+    return <TableContainer className='slide' component={Paper} sx={{height: '80vh', overflowY: 'auto'}}>
         <Table>
             <TableBody>{res.map(blog =>
                 <TableRow key={blog.id}>
@@ -36,7 +36,9 @@ const BlogShow = ({isPrivate, privateBlogs, deleteItem, updateLikes, blogs, butt
                               deleteItem={deleteItem} updateLikes={updateLikes}/>
                     </TableCell>
                     <TableCell>
-                        {blog.user.name}
+                        <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
+                            {blog.user.name}
+                        </Typography>
                     </TableCell>
                 </TableRow>)}
             </TableBody>

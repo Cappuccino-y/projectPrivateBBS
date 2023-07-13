@@ -55,6 +55,7 @@ const App = () => {
         const newValue = blogObject
         blogService.create(newValue).then(response => {
             setBlogs(blogs.concat(response))
+            notice("Blog add success", 'success')
         }).catch(error => {
             notice(`Blog add failed`, 'error')
         })
@@ -72,6 +73,7 @@ const App = () => {
             blogService.setToken(user.token)
             setBlogs(await blogService.getAll())
             setUser(user)
+            setMessage({content: '', sign: ''})
             navigate('/blogs')
         } catch (exception) {
             notice('Wrong username or password', 'error')
@@ -91,6 +93,7 @@ const App = () => {
         try {
             const updatedBlog = await blogService.update(blog.id, blog)
             setBlogs(blogs.map(b => b.id !== updatedBlog.id ? b : updatedBlog))
+
         } catch (error) {
             notice('Update failed', 'error')
         }
@@ -102,9 +105,10 @@ const App = () => {
                 try {
                     await blogService.del(id)
                     setBlogs(blogs.filter(blog => blog.id !== id))
+                    notice('Delete success', 'success')
 
                 } catch (error) {
-                    notice('Delete failed', error)
+                    notice('Delete failed', 'error')
                 }
             }
             delItem()
@@ -118,23 +122,21 @@ const App = () => {
     }
 
     return (
-        <div>
-            <Container>
-                <Router>
-                    <Routes>
-                        <Route path="" element={<Navigate to={'/home'}/>}/>
-                        <Route path="/home" element={<HomePage/>}/>
-                        <Route path="/login" element={<LoginPage handleLogin={handleLogin}
-                                                                 message={message} setMessage={setMessage}/>}/>
-                        <Route path="/blogs"
-                               element={<BlogPage privateBlogs={privateBlogs} deleteItem={deleteItem} blogs={blogs}
-                                                  updateLikes={updateLikes} user={user} message={message}
-                                                  addBlog={addBlog} logOut={logOut} blogFormRef={blogFormRef}/>}/>
-                    </Routes>
-                </Router>
-            </Container>
+        <Container>
+            <Router>
+                <Routes>
+                    <Route path="" element={<Navigate to={'/home'}/>}/>
+                    <Route path="/home" element={<HomePage/>}/>
+                    <Route path="/login" element={<LoginPage handleLogin={handleLogin}
+                                                             message={message} setMessage={setMessage}/>}/>
+                    <Route path="/blogs"
+                           element={<BlogPage privateBlogs={privateBlogs} deleteItem={deleteItem} blogs={blogs}
+                                              updateLikes={updateLikes} user={user} message={message}
+                                              addBlog={addBlog} logOut={logOut} blogFormRef={blogFormRef}/>}/>
+                </Routes>
+            </Router>
             <FooterLink/>
-        </div>
+        </Container>
     )
 }
 

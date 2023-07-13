@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {Box, Typography, TextField, Button} from "@mui/material";
 
 const BlogForm = ({createBlog}) => {
     const [newBlog, setNewBlog] = useState({title: '', author: '', url: ''})
@@ -17,26 +18,17 @@ const BlogForm = ({createBlog}) => {
         setNewBlog({...newBlog, url: event.target.value})
     }
 
-    return <div>
-        <h3> create</h3>
+    return <Box my={2}>
+        <Typography variant="h5" component="h2" gutterBottom>
+            Create
+        </Typography>
         <form onSubmit={addBlog}>
-            tilte:<input
-            value={newBlog.title}
-            onChange={handleBlogTitleChange}
-        />
-            <br/>
-            author:<input
-            value={newBlog.author}
-            onChange={handleBlogAuthorChange}
-        />
-            <br/>
-            url:<input
-            value={newBlog.url}
-            onChange={handleBlogUrlChange}
-        />
-            <br/>
-            <button type="submit">save</button>
+            <TextField label="Title" fullWidth margin="normal" value={newBlog.title} onChange={handleBlogTitleChange}/>
+            <TextField label="Author" fullWidth margin="normal" value={newBlog.author}
+                       onChange={handleBlogAuthorChange}/>
+            <TextField label="Url" fullWidth margin="normal" value={newBlog.url} onChange={handleBlogUrlChange}/>
+            <Button variant="contained" type="submit">save</Button>
         </form>
-    </div>
+    </Box>
 }
 export default BlogForm

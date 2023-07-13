@@ -3,12 +3,12 @@ import {useState} from "react";
 const FooterLink = () => {
     const footerStyle = {
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         margin: '20px 0 10px 0',
-        position: 'fixed', // Add this line
-        bottom: 0,
+        background: 'transparent',
+        // position: 'fixed', // Add this line
+        // bottom: 0,
         width: '100%' // Add this line
     };
     const [linkColorICP, setLinkColorICP] = useState('#133');
@@ -27,7 +27,6 @@ const FooterLink = () => {
                style={{...linkStyle, color: linkColorPolice}} onMouseOver={() => {
                 setLinkColorPolice(hoverColor)
             }} onMouseOut={() => setLinkColorPolice('#333')}>浙公网安备 33010602013040号</a>
-            <br/>
             <a href="https://beian.miit.gov.cn/" target="_blank" style={{...linkStyle, color: linkColorICP}}
                onMouseOver={() => {
                    setLinkColorICP(hoverColor)
