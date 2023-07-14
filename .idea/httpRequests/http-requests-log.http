@@ -1,0 +1,51 @@
+POST http://localhost:3001/api/users
+Content-Type: application/json
+Content-Length: 67
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "wqy",
+  "name": "wqy",
+  "password": "123456789"
+}
+
+<> 2023-07-11T210419.201.json
+
+###
+
+POST http://localhost:3001/api/users
+Content-Type: application/json
+Content-Length: 68
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "root",
+  "name": "lyy",
+  "password": "lyy121200"
+}
+
+<> 2023-07-11T195326.201.json
+
+###
+
+POST http://localhost:3001/api/users
+Content-Type: application/json
+Content-Length: 68
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "root",
+  "name": "lyy",
+  "password": "lyy121200"
+}
+
+<> 2023-07-11T195308.400.json
+
+###
+

@@ -18,7 +18,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateLikes}) => {
     }
 
     return <Card sx={{my: 1}}>
-        <CardContent sx={{padding: '12px'}}>
+        <CardContent style={{paddingBottom: '8px'}}>
             <Grid container justifyContent="space-between" alignItems="center" paddingBottom='0px !important'>
                 <Grid item>
                     <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}>
