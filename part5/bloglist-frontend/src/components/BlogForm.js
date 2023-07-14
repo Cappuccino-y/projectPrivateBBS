@@ -5,16 +5,16 @@ const BlogForm = ({createBlog}) => {
     const addBlog = (event) => {
         event.preventDefault()
         createBlog({title: newBlog.title, author: newBlog.author, url: newBlog.url})
-        setNewBlog({title: '', author: '', url: ''})
+        setNewBlog({title: '', content: '', tag: ''})
     }
     const handleBlogTitleChange = (event) => {
         setNewBlog({...newBlog, title: event.target.value})
     }
     const handleBlogAuthorChange = (event) => {
-        setNewBlog({...newBlog, author: event.target.value})
+        setNewBlog({...newBlog, content: event.target.value})
     }
     const handleBlogUrlChange = (event) => {
-        setNewBlog({...newBlog, url: event.target.value})
+        setNewBlog({...newBlog, tag: event.target.value})
     }
 
     return <div>

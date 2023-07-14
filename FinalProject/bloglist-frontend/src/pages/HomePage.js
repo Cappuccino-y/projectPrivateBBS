@@ -1,6 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import {Button, Container, Typography, Grid, Box, Paper} from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 
 const HomePage = () => {
     const navigate = useNavigate()
@@ -18,10 +20,12 @@ const HomePage = () => {
                     height="100%"
                     padding={2}
                 >
-                    <Typography variant="h3" align="center" gutterBottom>
+                    <Typography variant="h3" align="center" gutterBottom
+                                sx={{color: '#008080', fontFamily: 'Pacifico', fontSize: '2.5em'}}>
                         Welcome to My Website!
                     </Typography>
-                    <Typography variant="subtitle1" align="center" color="textSecondary">
+                    <Typography variant="subtitle1" align="center" color="textSecondary"
+                                fontFamily='"Comic Sans MS", cursive, sans-serif'>
                         Please feel free to browse around.
                     </Typography>
                     <Button
@@ -35,49 +39,82 @@ const HomePage = () => {
                 </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-                <Box
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="space-between"
-                    height="100%"
-                    padding={1}
-                    boxSizing="border-box"
-                >
-                    {Array(2).fill().map((_, i) => (
-                        <Box
-                            key={i}
-                            display="flex"
-                            justifyContent="space-between"
-                            width="100%"
-                            height="49%"
+                <Grid container direction="row" justifyContent="space-between" style={{height: '100%'}}>
+                    <Grid item style={{width: '49.7%', paddingRight: '0%'}}>
+                        <Paper
+                            sx={{
+                                width: "100%",
+                                height: "60%",
+                                overflow: "hidden",
+                                marginBottom: "1%",
+                            }}
                         >
-                            {Array(2).fill().map((_, j) => (
-                                <Paper
-                                    key={j}
-                                    sx={{
-                                        width: "49%",
-                                        height: "100%",
-                                        overflow: "hidden",
-                                        position: "relative"
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            position: "absolute",
-                                            top: 0,
-                                            left: 0,
-                                            right: 0,
-                                            bottom: 0,
-                                            backgroundSize: "cover",
-                                            backgroundPosition: "center",
-                                            backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + i * 2 + j})`
-                                        }}
-                                    />
-                                </Paper>
-                            ))}
-                        </Box>
-                    ))}
-                </Box>
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    height: "100%",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime()})`
+                                }}
+                            />
+                        </Paper>
+                        <Paper
+                            sx={{
+                                width: "100%",
+                                height: "38%",
+                                overflow: "hidden",
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    height: "100%",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + 1})`
+                                }}
+                            />
+                        </Paper>
+                    </Grid>
+                    <Grid item style={{width: '49.7%', paddingLeft: '0%'}}>
+                        <Paper
+                            sx={{
+                                width: "100%",
+                                height: "38%",
+                                overflow: "hidden",
+                                marginBottom: "1%",
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    height: "100%",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + 2})`
+                                }}
+                            />
+                        </Paper>
+                        <Paper
+                            sx={{
+                                width: "100%",
+                                height: "60%",
+                                overflow: "hidden",
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    height: "100%",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + 3})`
+                                }}
+                            />
+                        </Paper>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </div>

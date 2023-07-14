@@ -8,17 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/FootLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/FootLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/controllers/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/blogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/models/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/models/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/BlogForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/part5/bloglist-frontend/src/components/BlogForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +80,8 @@
       <workItem from="1689124424456" duration="9000000" />
       <workItem from="1689139520594" duration="12996000" />
       <workItem from="1689215817788" duration="17248000" />
+      <workItem from="1689239260981" duration="93000" />
+      <workItem from="1689296814324" duration="7539000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -100,7 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689152775643</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="s">
+      <option name="closed" value="true" />
+      <created>1689239348779</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689239348779</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

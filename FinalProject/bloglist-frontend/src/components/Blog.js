@@ -19,7 +19,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateLikes}) => {
 
     return <Card sx={{my: 1}}>
         <CardContent sx={{padding: '12px'}}>
-            <Grid container justifyContent="space-between" alignItems="center">
+            <Grid container justifyContent="space-between" alignItems="center" paddingBottom='0px !important'>
                 <Grid item>
                     <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}>
                         {blog.title}
@@ -38,10 +38,10 @@ const Blog = ({blog, deleteItem, isPrivate, updateLikes}) => {
             </Grid>
             <Box style={showWhenVisible}>
                 <Typography gutterBottom style={{fontFamily: 'Courier New'}}>
-                    {blog.url}
+                    {blog.content}
                 </Typography>
                 <Typography gutterBottom style={{fontFamily: 'Arial'}}>
-                    {blog.author}
+                    {blog.tag}
                 </Typography>
             </Box>
             <Grid container justifyContent="space-between" alignItems="center">
