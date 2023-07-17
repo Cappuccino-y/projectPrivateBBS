@@ -1,3 +1,14 @@
+GET http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY0YWQ0MmI2OWE5MjUwMThkOGMyZmM4ZSIsImlhdCI6MTY4OTU3MjY4NSwiZXhwIjoxNjg5NTc2Mjg1fQ.gbXxDBSWQp47I0VJTXk9R2A99SqzD79hI2ipkPo926o
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-07-17T145124.400.json
+
+###
+
 POST http://localhost:3001/api/users
 Content-Type: application/json
 Content-Length: 67

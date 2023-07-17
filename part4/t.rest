@@ -39,8 +39,8 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3003/api/blogs
-Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvbyIsImlkIjoiNjRhNjczODJmZTVkMmVkYjIxNDM5MDU5IiwiaWF0IjoxNjg4NjMzMDkwLCJleHAiOjE2ODg2MzY2OTB9.v0h0ot0vkEphXzq3P-CdBzjPgfQZIIndkEBupLX1BP0
+GET http://localhost:3001/api/blogs
+Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY0YWQ0MmI2OWE5MjUwMThkOGMyZmM4ZSIsImlhdCI6MTY4OTU3MjY4NSwiZXhwIjoxNjg5NTc2Mjg1fQ.gbXxDBSWQp47I0VJTXk9R2A99SqzD79hI2ipkPo926o
 Accept: application/json
 
 ###

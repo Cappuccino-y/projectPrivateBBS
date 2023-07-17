@@ -1,22 +1,109 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Togglable from "../components/Toggable";
 import BlogForm from "../components/BlogForm";
 import BlogShow from "../components/BlogShow";
 import Notification from "../components/Notification";
 import {useNavigate} from "react-router-dom";
-import {Grid, Typography, Button, Box, Divider} from '@mui/material';
+import {Grid, Typography, Button, Box, Divider,} from '@mui/material';
+import {Select, MenuItem, TextField, IconButton, FormControl, OutlinedInput} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import blogService from "../services/blogs";
 
-const BlogPage = ({user, logOut, addBlog, message, updateLikes, privateBlogs, blogs, deleteItem, blogFormRef}) => {
+const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
+    const [blogs, setBlogs] = useState([])
+
     const [isPrivate, setisPrivate] = useState(false)
     const [buttonColor, setButtonColor] = useState('grey')
+    const [searchOption, setSearchOption] = useState('title');
+    const [searchText, setSearchText] = useState('');
+    const [isLoadingUser, setIsLoadingUser] = useState(true);
     const navigate = useNavigate()
 
     const sortedByLikes = () => {
         setButtonColor(buttonColor === 'grey' ? '#00a7d0' : 'grey');
     }
+    const blogsShow = blogs.filter(blog => blog[searchOption].toLowerCase().includes(searchText.toLowerCase()))
+    const addBlog = (blogObject) => {
+        blogFormRef.current.toggleVisibility()
+        const newValue = blogObject
+        blogService.create(newValue).then(response => {
+            setBlogs([response, ...blogs])
+            notice("Blog add success", 'success')
+        }).catch(error => {
+            notice(`Blog add failed`, 'error')
+        })
+    }
+
+    const logOut = (navigate) => {
+        if (window.confirm("Ready to sign out?")) {
+            window.localStorage.removeItem('loggedBlogappUser')
+            setUser(null)
+            navigate("/home")
+        }
+    }
+
+    const updateBlog = async (blog) => {
+        try {
+            const updatedBlog = await blogService.update(blog.id, blog)
+            setBlogs(blogs.map(b => b.id !== updatedBlog.id ? b : updatedBlog))
+        } catch (error) {
+            notice('Update failed', 'error')
+        }
+    }
+    const deleteItem = (id, pagination) => {
+        const target = blogs.find(blog => blog.id === id)
+        if (window.confirm(`Delete this blog?`)) {
+            const delItem = async () => {
+                try {
+
+                    await blogService.del(id)
+                    if ((blogs.length - 1) % pagination.postsPerPage === 0) {
+                        pagination.setPage(pagination.page - 1)
+                    }
+                    setBlogs(blogs.filter(blog => blog.id !== id))
+                    notice('Delete success', 'success')
+                } catch (error) {
+                    notice('Delete failed', 'error')
+                }
+            }
+            delItem()
+        }
+    }
+
+    useEffect(() => {
+        const initial = async () => {
+            const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
+            if (loggedUserJSON) {
+                const user = JSON.parse(loggedUserJSON)
+                blogService.setToken(user.token)
+                setUser(user)
+            }
+        }
+        initial()
+    }, [])
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const res = await blogService.getAll()
+                setBlogs(res)
+            } catch {
+                if (user) {
+                    window.confirm('expired logging')
+                    navigate("/login")
+                    setUser(null)
+                }
+            }
+        }
+
+        fetchBlogs()
+        setIsLoadingUser(false)
+    }, [user])
 
 
+    if (isLoadingUser) {
+        return <div>Loading...</div>;
+    }
     return <Grid container spacing={2} sx={{minHeight: '96vh'}}>
         <Grid item xs={4}>
             <Box display="flex" flexDirection="column" justifyContent="space-between" height="22vh" p={2}>
@@ -41,19 +128,46 @@ const BlogPage = ({user, logOut, addBlog, message, updateLikes, privateBlogs, bl
             </Box>
         </Grid>
         <Grid item xs={8}>
-            <Box my={2}>
+            <Box my={2} sx={{display: 'flex', alignItems: 'center'}}>
                 <Button style={{marginRight: 10}} variant="outlined" onClick={() => setisPrivate(false)}>
                     Public
                 </Button>
                 <Button style={{marginRight: 10}} variant="outlined" onClick={() => setisPrivate(true)}>
                     Private
                 </Button>
-                <Button variant="contained" onClick={sortedByLikes} style={{backgroundColor: buttonColor}}>
+                <Button variant="contained" onClick={sortedByLikes}
+                        style={{backgroundColor: buttonColor, marginRight: 10}}>
                     Sorted
                 </Button>
+                <Select
+                    value={searchOption}
+                    onChange={event => {
+                        setSearchOption(event.target.value)
+                    }}
+                    sx={{minWidth: 80, marginLeft: 12}}
+                    size='small'
+                >
+                    <MenuItem value={'title'}>Title</MenuItem>
+                    <MenuItem value={'tag'}>Tag</MenuItem>
+                </Select>
+                <TextField
+                    variant="outlined"
+                    placeholder="Search..."
+                    onChange={event => {
+                        setSearchText(event.target.value)
+                    }}
+                    InputProps={{
+                        endAdornment: (
+                            <IconButton>
+                                <SearchIcon/>
+                            </IconButton>
+                        ),
+                    }}
+                    sx={{marginLeft: 0, height: 1}} size='small'
+                />
             </Box>
-            <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} privateBlogs={privateBlogs}
-                      deleteItem={deleteItem} blogs={blogs} updateLikes={updateLikes}/>
+            <BlogShow isPrivate={isPrivate} buttonColor={buttonColor}
+                      deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
         </Grid>
     </Grid>
 }

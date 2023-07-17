@@ -17,6 +17,10 @@ const blogSchema = new mongoose.Schema({
     content: String,
     tag: String,
     likes: Number,
+    date: {
+        type: Date,
+        default: Date.now
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
