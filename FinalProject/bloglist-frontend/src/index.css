@@ -35,6 +35,16 @@ html {
     background-color: rgb(56, 56, 56);
 }
 
+.modifytext p {
+    font-size: 8px;
+    margin: 2px 0;
+}
+
+.modifytext h2, .modifytext h3, .modifytext h1 {
+    font-size: 16px;
+    margin: 4px 0;
+}
+
 .flexCenter {
     display: flex;
     justify-content: center;

@@ -9,7 +9,7 @@ import {
     Paper, Typography, Pagination
 } from '@mui/material'
 
-const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor}) => {
+const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen}) => {
     let res = [];
     const privateBlogs = blogs.filter(blog => blog.user.username === user.username)
     if (isPrivate) {
@@ -40,7 +40,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor})
                 {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>
                     <TableRow key={blog.id}>
                         <TableCell>
-                            <Blog blog={blog} isPrivate={isPrivate}
+                            <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
                                   pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
                                   deleteItem={deleteItem} updateBlog={updateBlog}/>
                         </TableCell>

@@ -58,7 +58,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                 try {
 
                     await blogService.del(id)
-                    if ((blogs.length - 1) % pagination.postsPerPage === 0) {
+                    if ((blogs.length - 1) % pagination.postsPerPage === 0 && (blogs.length - 1) / pagination.postsPerPage === pagination.page - 1) {
                         pagination.setPage(pagination.page - 1)
                     }
                     setBlogs(blogs.filter(blog => blog.id !== id))
@@ -166,7 +166,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                     sx={{marginLeft: 0, height: 1}} size='small'
                 />
             </Box>
-            <BlogShow isPrivate={isPrivate} buttonColor={buttonColor}
+            <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
                       deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
         </Grid>
     </Grid>

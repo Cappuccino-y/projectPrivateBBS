@@ -1,13 +1,16 @@
-import {useState} from "react";
-import {Card, CardContent, Typography, Button, Box, Grid, IconButton, Badge} from '@mui/material';
+import {useState, useEffect} from "react";
+import {Card, CardContent, Typography, Button, Box, Grid, IconButton, Badge, TextField} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import SellIcon from '@mui/icons-material/Sell';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import sha256 from 'crypto-js/sha256';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import styles
 
 const stringToColor = (str) => {
     const hash = sha256(str);
@@ -30,21 +33,34 @@ const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString(undefined, options);
 }
 
-const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination}) => {
+const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
 
 
     const [visible, setVisible] = useState(false)
     const [editMode, setEditMode] = useState(false)
+    const [updateValue, setUpdateValue] = useState({...blog})
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
 
     const toggleVisibility = () => {
         setVisible(!visible)
     }
-    const editBlog = (id) => {
-        setEditMode(!editMode)
+    useEffect(() => {
         if (editMode) {
+            setEditMode(false);
+        }
+    }, [blogs]); // 这里的数组表示 useEffect 的依赖项，只有当数组中的值改变时，useEffect 才会运行
 
+    const editBlog = async (id) => {
+        if (editMode) {
+            try {
+                await updateBlog({...updateValue})
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            setEditMode(!editMode)
+            setVisible(true)
         }
     }
 
@@ -52,20 +68,36 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination}) => {
         <CardContent style={{paddingBottom: '8px'}}>
             <Grid container justifyContent="space-between" alignItems="center">
                 <Grid item md={5}>
-                    <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}>
-                        {blog.title}
-                    </Typography>
+                    {editMode && isPrivate ?
+                        <TextField label="Title" fullWidth margin="normal" value={updateValue.title} size='small'
+                                   onChange={(event) => {
+                                       setUpdateValue({...updateValue, title: event.target.value})
+                                   }}/> :
+                        <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}>
+                            {blog.title}
+                        </Typography>}
+
                 </Grid>
                 <Grid item md={3} display='flex' justifyContent='center' alignItems='center'>
                     <Box display="flex" alignItems="center" justifyContent="flex-start" width="100%">
                         <SellIcon sx={{color: stringToColor(blog.tag)}}/>
-                        <Typography gutterBottom style={{
-                            fontFamily: 'Roboto',
-                            fontSize: '16px',
-                            color: '#004d7a'
-                        }}>
-                            {blog.tag}
-                        </Typography>
+                        {editMode && isPrivate ?
+                            <TextField label="Tag" fullWidth margin="normal" value={updateValue.tag}
+                                       sx={{
+                                           '& .MuiInputBase-root': {
+                                               fontSize: '6px',
+                                           },
+                                       }}
+                                       onChange={(event) => {
+                                           setUpdateValue({...updateValue, tag: event.target.value})
+                                       }}/> :
+                            <Typography gutterBottom style={{
+                                fontFamily: 'Roboto',
+                                fontSize: '16px',
+                                color: '#004d7a'
+                            }}>
+                                {blog.tag}
+                            </Typography>}
                     </Box>
                 </Grid>
                 <Grid item>
@@ -81,14 +113,30 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination}) => {
                             <ThumbUpIcon/>
                         </Badge>
                     </IconButton>
+                    <IconButton color="black" onClick={() => {
+                        if (blog.likes !== undefined & blog.likes > 0) {
+                            blog.likes -= 1
+                            updateBlog(blog)
+                        }
+                    }}>
+                        <ThumbDownIcon/>
+                    </IconButton>
                 </Grid>
             </Grid>
             <Box style={showWhenVisible}>
-                <Typography gutterBottom style={{fontFamily: 'Courier New'}}>
-                    {blog.content}
-                </Typography>
+                {editMode && isPrivate ?
+                    <ReactQuill
+                        value={updateValue.content}
+                        onChange={(content, delta, source, editor) => {
+                            setUpdateValue({...updateValue, content: editor.getHTML()});
+                        }}
+                    /> :
+                    <Typography gutterBottom style={{fontFamily: 'Courier New'}}>
+                        <div className='modifytext' dangerouslySetInnerHTML={{__html: blog.content}}/>
+                    </Typography>}
+
             </Box>
-            <Box style={showWhenVisible}>
+            <Box>
                 <Typography gutterBottom style={{fontFamily: 'Roboto Mono', fontSize: '15px', color: '#004d7a'}}>
                     {formatDate(blog.date)}
                 </Typography>
