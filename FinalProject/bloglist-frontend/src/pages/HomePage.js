@@ -55,7 +55,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime()})`
+                                    backgroundImage: `url(https://cdn.seovx.com/?mom=302)`
                                 }}
                             />
                         </Paper>
@@ -72,7 +72,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + 1})`
+                                    backgroundImage: `url()`
                                 }}
                             />
                         </Paper>
@@ -92,7 +92,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + 2})`
+                                    backgroundImage: `url(http://api.btstu.cn/sjbz/)`
                                 }}
                             />
                         </Paper>
@@ -109,7 +109,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://source.unsplash.com/random?wallpaper&timestamp=${new Date().getTime() + 3})`
+                                    backgroundImage: `url(https://cdn.seovx.com/ha/?mom=302)`
                                 }}
                             />
                         </Paper>
