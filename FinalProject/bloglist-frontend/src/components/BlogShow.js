@@ -11,6 +11,7 @@ import {
 
 const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen}) => {
     let res = [];
+    blogs = blogs.map(blog => !blog.likes ? {...blog, likes: 0} : blog)
     const privateBlogs = blogs.filter(blog => blog.user.username === user.username)
     if (isPrivate) {
         if (buttonColor !== 'grey') {

@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/blogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +90,8 @@
       <workItem from="1689296814324" duration="7539000" />
       <workItem from="1689572377206" duration="11367000" />
       <workItem from="1689681568009" duration="1090000" />
-      <workItem from="1689682863328" duration="1744000" />
+      <workItem from="1689682863328" duration="1939000" />
+      <workItem from="1689684931459" duration="509000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -129,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689558630418</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="d">
+      <option name="closed" value="true" />
+      <created>1689684792352</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689684792352</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +153,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="s" />
     <MESSAGE value="home message" />
-    <option name="LAST_COMMIT_MESSAGE" value="home message" />
+    <MESSAGE value="d" />
+    <option name="LAST_COMMIT_MESSAGE" value="d" />
   </component>
 </project>
