@@ -72,7 +72,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url()`
+                                    backgroundImage: `url(http://api.btstu.cn/sjbz/)`
                                 }}
                             />
                         </Paper>
@@ -92,7 +92,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(http://api.btstu.cn/sjbz/)`
+                                    backgroundImage: `url(https://api.btstu.cn/sjbz/api.php)`
                                 }}
                             />
                         </Paper>

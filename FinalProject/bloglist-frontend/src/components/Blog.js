@@ -73,7 +73,8 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                    onChange={(event) => {
                                        setUpdateValue({...updateValue, title: event.target.value})
                                    }}/> :
-                        <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}>
+                        <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}
+                                    onClick={toggleVisibility}>
                             {blog.title}
                         </Typography>}
 
@@ -131,7 +132,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                             setUpdateValue({...updateValue, content: editor.getHTML()});
                         }}
                     /> :
-                    <Typography gutterBottom style={{fontFamily: 'Courier New'}}>
+                    <Typography gutterBottom style={{fontFamily: 'Arial'}}>
                         <div className='modifytext' dangerouslySetInnerHTML={{__html: blog.content}}/>
                     </Typography>}
 

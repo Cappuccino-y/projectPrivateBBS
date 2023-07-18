@@ -86,7 +86,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         const fetchBlogs = async () => {
             try {
                 const res = await blogService.getAll()
-                setBlogs(res)
+                setBlogs(res.reverse())
             } catch {
                 if (user) {
                     window.confirm('expired logging')
