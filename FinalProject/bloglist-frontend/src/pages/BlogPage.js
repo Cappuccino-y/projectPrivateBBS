@@ -9,8 +9,18 @@ import {Select, MenuItem, TextField, IconButton, FormControl, OutlinedInput} fro
 import SearchIcon from '@mui/icons-material/Search';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import blogService from "../services/blogs";
+import {useTheme} from '@mui/material/styles';
+import {useMediaQuery} from '@mui/material'
+
 
 const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
+
+// In your component
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+// Modify your Grid structure
+
     const [blogs, setBlogs] = useState([])
 
     const [isPrivate, setisPrivate] = useState(false)
@@ -32,6 +42,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
             notice("Blog add success", 'success')
         }).catch(error => {
             notice(`Blog add failed`, 'error')
+            console.log(error)
         })
     }
 
@@ -104,9 +115,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     if (isLoadingUser) {
         return <div>Loading...</div>;
     }
-    return <Grid container spacing={2} sx={{minHeight: '96vh'}}>
-        <Grid item xs={4}>
-            <Box display="flex" flexDirection="column" justifyContent="space-between" height="22vh" p={2}>
+    return <Grid container spacing={2} sx={{minHeight: '94vh'}}>
+        <Grid item md={4.5} xs={12}>
+            <Box display="flex" flexDirection="column" justifyContent="space-between" p={2}>
                 <Box>
                     <Typography variant="h4" component="h1" gutterBottom>
                         Blog
@@ -115,11 +126,11 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                         {user.name} logged in
                     </Typography>
                 </Box>
-                <Box height='80vh' marginTop='20px'>
+                <Box marginTop='20px'>
                     <Button variant="outlined" startIcon={<ExitToAppIcon/>} onClick={() => logOut(navigate)}>
                         Sign out
                     </Button>
-                    <Divider sx={{my: 2}}/>
+                    <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
                     <Togglable buttonLabel='new blog' ref={blogFormRef}>
                         <BlogForm createBlog={addBlog}/>
                     </Togglable>
@@ -127,9 +138,13 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                 <Notification message={message}/>
             </Box>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item md={7.5} xs={12}>
             <Box my={2} sx={{display: 'flex', alignItems: 'center'}}>
-                <Button style={{marginRight: 10}} variant="outlined" onClick={() => setisPrivate(false)}>
+                <Button style={{
+                    marginRight: 10,
+                }}
+                        variant="outlined"
+                        onClick={() => setisPrivate(false)}>
                     Public
                 </Button>
                 <Button style={{marginRight: 10}} variant="outlined" onClick={() => setisPrivate(true)}>
@@ -144,7 +159,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                     onChange={event => {
                         setSearchOption(event.target.value)
                     }}
-                    sx={{minWidth: 80, marginLeft: 12}}
+                    sx={{minWidth: 80, marginLeft: 12, cursor: "url('/mouse-pointer.png'), auto"}}
                     size='small'
                 >
                     <MenuItem value={'title'}>Title</MenuItem>

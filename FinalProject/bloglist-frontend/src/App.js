@@ -6,6 +6,8 @@ import BlogPage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
 import FooterLink from "./components/FootLink";
 import {Container} from '@mui/material'
+import {createTheme} from '@mui/material/styles';
+import {ThemeProvider} from "@mui/material";
 import {
     BrowserRouter as Router,
     Routes, Route, Link, Navigate, useNavigate
@@ -16,6 +18,45 @@ const App = () => {
     const [user, setUser] = useState(null)
     const [message, setMessage] = useState({content: '', sign: ''})
     const blogFormRef = useRef()
+    // const theme = createTheme({
+    //     components: {
+    //         MuiButton: {
+    //             styleOverrides: {
+    //                 root: {
+    //                     cursor: 'url("/mouse-pointer.png"), auto',
+    //                 },
+    //             },
+    //         },
+    //         MuiSelect: {
+    //             styleOverrides: {
+    //                 select: {
+    //                     cursor: 'url("/mouse-pointer.png"), auto',
+    //                 },
+    //             },
+    //         },
+    //         MuiInput: {
+    //             styleOverrides: {
+    //                 input: {
+    //                     cursor: 'url("/mouse-pointer.png"), auto',
+    //                 },
+    //             },
+    //         },
+    //         MuiOutlinedInput: {
+    //             styleOverrides: {
+    //                 input: {
+    //                     cursor: 'url("/mouse-pointer.png"), auto',
+    //                 },
+    //             },
+    //         },
+    //         MuiIconButton: {
+    //             styleOverrides: {
+    //                 root: {
+    //                     cursor: 'url("/mouse-pointer.png"), auto',
+    //                 },
+    //             },
+    //         },
+    //     },
+    // });
 
     const notice = (content, sign) => {
         setMessage(
@@ -49,6 +90,7 @@ const App = () => {
 
 
     return (
+        // <ThemeProvider theme={theme}>
         <Container>
             <Router>
                 <Routes>
@@ -63,6 +105,7 @@ const App = () => {
             </Router>
             <FooterLink/>
         </Container>
+        // </ThemeProvider>
     )
 }
 

@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-// const baseUrl = 'http://localhost:3001/api/blogs'
-const baseUrl = 'https://www.mistysakura.top/api/blogs'
+const baseUrl = process.env.REACT_APP_BASEURL + 'blogs'
 
 
 let token = null

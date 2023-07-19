@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-// const baseUrl = 'http://localhost:3001/api/login'
-const baseUrl = 'https://www.mistysakura.top/api/login'
+const baseUrl = process.env.REACT_APP_BASEURL + 'login'
 
 
 const login = async credentials => {

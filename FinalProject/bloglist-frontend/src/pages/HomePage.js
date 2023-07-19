@@ -11,7 +11,11 @@ const HomePage = () => {
     }
     return <div className='animation'>
         <Grid container style={{height: "92vh", background: "#f4f6f8"}}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} style={{
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundImage: `url(img_1.png)`
+            }}>
                 <Box
                     display="flex"
                     flexDirection="column"
@@ -39,14 +43,15 @@ const HomePage = () => {
                 </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-                <Grid container direction="row" justifyContent="space-between" style={{height: '100%'}}>
+                <Grid container direction="row" justifyContent="space-between"
+                      style={{height: '100%', paddingLeft: '6px'}}>
                     <Grid item style={{width: '49.7%', paddingRight: '0%'}}>
                         <Paper
                             sx={{
                                 width: "100%",
                                 height: "60%",
                                 overflow: "hidden",
-                                marginBottom: "1%",
+                                marginBottom: "0%",
                             }}
                         >
                             <Box
@@ -55,14 +60,14 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://cdn.seovx.com/?mom=302)`
+                                    backgroundImage: `url(https://api.yimian.xyz/img?type=moe)`
                                 }}
                             />
                         </Paper>
                         <Paper
                             sx={{
                                 width: "100%",
-                                height: "38%",
+                                height: "40%",
                                 overflow: "hidden",
                             }}
                         >
@@ -72,7 +77,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(http://api.btstu.cn/sjbz/)`
+                                    backgroundImage: `url(https://api.yimian.xyz/img?type=head)`
                                 }}
                             />
                         </Paper>
@@ -81,9 +86,9 @@ const HomePage = () => {
                         <Paper
                             sx={{
                                 width: "100%",
-                                height: "38%",
+                                height: "40%",
                                 overflow: "hidden",
-                                marginBottom: "1%",
+                                marginBottom: "0%",
                             }}
                         >
                             <Box
@@ -92,7 +97,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://api.btstu.cn/sjbz/api.php)`
+                                    backgroundImage: `url(https://api.yimian.xyz/img)`
                                 }}
                             />
                         </Paper>
@@ -109,7 +114,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://cdn.seovx.com/ha/?mom=302)`
+                                    backgroundImage: `url(https://api.yimian.xyz/img?type=wallpaper)`
                                 }}
                             />
                         </Paper>

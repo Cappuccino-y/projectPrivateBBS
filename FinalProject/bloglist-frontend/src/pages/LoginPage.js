@@ -13,11 +13,17 @@ const LoginPage = ({handleLogin, message, setMessage}) => {
     const [password, setPassword] = useState('')
 
 
-    return <div className={"flexCenter animation"} style={{minHeight: '90vh', flexDirection: 'column'}}>
+    return <Grid container className={"flexCenter animation"} style={{
+        minHeight: '90vh', flexDirection: 'column', backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/img.png)`
+    }}>
         <Box style={{minHeight: '9vh'}}>
             <Notification message={message}/>
         </Box>
-        <Grid container spacing={3} style={{flexGrow: 0.2}}>
+        <Grid container spacing={3} style={{flexGrow: 0.2}}
+
+        >
             <Grid item xs={12} md={6}>
                 <Box sx={{my: 4, textAlign: 'center'}}>
                     <Typography variant="h4" component="h1" gutterBottom sx={{
@@ -52,7 +58,7 @@ const LoginPage = ({handleLogin, message, setMessage}) => {
                 />
             </Grid>
         </Grid>
-    </div>
+    </Grid>
 
 
 }

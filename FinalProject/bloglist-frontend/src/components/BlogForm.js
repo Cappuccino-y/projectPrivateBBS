@@ -1,11 +1,13 @@
 import {useState} from 'react'
 import {Box, Typography, TextField, Button} from "@mui/material";
+import SimpleMDE from "react-simplemde-editor";
+import {Grid} from "@mui/material";
 
 const BlogForm = ({createBlog}) => {
     const [newBlog, setNewBlog] = useState({title: '', content: '', tag: ''})
     const addBlog = (event) => {
         event.preventDefault()
-        createBlog({title: newBlog.title, content: newBlog.content, tag: newBlog.tag})
+        createBlog({...newBlog})
         setNewBlog({title: '', content: '', tag: ''})
     }
     const handleBlogTitleChange = (event) => {
@@ -18,16 +20,21 @@ const BlogForm = ({createBlog}) => {
         setNewBlog({...newBlog, tag: event.target.value})
     }
 
-    return <Box my={2}>
-        <Typography variant="h5" component="h2" gutterBottom>
-            Create
-        </Typography>
+    return <Box my={2} style={{marginTop: '0px'}}>
+        {/*<Typography variant="h5" component="h2" gutterBottom>*/}
+        {/*    Create*/}
+        {/*</Typography>*/}
         <form onSubmit={addBlog}>
-            <TextField label="Title" fullWidth margin="normal" value={newBlog.title} onChange={handleBlogTitleChange}/>
-            <TextField label="Content" fullWidth margin="normal" value={newBlog.content}
-                       onChange={handleBlogContentChange}/>
-            <TextField label="Tag" fullWidth margin="normal" value={newBlog.tag} onChange={handleBlogTagChange}/>
+            <TextField label="Title" fullWidth margin="normal" size='small' value={newBlog.title}
+                       onChange={handleBlogTitleChange}/>
+            <SimpleMDE
+                value={newBlog.content}
+                onChange={content => setNewBlog({...newBlog, content})}
+            />
+            <TextField label="Tag" fullWidth margin="normal" value={newBlog.tag}
+                       onChange={handleBlogTagChange} size='small'/>
             <Button variant="contained" type="submit">save</Button>
+
         </form>
     </Box>
 }

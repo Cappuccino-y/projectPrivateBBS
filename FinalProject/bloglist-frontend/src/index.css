@@ -15,6 +15,16 @@ html, body {
     padding: 0;
 }
 
+* {
+    cursor: url('../public/icons8-cursor-color-for-better-life-32.png'), auto !important;
+}
+
+.markdown pre {
+    background-color: #f5f5f5; /* 你可以选择任何你想要的颜色 */
+    padding: 1em;
+    overflow-x: auto;
+}
+
 html {
     scrollbar-gutter: stable;
 }

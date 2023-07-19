@@ -1,5 +1,5 @@
 import Blog from "./Blog";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {
     Table,
     TableBody,
@@ -34,6 +34,11 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     const [page, setPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(6);
     const handlePageChange = (event, value) => setPage(value);
+
+    useEffect(() => {
+        if (page > Math.ceil(res.length / postsPerPage)) setPage(Math.ceil(res.length / postsPerPage))
+        else if (page == 0) setPage(1)
+    }, [blogs])
 
     return <div><TableContainer className='slide' component={Paper} sx={{height: '80vh', overflowY: 'auto'}}>
         <Table>

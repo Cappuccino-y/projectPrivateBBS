@@ -9,8 +9,10 @@ import SellIcon from '@mui/icons-material/Sell';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import sha256 from 'crypto-js/sha256';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // import styles
+import SimpleMDE from 'react-simplemde-editor';
+import ReactMarkdown from 'react-markdown';
+import 'easymde/dist/easymde.min.css';
+
 
 const stringToColor = (str) => {
     const hash = sha256(str);
@@ -34,8 +36,6 @@ const formatDate = (dateString) => {
 }
 
 const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
-
-
     const [visible, setVisible] = useState(false)
     const [editMode, setEditMode] = useState(false)
     const [updateValue, setUpdateValue] = useState({...blog})
@@ -73,7 +73,8 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                    onChange={(event) => {
                                        setUpdateValue({...updateValue, title: event.target.value})
                                    }}/> :
-                        <Typography variant="h5" component="div" style={{fontFamily: 'Comic Sans MS'}}
+                        <Typography variant="h5" component="div"
+                                    style={{fontFamily: 'Comic Sans MS', cursor: 'url("/mouse-pointer.png"), auto'}}
                                     onClick={toggleVisibility}>
                             {blog.title}
                         </Typography>}
@@ -110,7 +111,8 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                         else blog.likes += 1
                         updateBlog(blog)
                     }}>
-                        <Badge badgeContent={blog.likes === undefined ? 0 : blog.likes} color="error">
+                        <Badge
+                            badgeContent={blog.likes === undefined ? 0 : blog.likes} color="error">
                             <ThumbUpIcon/>
                         </Badge>
                     </IconButton>
@@ -126,16 +128,13 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
             </Grid>
             <Box style={showWhenVisible}>
                 {editMode && isPrivate ?
-                    <ReactQuill
+                    <SimpleMDE
                         value={updateValue.content}
-                        onChange={(content, delta, source, editor) => {
-                            setUpdateValue({...updateValue, content: editor.getHTML()});
-                        }}
+                        onChange={content => setUpdateValue({...updateValue, content})}
                     /> :
                     <Typography gutterBottom style={{fontFamily: 'Arial'}}>
-                        <div className='modifytext' dangerouslySetInnerHTML={{__html: blog.content}}/>
+                        <ReactMarkdown className="markdown">{updateValue.content}</ReactMarkdown>
                     </Typography>}
-
             </Box>
             <Box>
                 <Typography gutterBottom style={{fontFamily: 'Roboto Mono', fontSize: '15px', color: '#004d7a'}}>
