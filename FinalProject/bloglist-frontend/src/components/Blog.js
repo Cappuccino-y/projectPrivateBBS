@@ -9,11 +9,10 @@ import SellIcon from '@mui/icons-material/Sell';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import sha256 from 'crypto-js/sha256';
-import SimpleMDE from 'react-simplemde-editor';
-import ReactMarkdown from 'react-markdown';
 import 'font-awesome/css/font-awesome.min.css'
 import 'easymde/dist/easymde.min.css';
-
+import SimpleMDE from 'react-simplemde-editor';
+import ReactMarkdown from 'react-markdown';
 
 const stringToColor = (str) => {
     const hash = sha256(str);
@@ -132,7 +131,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                     <SimpleMDE
                         value={updateValue.content}
                         onChange={content => setUpdateValue({...updateValue, content})}
-                        options={{autoDownloadFontAwesome: false}}
+                        // options={{autoDownloadFontAwesome: false}}
                     /> :
                     <Typography gutterBottom style={{fontFamily: 'Arial'}}>
                         <ReactMarkdown className="markdown">{updateValue.content}</ReactMarkdown>
