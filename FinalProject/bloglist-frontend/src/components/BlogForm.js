@@ -30,6 +30,7 @@ const BlogForm = ({createBlog}) => {
             <SimpleMDE
                 value={newBlog.content}
                 onChange={content => setNewBlog({...newBlog, content})}
+                options={{autoDownloadFontAwesome: false}}
             />
             <TextField label="Tag" fullWidth margin="normal" value={newBlog.tag}
                        onChange={handleBlogTagChange} size='small'/>

@@ -3,6 +3,8 @@ import LoginForm from "../components/LoginForm";
 import Notification from "../components/Notification";
 import {Grid, Typography, Box} from '@mui/material';
 import MoodIcon from '@mui/icons-material/Mood';
+import {FaFeatherAlt} from 'react-icons/fa';
+import {AiFillHeart} from 'react-icons/ai';
 import ExploreIcon from '@mui/icons-material/Explore';
 import {FaPenFancy} from "react-icons/fa";
 import {MdPublic} from "react-icons/md";
@@ -16,46 +18,43 @@ const LoginPage = ({handleLogin, message, setMessage}) => {
     return <Grid container className={"flexCenter animation"} style={{
         minHeight: '90vh', flexDirection: 'column', backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/img.png)`
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/img.jpg)`
     }}>
         <Box style={{minHeight: '9vh'}}>
             <Notification message={message}/>
         </Box>
         <Grid container spacing={3} style={{flexGrow: 0.2}}
-
         >
             <Grid item xs={12} md={6}>
                 <Box sx={{my: 4, textAlign: 'center'}}>
                     <Typography variant="h4" component="h1" gutterBottom sx={{
                         color: '#FF6347',
-                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
-                        fontSize: '2em'
+                        fontFamily: 'Georgia, serif',
+                        fontSize: '2.5em'
                     }}>
-                        Your Blog, Your Narrative!
+                        "Let your life lightly dance on the edges of Time like dew on the tip of a leaf." - Tagore
                     </Typography>
-                    <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', my: 2}}>
-                        <FaPenFancy style={{fontSize: 60, color: '#c06515', marginRight: 10}}/>
-                        <Typography variant="h5" sx={{fontFamily: 'Indie Flower', fontSize: '1.5em'}}>
-                            Express Yourself
-                        </Typography>
-                    </Box>
-                    <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', my: 2}}>
-                        <MdPublic style={{fontSize: 60, color: '#c06515', marginRight: 10}}/>
-                        <Typography variant="h5" sx={{fontFamily: 'Indie Flower', fontSize: '1.5em'}}>
-                            Share and Inspire
-                        </Typography>
-                    </Box>
+                    <FaFeatherAlt style={{fontSize: 100, color: '#c06515', margin: 'auto', display: 'block'}}/>
                 </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-                <LoginForm
-                    handleLogin={handleLogin}
-                    setMessage={setMessage}
-                    username={username}
-                    password={password}
-                    setUsername={setUsername}
-                    setPassword={setPassword}
-                />
+                <Box sx={{my: 4, textAlign: 'center'}}>
+                    <Typography variant="h4" component="h1" gutterBottom sx={{
+                        color: '#FF6347',
+                        fontFamily: 'Georgia, serif',
+                        fontSize: '1.5em'
+                    }}>
+                        Welcome, Storyteller
+                    </Typography>
+                    <LoginForm
+                        handleLogin={handleLogin}
+                        setMessage={setMessage}
+                        username={username}
+                        password={password}
+                        setUsername={setUsername}
+                        setPassword={setPassword}
+                    />
+                </Box>
             </Grid>
         </Grid>
     </Grid>

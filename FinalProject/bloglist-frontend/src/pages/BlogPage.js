@@ -139,47 +139,58 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
             </Box>
         </Grid>
         <Grid item md={7.5} xs={12}>
-            <Box my={2} sx={{display: 'flex', alignItems: 'center'}}>
-                <Button style={{
-                    marginRight: 10,
-                }}
-                        variant="outlined"
-                        onClick={() => setisPrivate(false)}>
-                    Public
-                </Button>
-                <Button style={{marginRight: 10}} variant="outlined" onClick={() => setisPrivate(true)}>
-                    Private
-                </Button>
-                <Button variant="contained" onClick={sortedByLikes}
-                        style={{backgroundColor: buttonColor, marginRight: 10}}>
-                    Sorted
-                </Button>
-                <Select
-                    value={searchOption}
-                    onChange={event => {
-                        setSearchOption(event.target.value)
-                    }}
-                    sx={{minWidth: 80, marginLeft: 12, cursor: "url('/mouse-pointer.png'), auto"}}
-                    size='small'
-                >
-                    <MenuItem value={'title'}>Title</MenuItem>
-                    <MenuItem value={'tag'}>Tag</MenuItem>
-                </Select>
-                <TextField
-                    variant="outlined"
-                    placeholder="Search..."
-                    onChange={event => {
-                        setSearchText(event.target.value)
-                    }}
-                    InputProps={{
-                        endAdornment: (
-                            <IconButton>
-                                <SearchIcon/>
-                            </IconButton>
-                        ),
-                    }}
-                    sx={{marginLeft: 0, height: 1}} size='small'
-                />
+            <Box my={2} sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '4px'}}>
+                <Grid container spacing={2} xs={12} margin='4px 0 0 0'>
+                    <Grid item md={6} style={{paddingLeft: '0px', paddingTop: '14px'}}>
+                        <Button style={{
+                            marginRight: 10
+                        }}
+                                variant="outlined"
+                                onClick={() => setisPrivate(false)}>
+                            Public
+                        </Button>
+                        <Button style={{marginRight: 10}} variant="outlined" onClick={() => setisPrivate(true)}>
+                            Private
+                        </Button>
+                        <Button variant="contained" onClick={sortedByLikes}
+                                style={{backgroundColor: buttonColor, marginRight: 10}}>
+                            Sorted
+                        </Button>
+                    </Grid>
+                    <Grid item md={6} xs={12} style={{paddingTop: '14px', paddingLeft: '0px'}}>
+                        <Select
+                            value={searchOption}
+                            onChange={event => {
+                                setSearchOption(event.target.value)
+                            }}
+                            sx={{
+                                width: '105px', textOverflow: 'ellipsis',
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap'
+                            }}
+                            size='small'
+                        >
+                            <MenuItem value={'title'}>Title</MenuItem>
+                            <MenuItem value={'content'}>Content</MenuItem>
+                            <MenuItem value={'tag'}>Tag</MenuItem>
+                        </Select>
+                        <TextField
+                            variant="outlined"
+                            placeholder="Search..."
+                            onChange={event => {
+                                setSearchText(event.target.value)
+                            }}
+                            InputProps={{
+                                endAdornment: (
+                                    <IconButton>
+                                        <SearchIcon/>
+                                    </IconButton>
+                                ),
+                            }}
+                            sx={{marginLeft: 0, height: 1}} size='small'
+                        />
+                    </Grid>
+                </Grid>
             </Box>
             <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
                       deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
