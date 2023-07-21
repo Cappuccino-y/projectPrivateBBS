@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import {Box, Typography, TextField, Button} from "@mui/material";
-import SimpleMDE from "react-simplemde-editor";
 import {Grid} from "@mui/material";
+import MDEditor from '@uiw/react-md-editor';
+
 
 const BlogForm = ({createBlog}) => {
     const [newBlog, setNewBlog] = useState({title: '', content: '', tag: ''})
@@ -27,10 +28,10 @@ const BlogForm = ({createBlog}) => {
         <form onSubmit={addBlog}>
             <TextField label="Title" fullWidth margin="normal" size='small' value={newBlog.title}
                        onChange={handleBlogTitleChange}/>
-            <SimpleMDE
+            <MDEditor
                 value={newBlog.content}
                 onChange={content => setNewBlog({...newBlog, content})}
-                options={{autoDownloadFontAwesome: false}}
+                height='50vh'
             />
             <TextField label="Tag" fullWidth margin="normal" value={newBlog.tag}
                        onChange={handleBlogTagChange} size='small'/>

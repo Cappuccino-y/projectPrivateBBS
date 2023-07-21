@@ -9,12 +9,12 @@ const HomePage = () => {
     const switchPage = () => {
         navigate('/login')
     }
-    return <div className='animation'>
+    return <div className='animation-home'>
         <Grid container style={{height: "92vh", background: "#f4f6f8"}}>
             <Grid item xs={12} md={6} style={{
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundImage: `url(img_1.png)`
+                backgroundImage: `url(img_1.jpg)`
             }}>
                 <Box
                     display="flex"

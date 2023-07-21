@@ -40,7 +40,8 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
         else if (page == 0) setPage(1)
     }, [blogs])
 
-    return <div><TableContainer className='slide' component={Paper} sx={{height: '80vh', overflowY: 'auto'}}>
+    return <div><TableContainer className='slide' component={Paper}
+                                sx={{height: '80vh', overflowY: 'auto', backgroundColor: 'transparent'}}>
         <Table>
             <TableBody>
                 {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>

@@ -83,15 +83,13 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     }
 
     useEffect(() => {
-        const initial = async () => {
-            const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
-            if (loggedUserJSON) {
-                const user = JSON.parse(loggedUserJSON)
-                blogService.setToken(user.token)
-                setUser(user)
-            }
+        const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
+        if (loggedUserJSON) {
+            const user = JSON.parse(loggedUserJSON)
+            blogService.setToken(user.token)
+            console.log(setUser)
+            setUser(user)
         }
-        initial()
     }, [])
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -115,7 +113,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     if (isLoadingUser) {
         return <div>Loading...</div>;
     }
-    return <Grid container spacing={2} sx={{minHeight: '94vh'}}>
+    return <Grid container className={'animation-blog'} spacing={2} sx={{minHeight: '84vh', height: '94vh'}}>
         <Grid item md={4.5} xs={12}>
             <Box display="flex" flexDirection="column" justifyContent="space-between" p={2}>
                 <Box>

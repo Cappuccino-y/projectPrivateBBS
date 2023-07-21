@@ -9,10 +9,8 @@ import SellIcon from '@mui/icons-material/Sell';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import sha256 from 'crypto-js/sha256';
+import MDEditor from '@uiw/react-md-editor';
 import 'font-awesome/css/font-awesome.min.css'
-import 'easymde/dist/easymde.min.css';
-import SimpleMDE from 'react-simplemde-editor';
-import ReactMarkdown from 'react-markdown';
 
 const stringToColor = (str) => {
     const hash = sha256(str);
@@ -64,7 +62,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
         }
     }
 
-    return <Card sx={{my: 1}}>
+    return <Card sx={{my: 1, backgroundColor: 'transparent'}}>
         <CardContent style={{paddingBottom: '8px'}}>
             <Grid container justifyContent="space-between" alignItems="center">
                 <Grid item md={5}>
@@ -126,15 +124,18 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                     </IconButton>
                 </Grid>
             </Grid>
-            <Box style={showWhenVisible}>
+            <Box style={{...showWhenVisible}}>
                 {editMode && isPrivate ?
-                    <SimpleMDE
+                    <MDEditor
                         value={updateValue.content}
                         onChange={content => setUpdateValue({...updateValue, content})}
-                        // options={{autoDownloadFontAwesome: false}}
-                    /> :
+                        height='60vh'
+                        // style={{backgroundColor: 'transparent'}}
+                    />
+                    :
                     <Typography gutterBottom style={{fontFamily: 'Arial'}}>
-                        <ReactMarkdown className="markdown">{updateValue.content}</ReactMarkdown>
+                        <MDEditor.Markdown className="markdown" source={blog.content}
+                                           style={{whiteSpace: 'pre-wrap', backgroundColor: 'transparent'}}/>
                     </Typography>}
             </Box>
             <Box>
