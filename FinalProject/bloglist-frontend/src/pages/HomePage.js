@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {Button, Container, Typography, Grid, Box, Paper} from "@mui/material";
-import SendIcon from '@mui/icons-material/Send';
+import LoginIcon from '@mui/icons-material/Login';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 
@@ -14,7 +14,7 @@ const HomePage = () => {
             <Grid item xs={12} md={6} style={{
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundImage: `url(img_1.jpg)`
+                backgroundImage: `url(0.jpg)`
             }}>
                 <Box
                     display="flex"
@@ -24,19 +24,25 @@ const HomePage = () => {
                     height="100%"
                     padding={2}
                 >
+                    {/*<Typography variant="h3" align="center" gutterBottom*/}
+                    {/*            sx={{color: '#483D8B', fontFamily: 'Pacifico', fontSize: '2.5em'}}>*/}
+                    {/*    Welcome to My Space!*/}
+                    {/*</Typography>*/}
                     <Typography variant="h3" align="center" gutterBottom
                                 sx={{color: '#008080', fontFamily: 'Pacifico', fontSize: '2.5em'}}>
-                        Welcome to My Website!
+                        Welcome to My Space!
                     </Typography>
-                    <Typography variant="subtitle1" align="center" color="textSecondary"
+                    <Typography variant="h6" align="center" color="textSecondary"
                                 fontFamily='"Comic Sans MS", cursive, sans-serif'>
                         Please feel free to browse around.
                     </Typography>
                     <Button
-                        variant="outlined"
+                        variant="contained"
+                        style={{backgroundColor: '#6495ED', color: '#ffffff'}}
                         onClick={switchPage}
-                        endIcon={<SendIcon/>}
+                        endIcon={<LoginIcon/>}
                         sx={{marginTop: 2}}
+                        size='large'
                     >
                         Enter
                     </Button>
@@ -60,7 +66,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://api.yimian.xyz/img?type=moe)`
+                                    backgroundImage: `url(1.jpg)`
                                 }}
                             />
                         </Paper>
@@ -77,7 +83,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://api.yimian.xyz/img?type=head)`
+                                    backgroundImage: `url(2.jpg)`
                                 }}
                             />
                         </Paper>
@@ -97,7 +103,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://api.yimian.xyz/img)`
+                                    backgroundImage: `url(3.jpg)`
                                 }}
                             />
                         </Paper>
@@ -114,7 +120,7 @@ const HomePage = () => {
                                     height: "100%",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    backgroundImage: `url(https://api.yimian.xyz/img?type=wallpaper)`
+                                    backgroundImage: `url(4.jpg)`
                                 }}
                             />
                         </Paper>

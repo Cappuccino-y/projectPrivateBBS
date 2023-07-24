@@ -128,8 +128,7 @@ const App = () => {
             notice('Wrong username or password', 'error')
         }
     }
-
-
+    
     return (
         // <ThemeProvider theme={theme}>
         <Container>

@@ -87,7 +87,6 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         if (loggedUserJSON) {
             const user = JSON.parse(loggedUserJSON)
             blogService.setToken(user.token)
-            console.log(setUser)
             setUser(user)
         }
     }, [])

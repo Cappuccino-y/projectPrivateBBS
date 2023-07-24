@@ -6,11 +6,14 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import SellIcon from '@mui/icons-material/Sell';
+import CancelIcon from '@mui/icons-material/Cancel';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import sha256 from 'crypto-js/sha256';
 import MDEditor from '@uiw/react-md-editor';
 import 'font-awesome/css/font-awesome.min.css'
+import {image as defaultImage} from '@uiw/react-md-editor/lib/commands/image';
+
 
 const stringToColor = (str) => {
     const hash = sha256(str);
@@ -150,7 +153,17 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                             onClick={() => editBlog(blog.id)} startIcon={<EditIcon/>} size='small'>
                         {editMode ? 'Enter' : 'Edit'}
                     </Button>
-                    <Button variant="contained" color="secondary" style={{display: isPrivate ? '' : "none"}}
+
+                    <Button variant="contained" color="secondary"
+                            style={{display: isPrivate && editMode ? '' : "none", marginRight: '10px'}}
+                            onClick={() => {
+                                setEditMode(false)
+                                setVisible(false)
+                            }} startIcon={<CancelIcon/>} size='small'>
+                        Cancel
+                    </Button>
+                    <Button variant="contained" color="inherit"
+                            style={{display: isPrivate ? '' : "none"}}
                             onClick={() => deleteItem(blog.id, pagination)} startIcon={<DeleteIcon/>} size='small'>
                         Delete
                     </Button>

@@ -5,24 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="office amend">
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/img_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/img_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/img_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/LoginPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,8 @@
       <workItem from="1689821921111" duration="2748000" />
       <workItem from="1689840084294" duration="2010000" />
       <workItem from="1689842438322" duration="1652000" />
-      <workItem from="1689901681386" duration="21512000" />
+      <workItem from="1689901681386" duration="21695000" />
+      <workItem from="1690160529739" duration="20228000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -190,7 +186,23 @@
       <option name="project" value="LOCAL" />
       <updated>1689844341979</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="office amend">
+      <option name="closed" value="true" />
+      <created>1689929984386</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1689929984386</updated>
+    </task>
+    <task id="LOCAL-00011" summary="office amend">
+      <option name="closed" value="true" />
+      <created>1689930002156</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1689930002156</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -47,7 +47,7 @@ const LoginForm = ({handleLogin, setMessage}) => {
                 />
             </Grid>
             <Grid item>
-                <Button variant="contained" color="primary" type="submit"
+                <Button variant="contained" color="secondary" type="submit"
                         sx={{fontFamily: 'Georgia, serif', fontSize: '1.2em'}}>
                     Login
                 </Button>
