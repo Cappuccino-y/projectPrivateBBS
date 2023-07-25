@@ -40,6 +40,7 @@
 import {useState, useRef, useEffect} from 'react'
 import blogService from './services/blogs'
 import loginService from './services/login'
+import imageService from './services/images'
 import LoginPage from './pages/LoginPage'
 import BlogPage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
@@ -119,6 +120,7 @@ const App = () => {
                 'loggedBlogappUser', JSON.stringify(user)
             )
             blogService.setToken(user.token)
+            imageService.setToken(user.token)
             setUser(user)
             setTimeout(() => {
                 setMessage({content: '', sign: ''})
@@ -128,7 +130,7 @@ const App = () => {
             notice('Wrong username or password', 'error')
         }
     }
-    
+
     return (
         // <ThemeProvider theme={theme}>
         <Container>

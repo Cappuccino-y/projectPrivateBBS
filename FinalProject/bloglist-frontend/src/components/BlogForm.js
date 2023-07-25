@@ -2,6 +2,7 @@ import {useState} from 'react'
 import {Box, Typography, TextField, Button} from "@mui/material";
 import {Grid} from "@mui/material";
 import MDEditor from '@uiw/react-md-editor';
+import customImageCommand from "../customImageCommand";
 
 
 const BlogForm = ({createBlog}) => {
@@ -32,6 +33,15 @@ const BlogForm = ({createBlog}) => {
                 value={newBlog.content}
                 onChange={content => setNewBlog({...newBlog, content})}
                 height='50vh'
+                commandsFilter={(command, isExtra) => {
+                    if (command.name === 'image') {
+                        // Replace the image command with your custom command
+                        return customImageCommand;
+                    }
+                    // Return the command unchanged if it's not the image command
+                    return command;
+                }}
+                // style={{backgroundColor: 'transparent'}}
             />
             <TextField label="Tag" fullWidth margin="normal" value={newBlog.tag}
                        onChange={handleBlogTagChange} size='small'/>

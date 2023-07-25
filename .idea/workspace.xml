@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="office amend">
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/customImageCommand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/images.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/trial.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part4/controllers/images.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/bg3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/img_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/blogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/part4/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +75,11 @@
       <recent name="D:\project_webcourse-master" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.t | #5">
+  <component name="RunManager" selected="Node.js.trial.js">
     <configuration name="t | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="5" requestIdentifier="#5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="trial.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/trial.js" working-dir="$PROJECT_DIR$/FinalProject/bloglist-frontend/src">
       <method v="2" />
     </configuration>
     <configuration name="try.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/try.js" working-dir="$PROJECT_DIR$/FinalProject/bloglist-frontend/src">
@@ -85,6 +87,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.trial.js" />
         <item itemvalue="HTTP Request.t | #5" />
         <item itemvalue="Node.js.try.js" />
       </list>
@@ -112,7 +115,8 @@
       <workItem from="1689840084294" duration="2010000" />
       <workItem from="1689842438322" duration="1652000" />
       <workItem from="1689901681386" duration="21695000" />
-      <workItem from="1690160529739" duration="20228000" />
+      <workItem from="1690160529739" duration="20261000" />
+      <workItem from="1690246642202" duration="18175000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -202,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689930002156</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="office amend">
+      <option name="closed" value="true" />
+      <created>1690189643967</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690189643967</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

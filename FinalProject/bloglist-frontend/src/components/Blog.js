@@ -12,7 +12,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import sha256 from 'crypto-js/sha256';
 import MDEditor from '@uiw/react-md-editor';
 import 'font-awesome/css/font-awesome.min.css'
-import {image as defaultImage} from '@uiw/react-md-editor/lib/commands/image';
+import customImageCommand from "../customImageCommand";
 
 
 const stringToColor = (str) => {
@@ -133,6 +133,14 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                         value={updateValue.content}
                         onChange={content => setUpdateValue({...updateValue, content})}
                         height='60vh'
+                        commandsFilter={(command, isExtra) => {
+                            if (command.name === 'image') {
+                                // Replace the image command with your custom command
+                                return customImageCommand;
+                            }
+                            // Return the command unchanged if it's not the image command
+                            return command;
+                        }}
                         // style={{backgroundColor: 'transparent'}}
                     />
                     :

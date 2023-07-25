@@ -9,6 +9,7 @@ import {Select, MenuItem, TextField, IconButton, FormControl, OutlinedInput} fro
 import SearchIcon from '@mui/icons-material/Search';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import blogService from "../services/blogs";
+import imageService from '../services/images';
 import {useTheme} from '@mui/material/styles';
 import {useMediaQuery} from '@mui/material'
 
@@ -87,6 +88,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         if (loggedUserJSON) {
             const user = JSON.parse(loggedUserJSON)
             blogService.setToken(user.token)
+            imageService.setToken(user.token)
             setUser(user)
         }
     }, [])
@@ -112,7 +114,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     if (isLoadingUser) {
         return <div>Loading...</div>;
     }
-    return <Grid container className={'animation-blog'} spacing={2} sx={{minHeight: '84vh', height: '94vh'}}>
+    return <Grid container className={'animation-blog'} spacing={2} sx={{minHeight: '96vh'}}>
         <Grid item md={4.5} xs={12}>
             <Box display="flex" flexDirection="column" justifyContent="space-between" p={2}>
                 <Box>
