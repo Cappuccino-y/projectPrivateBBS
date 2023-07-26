@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="office amend">
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/DialogForBlog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Toggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Togglable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/customImageCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/customImageCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part1/anecdotes/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/part1/anecdotes/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/models/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/models/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part4/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/models/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "D:/project_webcourse-master/redux",
+    "last_opened_file_path": "D:/project_webcourse-master/FinalProject/bloglist-frontend/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,7 +112,7 @@
       <workItem from="1690275112252" duration="119000" />
       <workItem from="1690333214979" duration="8367000" />
       <workItem from="1690344112782" duration="4994000" />
-      <workItem from="1690353035759" duration="6807000" />
+      <workItem from="1690353035759" duration="7460000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -229,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690269340255</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="office amend">
+      <option name="closed" value="true" />
+      <created>1690361125934</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1690361125934</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
