@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import Togglable from "../components/Toggable";
+import Togglable from "../components/Togglable";
 import BlogForm from "../components/BlogForm";
 import BlogShow from "../components/BlogShow";
 import Notification from "../components/Notification";
@@ -12,6 +12,7 @@ import blogService from "../services/blogs";
 import imageService from '../services/images';
 import {useTheme} from '@mui/material/styles';
 import {useMediaQuery} from '@mui/material'
+import DialogForBlog from "../components/DialogForBlog";
 
 
 const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
@@ -29,6 +30,8 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     const [searchOption, setSearchOption] = useState('title');
     const [searchText, setSearchText] = useState('');
     const [isLoadingUser, setIsLoadingUser] = useState(true);
+    const [open, setOpen] = useState(false);
+    const [openExpire, setOpenExpire] = useState(false);
     const navigate = useNavigate()
 
     const sortedByLikes = () => {
@@ -48,11 +51,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     }
 
     const logOut = (navigate) => {
-        if (window.confirm("Ready to sign out?")) {
-            window.localStorage.removeItem('loggedBlogappUser')
-            setUser(null)
-            navigate("/home")
-        }
+        window.localStorage.removeItem('loggedBlogappUser')
+        setUser(null)
+        navigate("/home")
     }
 
     const updateBlog = async (blog) => {
@@ -65,22 +66,20 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     }
     const deleteItem = (id, pagination) => {
         const target = blogs.find(blog => blog.id === id)
-        if (window.confirm(`Delete this blog?`)) {
-            const delItem = async () => {
-                try {
+        const delItem = async () => {
+            try {
 
-                    await blogService.del(id)
-                    if ((blogs.length - 1) % pagination.postsPerPage === 0 && (blogs.length - 1) / pagination.postsPerPage === pagination.page - 1) {
-                        pagination.setPage(pagination.page - 1)
-                    }
-                    setBlogs(blogs.filter(blog => blog.id !== id))
-                    notice('Delete success', 'success')
-                } catch (error) {
-                    notice('Delete failed', 'error')
+                await blogService.del(id)
+                if ((blogs.length - 1) % pagination.postsPerPage === 0 && (blogs.length - 1) / pagination.postsPerPage === pagination.page - 1) {
+                    pagination.setPage(pagination.page - 1)
                 }
+                setBlogs(blogs.filter(blog => blog.id !== id))
+                notice('Delete success', 'success')
+            } catch (error) {
+                notice('Delete failed', 'error')
             }
-            delItem()
         }
+        delItem()
     }
 
     useEffect(() => {
@@ -99,9 +98,8 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                 setBlogs(res.reverse())
             } catch {
                 if (user) {
-                    window.confirm('expired logging')
-                    navigate("/login")
-                    setUser(null)
+                    setOpenExpire(true)
+
                 }
             }
         }
@@ -118,17 +116,34 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         <Grid item md={4.5} xs={12}>
             <Box display="flex" flexDirection="column" justifyContent="space-between" p={2}>
                 <Box>
-                    <Typography variant="h4" component="h1" gutterBottom>
-                        Blog
+                    <Typography variant="h4" component="h1"
+                                sx={{color: '#191970', fontFamily: 'Pacifico', fontSize: '2em'}} gutterBottom>
+                        Isil nar caluva tielyanna
                     </Typography>
-                    <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
-                        {user.name} logged in
-                    </Typography>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: "center",
+                        paddingTop: '2vh'
+                    }}>
+                        <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
+                            {user.name} logged in
+                        </Typography>
+                        <Button variant="contained" startIcon={<ExitToAppIcon/>} onClick={() => setOpen(true)}>
+                            Sign out
+                        </Button>
+                    </div>
                 </Box>
-                <Box marginTop='20px'>
-                    <Button variant="outlined" startIcon={<ExitToAppIcon/>} onClick={() => logOut(navigate)}>
-                        Sign out
-                    </Button>
+
+                <Box marginTop='0vh'>
+                    <DialogForBlog open={open} setOpen={setOpen}
+                                   handleEvents={
+                                       () => logOut(navigate)
+                                   }
+                                   title='Ready to Sign Out Safely?'
+                                   prompts='Remember that logging out will redirect you to the log-in page.'
+                                   option1='Yes'
+                                   option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
                     <Togglable buttonLabel='new blog' ref={blogFormRef}>
                         <BlogForm createBlog={addBlog}/>
@@ -193,6 +208,17 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
             </Box>
             <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
                       deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
+            <DialogForBlog open={openExpire} setOpen={setOpenExpire}
+                           handleEvents={
+                               () => {
+                                   navigate("/login")
+                                   setUser(null)
+                               }
+                           }
+                           title='Session Expired - Please Re-login'
+                           prompts='Your session has expired. To continue using our services, please re-login to your account.'
+                           option1='OK'
+                           option2='Cancel'/>
         </Grid>
     </Grid>
 }

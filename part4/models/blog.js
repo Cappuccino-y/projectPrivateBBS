@@ -24,7 +24,17 @@ const blogSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    comments: [
+        {
+            name: String,
+            content: String,
+            date: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ]
 })
 
 blogSchema.set('toJSON', {

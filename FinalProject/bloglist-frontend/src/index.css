@@ -26,11 +26,10 @@ body::-webkit-scrollbar {
 /*    background-attachment: fixed;*/
 /*    background-size: cover;*/
 /*}*/
-
-
 * {
     cursor: url('../public/icons8-cursor-color-for-better-life-32.png'), auto !important;
 }
+
 
 html {
     scrollbar-gutter: stable;

@@ -133,7 +133,7 @@ const App = () => {
 
     return (
         // <ThemeProvider theme={theme}>
-        <Container>
+        <div style={{margin: '0vh 25vh 0vh 25vh'}}>
             <Router>
                 <Routes>
                     <Route path="" element={<Navigate to={'/home'}/>}/>
@@ -146,7 +146,7 @@ const App = () => {
                 </Routes>
             </Router>
             <FooterLink/>
-        </Container>
+        </div>
         // </ThemeProvider>
     )
 }

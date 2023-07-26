@@ -32,11 +32,17 @@ const customImageCommand = {
             if (file) {
                 // Upload the file to your server and get the URL of the image
                 // This is a placeholder and should be replaced with your actual image upload code
+                const styleElement = document.createElement('style');
+                document.head.appendChild(styleElement);
+                styleElement.sheet.insertRule('* { cursor: wait !important; }', 0);
+
                 uploadImage(file).then(imageUrl => {
                     // Insert the image URL into the editor
                     const modifyText = `![alt text](${imageUrl})\n`;
                     api.replaceSelection(modifyText);
+                    document.head.removeChild(styleElement);
                 });
+
             }
         };
         // Trigger the file input dialog

@@ -1,5 +1,18 @@
 import {useState, useEffect} from "react";
-import {Card, CardContent, Typography, Button, Box, Grid, IconButton, Badge, TextField} from '@mui/material';
+import {
+    Card,
+    CardContent,
+    Typography,
+    Button,
+    Box,
+    Grid,
+    IconButton,
+    Badge,
+    TextField,
+    Dialog,
+    DialogActions,
+    DialogTitle
+} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -13,6 +26,7 @@ import sha256 from 'crypto-js/sha256';
 import MDEditor from '@uiw/react-md-editor';
 import 'font-awesome/css/font-awesome.min.css'
 import customImageCommand from "../customImageCommand";
+import DialogForBlog from "./DialogForBlog";
 
 
 const stringToColor = (str) => {
@@ -40,6 +54,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     const [visible, setVisible] = useState(false)
     const [editMode, setEditMode] = useState(false)
     const [updateValue, setUpdateValue] = useState({...blog})
+    const [open, setOpen] = useState(false);
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
 
@@ -172,9 +187,17 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                     </Button>
                     <Button variant="contained" color="inherit"
                             style={{display: isPrivate ? '' : "none"}}
-                            onClick={() => deleteItem(blog.id, pagination)} startIcon={<DeleteIcon/>} size='small'>
+                            onClick={() => setOpen(true)} startIcon={<DeleteIcon/>} size='small'>
                         Delete
                     </Button>
+                    <DialogForBlog open={open} setOpen={setOpen}
+                                   handleEvents={() => {
+                                       deleteItem(blog.id, pagination)
+                                   }}
+                                   title='Caution: Irreversible Action - Delete this Item?'
+                                   prompts='The following operation is irreversible. Please exercise caution before.'
+                                   option1='Yes'
+                                   option2='Cancel'/>
                 </Grid>
             </Grid>
         </CardContent>

@@ -30,11 +30,11 @@ const HomePage = () => {
                     {/*</Typography>*/}
                     <Typography variant="h3" align="center" gutterBottom
                                 sx={{color: '#008080', fontFamily: 'Pacifico', fontSize: '2.5em'}}>
-                        Welcome to My Space!
+                        Nai tiruvantel ar varyuvantel i Valar tielyanna nu vilya.
                     </Typography>
                     <Typography variant="h6" align="center" color="textSecondary"
                                 fontFamily='"Comic Sans MS", cursive, sans-serif'>
-                        Please feel free to browse around.
+                        Valin na omentiemme. Anar caluva tielyanna.
                     </Typography>
                     <Button
                         variant="contained"
