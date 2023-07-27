@@ -25,10 +25,11 @@ const blogSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    comments: [
+    comment: [
         {
             name: String,
             content: String,
+            id: String,
             date: {
                 type: Date,
                 default: Date.now

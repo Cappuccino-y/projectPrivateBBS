@@ -30,6 +30,37 @@ body::-webkit-scrollbar {
     cursor: url('../public/icons8-cursor-color-for-better-life-32.png'), auto !important;
 }
 
+/* Loading.css */
+/* Loading.css */
+@keyframes dot {
+    0%, 20%, 80%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    /* Increase scale for more dramatic animation */
+}
+
+.dot {
+    color: #DC143C;
+    display: inline-block;
+    width: 5px; /* Reduce size for less bold dots */
+    height: 5px; /* Reduce size for less bold dots */
+    margin-right: 5px;
+    background-color: #333;
+    border-radius: 50%;
+    animation: dot 1.2s infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
 
 html {
     scrollbar-gutter: stable;

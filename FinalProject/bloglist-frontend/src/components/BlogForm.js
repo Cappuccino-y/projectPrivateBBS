@@ -6,7 +6,7 @@ import customImageCommand from "../customImageCommand";
 
 
 const BlogForm = ({createBlog}) => {
-    const [newBlog, setNewBlog] = useState({title: '', content: '', tag: ''})
+    const [newBlog, setNewBlog] = useState({title: '', content: '', tag: '', comment: []})
     const addBlog = (event) => {
         event.preventDefault()
         createBlog({...newBlog})

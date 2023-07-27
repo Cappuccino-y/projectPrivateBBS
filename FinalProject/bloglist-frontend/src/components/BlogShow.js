@@ -1,5 +1,5 @@
 import Blog from "./Blog";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef, useContext} from "react";
 import {
     Table,
     TableBody,
@@ -8,6 +8,9 @@ import {
     TableRow,
     Paper, Typography, Pagination
 } from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress';
+import blogService from "../services/blogs";
+import ExampleContext from "./ExampleContext";
 
 const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen}) => {
     let res = [];
@@ -33,7 +36,43 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
 
     const [page, setPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(6);
+    const [loading, setLoading] = useState(false)
+    const tableContainerRef = useRef(null);
+    const val = useContext(ExampleContext)
     const handlePageChange = (event, value) => setPage(value);
+
+    const handleScroll = () => {
+        if (tableContainerRef.current.scrollTop === 0 && page === 1) {
+            setLoading(true)
+            const fetchBlogs = async () => {
+                try {
+                    const res = await blogService.getAll()
+                    val.setBlogs(res.reverse())
+                } catch {
+                    if (user) {
+                        val.setOpenExpire(true)
+                    }
+                }
+            }
+            fetchBlogs()
+        }
+    };
+
+    useEffect(() => {
+        setLoading(false)
+    }, [val.blogs])
+
+    useEffect(() => {
+        const container = tableContainerRef.current;
+        if (container) {
+            container.addEventListener('scroll', handleScroll);
+        }
+        return () => {
+            if (container) {
+                container.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, [page]);
 
     useEffect(() => {
         if (page > Math.ceil(res.length / postsPerPage)) setPage(Math.ceil(res.length / postsPerPage))
@@ -41,15 +80,26 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     }, [blogs])
 
     return <div><TableContainer className='slide' component={Paper}
-                                sx={{height: '80vh', overflowY: 'auto', backgroundColor: 'transparent'}}>
+                                sx={{height: '80vh', overflowY: 'auto', backgroundColor: 'transparent'}}
+                                ref={tableContainerRef}>
         <Table>
             <TableBody>
+                <TableRow style={{display: loading ? '' : 'none'}}>
+                    <TableCell colSpan={2} style={{textAlign: 'center'}}>
+                        <div>
+                            <div className="dot"></div>
+                            <div className="dot"></div>
+                            <div className="dot"></div>
+                        </div>
+                    </TableCell>
+                </TableRow>
                 {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>
                     <TableRow key={blog.id}>
                         <TableCell>
                             <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
                                   pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
-                                  deleteItem={deleteItem} updateBlog={updateBlog}/>
+                                  deleteItem={deleteItem} updateBlog={updateBlog}
+                            />
                         </TableCell>
                         <TableCell style={{verticalAlign: 'top'}}>
                             <br/>

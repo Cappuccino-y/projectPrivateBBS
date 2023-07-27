@@ -13,6 +13,8 @@ import imageService from '../services/images';
 import {useTheme} from '@mui/material/styles';
 import {useMediaQuery} from '@mui/material'
 import DialogForBlog from "../components/DialogForBlog";
+import {ExampleProvider} from "../components/ExampleContext";
+import {v4 as uuidv4} from "uuid";
 
 
 const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
@@ -32,6 +34,42 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     const [isLoadingUser, setIsLoadingUser] = useState(true);
     const [open, setOpen] = useState(false);
     const [openExpire, setOpenExpire] = useState(false);
+    const [comments, setComments] = useState([{
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }, {
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }, {
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }, {
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }, {
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }, {
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }, {
+        name: 'lyy',
+        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
+        date: new Date(),
+        id: uuidv4()
+    }])
     const navigate = useNavigate()
 
     const sortedByLikes = () => {
@@ -53,7 +91,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     const logOut = (navigate) => {
         window.localStorage.removeItem('loggedBlogappUser')
         setUser(null)
-        navigate("/home")
+        navigate("/login")
     }
 
     const updateBlog = async (blog) => {
@@ -91,6 +129,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
             setUser(user)
         }
     }, [])
+
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
@@ -103,7 +142,6 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                 }
             }
         }
-
         fetchBlogs()
         setIsLoadingUser(false)
     }, [user])
@@ -117,7 +155,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
             <Box display="flex" flexDirection="column" justifyContent="space-between" p={2}>
                 <Box>
                     <Typography variant="h4" component="h1"
-                                sx={{color: '#191970', fontFamily: 'Pacifico', fontSize: '2em'}} gutterBottom>
+                                sx={{color: '#191970', fontFamily: 'Pacifico', fontSize: '2em'}}>
                         Isil nar caluva tielyanna
                     </Typography>
                     <div style={{
@@ -129,7 +167,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                         <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
                             {user.name} logged in
                         </Typography>
-                        <Button variant="contained" startIcon={<ExitToAppIcon/>} onClick={() => setOpen(true)}>
+                        <Button variant="outlined" startIcon={<ExitToAppIcon/>} onClick={() => setOpen(true)}>
                             Sign out
                         </Button>
                     </div>
@@ -145,7 +183,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                                    option1='Yes'
                                    option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
-                    <Togglable buttonLabel='new blog' ref={blogFormRef}>
+                    <Togglable buttonLabel='new blog' ref={blogFormRef} comments={comments}>
                         <BlogForm createBlog={addBlog}/>
                     </Togglable>
                 </Box>
@@ -206,8 +244,10 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                     </Grid>
                 </Grid>
             </Box>
-            <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
-                      deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
+            <ExampleProvider val={{blogs, setBlogs, setOpenExpire, comments, setComments}}>
+                <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
+                          deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
+            </ExampleProvider>
             <DialogForBlog open={openExpire} setOpen={setOpenExpire}
                            handleEvents={
                                () => {

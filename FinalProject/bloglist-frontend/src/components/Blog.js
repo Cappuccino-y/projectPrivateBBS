@@ -9,9 +9,6 @@ import {
     IconButton,
     Badge,
     TextField,
-    Dialog,
-    DialogActions,
-    DialogTitle
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -27,6 +24,9 @@ import MDEditor from '@uiw/react-md-editor';
 import 'font-awesome/css/font-awesome.min.css'
 import customImageCommand from "../customImageCommand";
 import DialogForBlog from "./DialogForBlog";
+import {useContext} from "react";
+import ExampleContext from "./ExampleContext";
+import formatDate from "../formatDate";
 
 
 const stringToColor = (str) => {
@@ -39,16 +39,7 @@ const stringToColor = (str) => {
 
     return `rgb(${r}, ${g}, ${b})`;
 }
-const formatDate = (dateString) => {
-    const options = {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-}
+
 
 const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     const [visible, setVisible] = useState(false)
@@ -57,6 +48,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     const [open, setOpen] = useState(false);
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
+    const val = useContext(ExampleContext)
 
     const toggleVisibility = () => {
         setVisible(!visible)
@@ -91,7 +83,10 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                    }}/> :
                         <Typography variant="h5" component="div"
                                     style={{fontFamily: 'Comic Sans MS', cursor: 'url("/mouse-pointer.png"), auto'}}
-                                    onClick={toggleVisibility}>
+                                    onClick={() => {
+                                        val.setComments([blog.comment])
+                                        toggleVisibility()
+                                    }}>
                             {blog.title}
                         </Typography>}
 
