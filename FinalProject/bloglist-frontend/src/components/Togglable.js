@@ -1,4 +1,4 @@
-import {useState, forwardRef, useImperativeHandle} from 'react'
+import {useState, forwardRef, useImperativeHandle, useEffect, useRef} from 'react'
 import React from 'react';
 import Button from '@mui/material/Button'
 import Comment from './Comment'
@@ -9,15 +9,38 @@ const Togglable = forwardRef((props, ref) => {
 
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
+    const newBlogRef = useRef(null)
 
-    const handleEdit = () => {
+    useEffect(() => {
+        if (newBlogRef.current && newBlogRef.current.comments.length !== props.blog.comments.length) {
+            props.setBlog(newBlogRef.current)
+        }
+    }, [props.blogs])
 
+    const handleDelete = async (id) => {
+        try {
+            const comments = props.blog.comments.filter(comment => comment.id !== id)
+            const newBlog = {...props.blog, comments: comments}
+            newBlogRef.current = newBlog
+            await props.updateBlog(newBlog)
+        } catch (error) {
+            console.log(error)
+        }
     }
-    const handleDelete = () => {
-
-    }
-    const handleAddComment = () => {
-
+    const handleAddComment = async (commentText) => {
+        try {
+            const comments = [{
+                name: props.user.name,
+                content: commentText,
+                id: uuidv4(),
+                date: new Date()
+            }, ...props.blog.comments]
+            const newBlog = {...props.blog, comments: comments}
+            newBlogRef.current = newBlog
+            await props.updateBlog(newBlog)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const toggleVisibility = () => {
@@ -35,13 +58,14 @@ const Togglable = forwardRef((props, ref) => {
             <div style={hideWhenVisible}>
                 <Button variant="contained" onClick={toggleVisibility} style={{marginTop: '8px'}}
                 >{props.buttonLabel}</Button>
-                <Comment comments={props.comments} handleDelete={handleDelete} handleEdit={handleEdit}
+                <Comment comments={props.blog.comments} handleDelete={handleDelete}
                          handleAddComment={handleAddComment}/>
             </div>
             <div style={showWhenVisible}>
                 {props.children}
                 <Button variant='outlined' onClick={toggleVisibility}>cancel</Button>
             </div>
+
         </div>
     )
 })

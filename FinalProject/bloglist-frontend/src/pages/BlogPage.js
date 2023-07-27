@@ -26,7 +26,6 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
 // Modify your Grid structure
 
     const [blogs, setBlogs] = useState([])
-
     const [isPrivate, setisPrivate] = useState(false)
     const [buttonColor, setButtonColor] = useState('grey')
     const [searchOption, setSearchOption] = useState('title');
@@ -34,43 +33,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     const [isLoadingUser, setIsLoadingUser] = useState(true);
     const [open, setOpen] = useState(false);
     const [openExpire, setOpenExpire] = useState(false);
-    const [comments, setComments] = useState([{
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }, {
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }, {
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }, {
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }, {
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }, {
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }, {
-        name: 'lyy',
-        content: 'trial djwqreq qfqwrkhjqasdasdasdqw阿松大kwdqwrasd阿松大',
-        date: new Date(),
-        id: uuidv4()
-    }])
+    const [blog, setBlog] = useState({comments: []})
     const navigate = useNavigate()
+
 
     const sortedByLikes = () => {
         setButtonColor(buttonColor === 'grey' ? '#00a7d0' : 'grey');
@@ -106,7 +71,6 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         const target = blogs.find(blog => blog.id === id)
         const delItem = async () => {
             try {
-
                 await blogService.del(id)
                 if ((blogs.length - 1) % pagination.postsPerPage === 0 && (blogs.length - 1) / pagination.postsPerPage === pagination.page - 1) {
                     pagination.setPage(pagination.page - 1)
@@ -138,7 +102,6 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
             } catch {
                 if (user) {
                     setOpenExpire(true)
-
                 }
             }
         }
@@ -183,9 +146,12 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                                    option1='Yes'
                                    option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
-                    <Togglable buttonLabel='new blog' ref={blogFormRef} comments={comments}>
-                        <BlogForm createBlog={addBlog}/>
-                    </Togglable>
+                    <ExampleProvider val={{blog, updateBlog, setBlog, user, blogs}}>
+                        <Togglable buttonLabel='new blog' ref={blogFormRef} blog={blog}
+                                   updateBlog={updateBlog} user={user} setBlog={setBlog} blogs={blogs}>
+                            <BlogForm createBlog={addBlog}/>
+                        </Togglable>
+                    </ExampleProvider>
                 </Box>
                 <Notification message={message}/>
             </Box>
@@ -244,7 +210,8 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                     </Grid>
                 </Grid>
             </Box>
-            <ExampleProvider val={{blogs, setBlogs, setOpenExpire, comments, setComments}}>
+            <ExampleProvider
+                val={{blogs, setBlogs, setOpenExpire, blog, setBlog, updateBlog}}>
                 <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
                           deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
             </ExampleProvider>

@@ -57,7 +57,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
         if (editMode) {
             setEditMode(false);
         }
-    }, [blogs]); // 这里的数组表示 useEffect 的依赖项，只有当数组中的值改变时，useEffect 才会运行
+    }, [blogs]); //这里为什么要加这个依赖是因为阻塞其退出更新模式，直到blogs有变更才退出
 
     const editBlog = async (id) => {
         if (editMode) {
@@ -84,7 +84,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                         <Typography variant="h5" component="div"
                                     style={{fontFamily: 'Comic Sans MS', cursor: 'url("/mouse-pointer.png"), auto'}}
                                     onClick={() => {
-                                        val.setComments([blog.comment])
+                                        val.setBlog({...blog})
                                         toggleVisibility()
                                     }}>
                             {blog.title}

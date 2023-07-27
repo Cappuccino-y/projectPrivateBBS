@@ -7,6 +7,7 @@ const FooterLink = () => {
         alignItems: 'center',
         margin: '20px 0 10px 0',
         background: 'transparent',
+        flexShrink: 0,
         // position: 'fixed', // Add this line
         // bottom: 0,
         width: '100%' // Add this line
