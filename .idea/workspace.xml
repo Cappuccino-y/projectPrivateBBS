@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="office amend">
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.idea/unicafe-redux.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unicafe-redux/src/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,27 +51,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Notification.DisplayName-DoNotAsk-JavaScript: Code Vision Performance": "JavaScript: code vision performance watcher",
-    "Notification.DoNotAsk-JavaScript: Code Vision Performance": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "D:/project_webcourse-master/FinalProject/bloglist-frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "E:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-JavaScript: Code Vision Performance&quot;: &quot;JavaScript: code vision performance watcher&quot;,
+    &quot;Notification.DoNotAsk-JavaScript: Code Vision Performance&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project_webcourse-master/FinalProject/bloglist-frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\project_webcourse-master\FinalProject\bloglist-frontend\public" />
@@ -112,7 +127,8 @@
       <workItem from="1690275112252" duration="119000" />
       <workItem from="1690333214979" duration="8367000" />
       <workItem from="1690344112782" duration="4994000" />
-      <workItem from="1690353035759" duration="7460000" />
+      <workItem from="1690353035759" duration="7655000" />
+      <workItem from="1690419277980" duration="703000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -226,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690361125934</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="office amend">
+      <option name="closed" value="true" />
+      <created>1690361704996</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690361704996</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
