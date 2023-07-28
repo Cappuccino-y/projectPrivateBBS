@@ -16,19 +16,16 @@ import Card from '@mui/material/Card';
 import {useContext, useEffect, useRef, useState} from "react";
 import ExampleContext from "./ExampleContext";
 import DialogForBlog from "./DialogForBlog";
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import Fade from '@mui/material/Fade';
+
 
 const CommentItem = ({comment, handleDelete}) => {
     const [updateValue, setUpdateValue] = useState(comment.content)
     const [editMode, setEditMode] = useState(false)
     const [open, setOpen] = useState(false)
     const val = useContext(ExampleContext)
-    const updateBlogRef = useRef(null)
 
-    useEffect(() => {
-        if (editMode) {
-            if (updateBlogRef.current && val.blog.comments.length === updateBlogRef.current.comments.length) val.setBlog(updateBlogRef.current);
-        }
-    }, [val.blogs]);
 
     useEffect(() => {
         setEditMode(false);
@@ -42,9 +39,8 @@ const CommentItem = ({comment, handleDelete}) => {
                     ...val.blog,
                     comments: val.blog.comments.map(comment => comment.id === id ? updateComment : comment)
                 }
-                updateBlogRef.current = updateBlog
                 await val.updateBlog(updateBlog)
-
+                val.setBlog(updateBlog);
             } catch (error) {
                 console.log(error)
             }
@@ -54,7 +50,7 @@ const CommentItem = ({comment, handleDelete}) => {
     }
 
     return (
-        <React.Fragment key={comment.id}>
+        <React.Fragment>
             <ListItem alignItems="flex-start">
                 <ListItemText
                     primary={comment.name}
@@ -114,51 +110,92 @@ const Comment = ({comments, handleDelete, handleAddComment}) => {
     }
 
     const [commentText, setCommentText] = React.useState('');
+    const val = useContext(ExampleContext)
+
+
     return (<Card
             sx={{
                 marginTop: '2vh',
                 padding: '0vh',
+                backgroundImage: !val.commentShow ? 'url(bgComments.jpg)' : 'none',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '24px',
+                height: '68vh'
             }}
         >
-            <List
-                className='slide'
-                sx={{width: '100%', maxWidth: 450, bgcolor: 'background.paper', height: '50vh', overflowY: 'auto'}}
-            >
-                {comments.map(comment =>
-                    <CommentItem comment={comment} handleDelete={handleDelete}/>
-                )}
-            </List>
-            <Paper
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    gap: 2,
-                    p: 2,
-                    bgcolor: 'background.paper'
-                }}
-            >
-                <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    multiline
-                    id="comment"
-                    label="New Comment"
-                    name="comment"
-                    value={commentText}
-                    onChange={handleInputChange}
-                />
-                <Button
-                    type="submit"
-                    variant="outlined"
-                    color="primary"
-                    onClick={handleSubmit}
+            <div style={{height: '70%'}}>
+                <CSSTransition
+                    in={val.commentShow}
+                    timeout={300}
+                    classNames="listTransition"
+                    unmountOnExit
                 >
-                    Submit
-                </Button>
-            </Paper>
+                    <List
+                        className='slide'
+                        sx={{
+                            width: '100%',
+                            maxWidth: 450,
+                            bgcolor: 'background.paper',
+                            height: '100%',
+                            overflowY: 'auto'
+                        }}
+                    >
+                        <TransitionGroup>
+                            {comments.map(comment =>
+                                <CSSTransition
+                                    key={comment.id}
+                                    timeout={300}
+                                    classNames="item"
+                                >
+                                    <CommentItem comment={comment} handleDelete={handleDelete}/>
+                                </CSSTransition>
+                            )}
+                        </TransitionGroup>
+                    </List>
+                </CSSTransition>
+            </div>
+            <div style={{height: '30%', display: 'flex', flexDirection: 'column'}}>
+                <Fade in={val.commentShow} timeout={500}>
+                    <Paper
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            gap: 2,
+                            p: 2,
+                            bgcolor: 'background.paper',
+                            padding: '0 10px ',
+                            boxShadow: 'none'
+                        }}
+                    >
+                        <TextField
+                            variant="outlined"
+                            fullWidth
+                            multiline
+                            id="comment"
+                            label="Some words"
+                            name="comment"
+                            value={commentText}
+                            onChange={handleInputChange}
+                            inputProps={{
+                                style: {height: "7vh"}
+                            }}
+                            style={{marginTop: '4vh'}}
+                        />
+                        <Button
+                            type="submit"
+                            variant="outlined"
+                            color="primary"
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </Button>
+                    </Paper>
+                </Fade>
+            </div>
         </Card>
+
     );
 }
 export default Comment;

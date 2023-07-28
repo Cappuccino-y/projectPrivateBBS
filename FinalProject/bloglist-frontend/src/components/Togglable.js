@@ -9,20 +9,14 @@ const Togglable = forwardRef((props, ref) => {
 
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
-    const newBlogRef = useRef(null)
 
-    useEffect(() => {
-        if (newBlogRef.current && newBlogRef.current.comments.length !== props.blog.comments.length) {
-            props.setBlog(newBlogRef.current)
-        }
-    }, [props.blogs])
 
     const handleDelete = async (id) => {
         try {
             const comments = props.blog.comments.filter(comment => comment.id !== id)
             const newBlog = {...props.blog, comments: comments}
-            newBlogRef.current = newBlog
             await props.updateBlog(newBlog)
+            props.setBlog(newBlog)
         } catch (error) {
             console.log(error)
         }
@@ -36,8 +30,9 @@ const Togglable = forwardRef((props, ref) => {
                 date: new Date()
             }, ...props.blog.comments]
             const newBlog = {...props.blog, comments: comments}
-            newBlogRef.current = newBlog
             await props.updateBlog(newBlog)
+            props.setBlog(newBlog)
+
         } catch (error) {
             console.log(error)
         }

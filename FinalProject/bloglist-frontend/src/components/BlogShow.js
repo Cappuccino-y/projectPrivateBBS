@@ -8,11 +8,12 @@ import {
     TableRow,
     Paper, Typography, Pagination
 } from '@mui/material'
-import CircularProgress from '@mui/material/CircularProgress';
+// import CircularProgress from '@mui/material/CircularProgress';
 import blogService from "../services/blogs";
 import ExampleContext from "./ExampleContext";
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
-const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen}) => {
+const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen, commentShow}) => {
     let res = [];
     blogs = blogs.map(blog => !blog.likes ? {...blog, likes: 0} : blog)
     const privateBlogs = blogs.filter(blog => blog.user.username === user.username)
@@ -35,7 +36,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     }
 
     const [page, setPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(6);
+    const [postsPerPage, setPostsPerPage] = useState(5);
     const [loading, setLoading] = useState(false)
     const tableContainerRef = useRef(null);
     const val = useContext(ExampleContext)
@@ -80,7 +81,11 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     }, [blogs])
 
     return <div><TableContainer className='slide' component={Paper}
-                                sx={{height: '80vh', overflowY: 'auto', backgroundColor: 'transparent'}}
+                                sx={{
+                                    height: '80vh',
+                                    overflowY: commentShow ? 'auto' : 'hidden',
+                                    backgroundColor: 'transparent',
+                                }}
                                 ref={tableContainerRef}>
         <Table>
             <TableBody>
@@ -93,22 +98,30 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
                         </div>
                     </TableCell>
                 </TableRow>
-                {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>
-                    <TableRow key={blog.id}>
-                        <TableCell>
-                            <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
-                                  pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
-                                  deleteItem={deleteItem} updateBlog={updateBlog}
-                            />
-                        </TableCell>
-                        <TableCell style={{verticalAlign: 'top'}}>
-                            <br/>
-                            <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
-                                {blog.user.name}
-                            </Typography>
-                        </TableCell>
-                    </TableRow>
-                )}
+                <TransitionGroup component={null}>
+                    {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>
+                        <CSSTransition
+                            key={blog.id}
+                            timeout={300}
+                            classNames="item"
+                        >
+                            <TableRow>
+                                <TableCell>
+                                    <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
+                                          pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
+                                          deleteItem={deleteItem} updateBlog={updateBlog}
+                                    />
+                                </TableCell>
+                                <TableCell style={{verticalAlign: 'top'}}>
+                                    <br/>
+                                    <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
+                                        {blog.user.name}
+                                    </Typography>
+                                </TableCell>
+                            </TableRow>
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
             </TableBody>
         </Table>
     </TableContainer>

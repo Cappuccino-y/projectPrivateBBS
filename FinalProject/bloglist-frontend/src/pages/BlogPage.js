@@ -14,7 +14,7 @@ import {useTheme} from '@mui/material/styles';
 import {useMediaQuery} from '@mui/material'
 import DialogForBlog from "../components/DialogForBlog";
 import {ExampleProvider} from "../components/ExampleContext";
-import {v4 as uuidv4} from "uuid";
+import SnackBlogbar from "../components/SnackBlogbar";
 
 
 const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
@@ -32,8 +32,12 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     const [searchText, setSearchText] = useState('');
     const [isLoadingUser, setIsLoadingUser] = useState(true);
     const [open, setOpen] = useState(false);
+    const [openbar, setOpenbar] = useState(false)
+    const [caution, setCaution] = useState('')
     const [openExpire, setOpenExpire] = useState(false);
     const [blog, setBlog] = useState({comments: []})
+    const [commentShow, setCommentShow] = useState(false)
+
     const navigate = useNavigate()
 
 
@@ -46,7 +50,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         const newValue = blogObject
         blogService.create(newValue).then(response => {
             setBlogs([response, ...blogs])
-            notice("Blog add success", 'success')
+            // notice("Blog add success", 'success')
+            setCaution('Blog add success')
+            setOpenbar(true)
         }).catch(error => {
             notice(`Blog add failed`, 'error')
             console.log(error)
@@ -76,7 +82,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                     pagination.setPage(pagination.page - 1)
                 }
                 setBlogs(blogs.filter(blog => blog.id !== id))
-                notice('Delete success', 'success')
+                // notice('Delete success', 'success')
+                setCaution('Delete Success')
+                setOpenbar(true)
             } catch (error) {
                 notice('Delete failed', 'error')
             }
@@ -146,7 +154,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                                    option1='Yes'
                                    option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
-                    <ExampleProvider val={{blog, updateBlog, setBlog, user, blogs}}>
+                    <ExampleProvider val={{blog, updateBlog, setBlog, user, blogs, commentShow}}>
                         <Togglable buttonLabel='new blog' ref={blogFormRef} blog={blog}
                                    updateBlog={updateBlog} user={user} setBlog={setBlog} blogs={blogs}>
                             <BlogForm createBlog={addBlog}/>
@@ -211,9 +219,10 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                 </Grid>
             </Box>
             <ExampleProvider
-                val={{blogs, setBlogs, setOpenExpire, blog, setBlog, updateBlog}}>
-                <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
-                          deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}/>
+                val={{blogs, setBlogs, setOpenExpire, blog, setBlog, updateBlog, setCommentShow}}>
+                <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs} blog={blog}
+                          deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}
+                          commentShow={commentShow}/>
             </ExampleProvider>
             <DialogForBlog open={openExpire} setOpen={setOpenExpire}
                            handleEvents={
@@ -226,6 +235,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                            prompts='Your session has expired. To continue using our services, please re-login to your account.'
                            option1='OK'
                            option2='Cancel'/>
+            <SnackBlogbar open={openbar} setOpen={setOpenbar} message={caution}/>
         </Grid>
     </Grid>
 }

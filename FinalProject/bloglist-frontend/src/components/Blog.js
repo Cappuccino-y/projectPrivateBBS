@@ -8,7 +8,7 @@ import {
     Grid,
     IconButton,
     Badge,
-    TextField,
+    TextField
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -27,6 +27,14 @@ import DialogForBlog from "./DialogForBlog";
 import {useContext} from "react";
 import ExampleContext from "./ExampleContext";
 import formatDate from "../formatDate";
+import {CSSTransition} from 'react-transition-group';
+
+const transitionStyles = {
+    entering: {height: '0'},
+    entered: {height: 'auto'},
+    exiting: {height: 'auto'},
+    exited: {height: '0'},
+};
 
 
 const stringToColor = (str) => {
@@ -82,9 +90,21 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                        setUpdateValue({...updateValue, title: event.target.value})
                                    }}/> :
                         <Typography variant="h5" component="div"
-                                    style={{fontFamily: 'Comic Sans MS', cursor: 'url("/mouse-pointer.png"), auto'}}
+                                    style={{
+                                        fontFamily: 'Comic Sans MS',
+                                        cursor: 'url("/mouse-pointer.png"), auto',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap',
+                                        width: '100%', // 可以设置为你需要的宽度
+                                    }}
                                     onClick={() => {
-                                        val.setBlog({...blog})
+                                        if (!visible) {
+                                            val.setBlog({...blog})
+                                            val.setCommentShow(true)
+                                        } else {
+                                            val.setCommentShow(false)
+                                        }
                                         toggleVisibility()
                                     }}>
                             {blog.title}
@@ -137,7 +157,13 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                     </IconButton>
                 </Grid>
             </Grid>
-            <Box style={{...showWhenVisible}}>
+            {/*<CSSTransition*/}
+            {/*    in={visible}*/}
+            {/*    timeout={500}*/}
+            {/*    classNames="blog-content"*/}
+            {/*    unmountOnExit*/}
+            {/*>*/}
+            <Box style={{display: visible ? '' : 'none'}}>
                 {editMode && isPrivate ?
                     <MDEditor
                         value={updateValue.content}
@@ -159,6 +185,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                            style={{whiteSpace: 'pre-wrap', backgroundColor: 'transparent'}}/>
                     </Typography>}
             </Box>
+            {/*</CSSTransition>*/}
             <Box>
                 <Typography gutterBottom style={{fontFamily: 'Roboto Mono', fontSize: '15px', color: '#004d7a'}}>
                     {formatDate(blog.date)}
