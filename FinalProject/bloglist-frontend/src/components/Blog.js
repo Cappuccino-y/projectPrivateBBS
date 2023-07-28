@@ -83,7 +83,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     return <Card sx={{my: 1, backgroundColor: 'transparent'}}>
         <CardContent style={{paddingBottom: '8px'}}>
             <Grid container justifyContent="space-between" alignItems="center">
-                <Grid item md={5}>
+                <Grid item md={6} xs={5}>
                     {editMode && isPrivate ?
                         <TextField label="Title" fullWidth margin="normal" value={updateValue.title} size='small'
                                    onChange={(event) => {
@@ -94,8 +94,8 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                         fontFamily: 'Comic Sans MS',
                                         cursor: 'url("/mouse-pointer.png"), auto',
                                         overflow: 'hidden',
-                                        textOverflow: 'ellipsis',
-                                        whiteSpace: 'nowrap',
+                                        textOverflow: visible ? '' : 'ellipsis',
+                                        whiteSpace: visible ? 'normal' : 'nowrap',
                                         width: '100%', // 可以设置为你需要的宽度
                                     }}
                                     onClick={() => {
@@ -111,7 +111,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                         </Typography>}
 
                 </Grid>
-                <Grid item md={3} display='flex' justifyContent='center' alignItems='center'>
+                <Grid item md={3} xs={4} display='flex' justifyContent='flex-end' alignItems='center'>
                     <Box display="flex" alignItems="center" justifyContent="flex-start" width="100%">
                         <SellIcon sx={{color: stringToColor(blog.tag)}}/>
                         {editMode && isPrivate ?
@@ -133,28 +133,30 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                             </Typography>}
                     </Box>
                 </Grid>
-                <Grid item>
-                    <IconButton onClick={toggleVisibility}>
-                        {visible ? <VisibilityOffIcon/> : <VisibilityIcon/>}
-                    </IconButton>
-                    <IconButton color="secondary" onClick={() => {
-                        if (!blog.likes) blog.likes = 1
-                        else blog.likes += 1
-                        updateBlog(blog)
-                    }}>
-                        <Badge
-                            badgeContent={blog.likes === undefined ? 0 : blog.likes} color="error">
-                            <ThumbUpIcon/>
-                        </Badge>
-                    </IconButton>
-                    <IconButton color="black" onClick={() => {
-                        if (blog.likes !== undefined & blog.likes > 0) {
-                            blog.likes -= 1
+                <Grid item md={3} xs={3}>
+                    <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                        <IconButton onClick={toggleVisibility}>
+                            {visible ? <VisibilityOffIcon/> : <VisibilityIcon/>}
+                        </IconButton>
+                        <IconButton color="secondary" onClick={() => {
+                            if (!blog.likes) blog.likes = 1
+                            else blog.likes += 1
                             updateBlog(blog)
-                        }
-                    }}>
-                        <ThumbDownIcon/>
-                    </IconButton>
+                        }}>
+                            <Badge
+                                badgeContent={blog.likes === undefined ? 0 : blog.likes} color="error">
+                                <ThumbUpIcon/>
+                            </Badge>
+                        </IconButton>
+                        <IconButton color="black" onClick={() => {
+                            if (blog.likes !== undefined & blog.likes > 0) {
+                                blog.likes -= 1
+                                updateBlog(blog)
+                            }
+                        }}>
+                            <ThumbDownIcon/>
+                        </IconButton>
+                    </div>
                 </Grid>
             </Grid>
             {/*<CSSTransition*/}

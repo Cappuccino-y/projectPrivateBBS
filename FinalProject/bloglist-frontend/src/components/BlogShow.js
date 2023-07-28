@@ -107,13 +107,13 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
                             classNames="item"
                         >
                             <TableRow>
-                                <TableCell>
+                                <TableCell style={{width: '95%'}}>
                                     <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
                                           pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
                                           deleteItem={deleteItem} updateBlog={updateBlog}
                                     />
                                 </TableCell>
-                                <TableCell style={{verticalAlign: 'top'}}>
+                                <TableCell style={{width: '5%', verticalAlign: 'top'}}>
                                     <br/>
                                     <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
                                         {blog.user.name}
