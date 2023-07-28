@@ -36,7 +36,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     }
 
     const [page, setPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(5);
+    const [postsPerPage, setPostsPerPage] = useState(7);
     const [loading, setLoading] = useState(false)
     const tableContainerRef = useRef(null);
     const val = useContext(ExampleContext)
@@ -83,7 +83,8 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     return <div><TableContainer className='slide' component={Paper}
                                 sx={{
                                     height: '80vh',
-                                    overflowY: commentShow ? 'auto' : 'hidden',
+                                    // overflowY: commentShow ? 'auto' : 'hidden',
+                                    overflowY: 'auto',
                                     backgroundColor: 'transparent',
                                 }}
                                 ref={tableContainerRef}>

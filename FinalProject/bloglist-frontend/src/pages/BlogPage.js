@@ -21,9 +21,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
 
 // In your component
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-// Modify your Grid structure
+// const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [blogs, setBlogs] = useState([])
     const [isPrivate, setisPrivate] = useState(false)
