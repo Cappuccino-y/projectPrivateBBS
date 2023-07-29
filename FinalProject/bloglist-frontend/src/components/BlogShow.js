@@ -107,7 +107,6 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
             className='slide' component={Paper}
             sx={{
                 height: '80vh',
-                // overflowY: commentShow ? 'auto' : 'hidden',
                 overflowY: 'auto',
                 backgroundColor: 'transparent',
             }}

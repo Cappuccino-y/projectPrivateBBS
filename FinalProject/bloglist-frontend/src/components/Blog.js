@@ -100,10 +100,9 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                     }}
                                     onClick={() => {
                                         if (!visible) {
-                                            val.setBlog({...blog})
-                                            val.setCommentShow(true)
+                                            val.setBlogId(blog.id)
                                         } else {
-                                            val.setCommentShow(false)
+                                            val.setBlogId('')
                                         }
                                         toggleVisibility()
                                     }}>

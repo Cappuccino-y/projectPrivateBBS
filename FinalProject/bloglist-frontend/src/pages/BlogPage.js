@@ -33,10 +33,10 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
     const [openbar, setOpenbar] = useState(false)
     const [caution, setCaution] = useState('')
     const [openExpire, setOpenExpire] = useState(false);
-    const [blog, setBlog] = useState({comments: []})
-    const [commentShow, setCommentShow] = useState(false)
+    const [blogId, setBlogId] = useState('')
 
     const navigate = useNavigate()
+    const blog = blogs.find(blog => blog.id === blogId)
 
 
     const sortedByLikes = () => {
@@ -152,9 +152,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                                    option1='Yes'
                                    option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
-                    <ExampleProvider val={{blog, updateBlog, setBlog, user, blogs, commentShow}}>
+                    <ExampleProvider val={{blog, updateBlog, user, blogs}}>
                         <Togglable buttonLabel='new blog' ref={blogFormRef} blog={blog}
-                                   updateBlog={updateBlog} user={user} setBlog={setBlog} blogs={blogs}>
+                                   updateBlog={updateBlog} user={user} blogs={blogs}>
                             <BlogForm createBlog={addBlog}/>
                         </Togglable>
                     </ExampleProvider>
@@ -217,10 +217,10 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                 </Grid>
             </Box>
             <ExampleProvider
-                val={{blogs, setBlogs, setOpenExpire, blog, setBlog, updateBlog, setCommentShow}}>
+                val={{blogs, setBlogs, setOpenExpire, blogId, setBlogId, updateBlog}}>
                 <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs} blog={blog}
                           deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}
-                          commentShow={commentShow}/>
+                />
             </ExampleProvider>
             <DialogForBlog open={openExpire} setOpen={setOpenExpire}
                            handleEvents={

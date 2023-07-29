@@ -40,7 +40,6 @@ const CommentItem = ({comment, handleDelete}) => {
                     comments: val.blog.comments.map(comment => comment.id === id ? updateComment : comment)
                 }
                 await val.updateBlog(updateBlog)
-                val.setBlog(updateBlog);
             } catch (error) {
                 console.log(error)
             }
@@ -111,13 +110,14 @@ const Comment = ({comments, handleDelete, handleAddComment}) => {
 
     const [commentText, setCommentText] = React.useState('');
     const val = useContext(ExampleContext)
+    const commentShow = val.blog ? true : false
 
 
     return (<Card
             sx={{
                 marginTop: '2vh',
                 padding: '0vh',
-                backgroundImage: !val.commentShow ? 'url(bgComments.jpg)' : 'none',
+                backgroundImage: !commentShow ? 'url(bgComments.jpg)' : 'none',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 borderRadius: '24px',
@@ -126,7 +126,7 @@ const Comment = ({comments, handleDelete, handleAddComment}) => {
         >
             <div style={{height: '70%'}}>
                 <CSSTransition
-                    in={val.commentShow}
+                    in={commentShow}
                     timeout={300}
                     classNames="listTransition"
                     unmountOnExit
@@ -156,7 +156,7 @@ const Comment = ({comments, handleDelete, handleAddComment}) => {
                 </CSSTransition>
             </div>
             <div style={{height: '30%', display: 'flex', flexDirection: 'column'}}>
-                <Fade in={val.commentShow} timeout={500}>
+                <Fade in={commentShow} timeout={500}>
                     <Paper
                         style={{
                             display: 'flex',

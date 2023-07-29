@@ -16,7 +16,6 @@ const Togglable = forwardRef((props, ref) => {
             const comments = props.blog.comments.filter(comment => comment.id !== id)
             const newBlog = {...props.blog, comments: comments}
             await props.updateBlog(newBlog)
-            props.setBlog(newBlog)
         } catch (error) {
             console.log(error)
         }
@@ -31,8 +30,6 @@ const Togglable = forwardRef((props, ref) => {
             }, ...props.blog.comments]
             const newBlog = {...props.blog, comments: comments}
             await props.updateBlog(newBlog)
-            props.setBlog(newBlog)
-
         } catch (error) {
             console.log(error)
         }
@@ -53,7 +50,7 @@ const Togglable = forwardRef((props, ref) => {
             <div style={hideWhenVisible}>
                 <Button variant="contained" onClick={toggleVisibility} style={{marginTop: '8px'}}
                 >{props.buttonLabel}</Button>
-                <Comment comments={props.blog.comments} handleDelete={handleDelete}
+                <Comment comments={props.blog ? props.blog.comments : []} handleDelete={handleDelete}
                          handleAddComment={handleAddComment}/>
             </div>
             <div style={showWhenVisible}>
