@@ -41,23 +41,43 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     const tableContainerRef = useRef(null);
     const val = useContext(ExampleContext)
     const handlePageChange = (event, value) => setPage(value);
+    const [startY, setStartY] = useState(0);
 
-    const handleScroll = () => {
-        if (tableContainerRef.current.scrollTop === 0 && page === 1) {
-            setLoading(true)
-            const fetchBlogs = async () => {
-                try {
-                    const res = await blogService.getAll()
-                    val.setBlogs(res.reverse())
-                } catch {
-                    if (user) {
-                        val.setOpenExpire(true)
-                    }
-                }
+
+    const fetchBlogs = async () => {
+        try {
+            const res = await blogService.getAll()
+            val.setBlogs(res.reverse())
+        } catch {
+            if (user) {
+                val.setOpenExpire(true)
             }
+        }
+    }
+
+    const handleScroll = (e) => {
+        if (tableContainerRef.current.scrollTop === 0 && e.deltaY < 0 && page === 1) {
+            setLoading(true)
             fetchBlogs()
         }
     };
+
+    const touchStart = (e) => {
+        const touchPositionInContainer = e.touches[0].clientY - tableContainerRef.current.getBoundingClientRect().top;
+        console.log('start', touchPositionInContainer)
+        setStartY(touchPositionInContainer);
+    }
+
+    const touchEnd = (e) => {
+        const touchPositionInContainer = e.changedTouches[0].clientY - tableContainerRef.current.getBoundingClientRect().top;
+        if (tableContainerRef.current.scrollTop === 0 && touchPositionInContainer > startY && page === 1) {
+            console.log('end', touchPositionInContainer)
+            setLoading(true);
+            fetchBlogs();
+        }
+        setStartY(touchPositionInContainer);
+    }
+
 
     useEffect(() => {
         setLoading(false)
@@ -66,11 +86,17 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     useEffect(() => {
         const container = tableContainerRef.current;
         if (container) {
-            container.addEventListener('scroll', handleScroll);
+            container.addEventListener('wheel', handleScroll);
+            container.addEventListener('touchstart', touchStart);
+            container.addEventListener('touchend', touchEnd);
         }
+
+        // 移除事件监听器
         return () => {
             if (container) {
-                container.removeEventListener('scroll', handleScroll);
+                container.removeEventListener('wheel', handleScroll);
+                container.removeEventListener('touchstart', touchStart);
+                container.removeEventListener('touchend', touchEnd);
             }
         };
     }, [page]);
