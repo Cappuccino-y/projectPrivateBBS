@@ -20,7 +20,7 @@ import SnackBlogbar from "../components/SnackBlogbar";
 const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
 
 // In your component
-    const theme = useTheme();
+//     const theme = useTheme();
 // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [blogs, setBlogs] = useState([])

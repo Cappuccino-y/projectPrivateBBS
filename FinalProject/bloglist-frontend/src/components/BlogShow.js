@@ -6,7 +6,8 @@ import {
     TableCell,
     TableContainer,
     TableRow,
-    Paper, Typography, Pagination
+    Paper, Typography, Pagination,
+    useMediaQuery, useTheme
 } from '@mui/material'
 // import CircularProgress from '@mui/material/CircularProgress';
 import blogService from "../services/blogs";
@@ -41,8 +42,8 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     const tableContainerRef = useRef(null);
     const val = useContext(ExampleContext)
     const handlePageChange = (event, value) => setPage(value);
-    const [startY, setStartY] = useState(0);
-
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const fetchBlogs = async () => {
         try {
@@ -55,29 +56,18 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
         }
     }
 
-    const handleScroll = (e) => {
-        if (tableContainerRef.current.scrollTop === 0 && e.deltaY < 0 && page === 1) {
+    const handleWheel = (e) => {
+        if (tableContainerRef.current.scrollTop === 0 && page === 1 && e.deltaY < 0) {
             setLoading(true)
             fetchBlogs()
         }
     };
-
-    const touchStart = (e) => {
-        const touchPositionInContainer = e.touches[0].clientY - tableContainerRef.current.getBoundingClientRect().top;
-        console.log('start', touchPositionInContainer)
-        setStartY(touchPositionInContainer);
-    }
-
-    const touchEnd = (e) => {
-        const touchPositionInContainer = e.changedTouches[0].clientY - tableContainerRef.current.getBoundingClientRect().top;
-        if (tableContainerRef.current.scrollTop === 0 && touchPositionInContainer > startY && page === 1) {
-            console.log('end', touchPositionInContainer)
-            setLoading(true);
-            fetchBlogs();
+    const handleScroll = (e) => {
+        if (tableContainerRef.current.scrollTop === 0 && page === 1) {
+            setLoading(true)
+            fetchBlogs()
         }
-        setStartY(touchPositionInContainer);
-    }
-
+    };
 
     useEffect(() => {
         setLoading(false)
@@ -86,18 +76,24 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     useEffect(() => {
         const container = tableContainerRef.current;
         if (container) {
-            container.addEventListener('wheel', handleScroll);
-            container.addEventListener('touchstart', touchStart);
-            container.addEventListener('touchend', touchEnd);
+            if (!isMobile) {
+                container.addEventListener('wheel', handleWheel);
+            }
+            if (isMobile) {
+                container.addEventListener('scroll', handleScroll);
+            }
         }
 
-        // 移除事件监听器
         return () => {
             if (container) {
-                container.removeEventListener('wheel', handleScroll);
-                container.removeEventListener('touchstart', touchStart);
-                container.removeEventListener('touchend', touchEnd);
+                if (!isMobile) {
+                    container.removeEventListener('wheel', handleWheel);
+                }
+                if (isMobile) {
+                    container.removeEventListener('scroll', handleScroll);
+                }
             }
+
         };
     }, [page]);
 
@@ -106,52 +102,54 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
         else if (page == 0) setPage(1)
     }, [blogs])
 
-    return <div><TableContainer className='slide' component={Paper}
-                                sx={{
-                                    height: '80vh',
-                                    // overflowY: commentShow ? 'auto' : 'hidden',
-                                    overflowY: 'auto',
-                                    backgroundColor: 'transparent',
-                                }}
-                                ref={tableContainerRef}>
-        <Table>
-            <TableBody>
-                <TableRow style={{display: loading ? '' : 'none'}}>
-                    <TableCell colSpan={2} style={{textAlign: 'center'}}>
-                        <div>
-                            <div className="dot"></div>
-                            <div className="dot"></div>
-                            <div className="dot"></div>
-                        </div>
-                    </TableCell>
-                </TableRow>
-                <TransitionGroup component={null}>
-                    {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>
-                        <CSSTransition
-                            key={blog.id}
-                            timeout={300}
-                            classNames="item"
-                        >
-                            <TableRow>
-                                <TableCell style={{width: '95%'}}>
-                                    <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
-                                          pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
-                                          deleteItem={deleteItem} updateBlog={updateBlog}
-                                    />
-                                </TableCell>
-                                <TableCell style={{width: '5%', verticalAlign: 'top'}}>
-                                    <br/>
-                                    <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
-                                        {blog.user.name}
-                                    </Typography>
-                                </TableCell>
-                            </TableRow>
-                        </CSSTransition>
-                    )}
-                </TransitionGroup>
-            </TableBody>
-        </Table>
-    </TableContainer>
+    return <div>
+        <TableContainer
+            className='slide' component={Paper}
+            sx={{
+                height: '80vh',
+                // overflowY: commentShow ? 'auto' : 'hidden',
+                overflowY: 'auto',
+                backgroundColor: 'transparent',
+            }}
+            ref={tableContainerRef}>
+            <Table>
+                <TableBody>
+                    <TableRow style={{display: loading ? '' : 'none'}}>
+                        <TableCell colSpan={2} style={{textAlign: 'center'}}>
+                            <div>
+                                <div className="dot"></div>
+                                <div className="dot"></div>
+                                <div className="dot"></div>
+                            </div>
+                        </TableCell>
+                    </TableRow>
+                    <TransitionGroup component={null}>
+                        {res.slice((page - 1) * postsPerPage, page * postsPerPage).map(blog =>
+                            <CSSTransition
+                                key={blog.id}
+                                timeout={300}
+                                classNames="item"
+                            >
+                                <TableRow>
+                                    <TableCell style={{width: '95%'}}>
+                                        <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
+                                              pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
+                                              deleteItem={deleteItem} updateBlog={updateBlog}
+                                        />
+                                    </TableCell>
+                                    <TableCell style={{width: '5%', verticalAlign: 'top'}}>
+                                        <br/>
+                                        <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
+                                            {blog.user.name}
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
+                            </CSSTransition>
+                        )}
+                    </TransitionGroup>
+                </TableBody>
+            </Table>
+        </TableContainer>
         <Pagination
             count={Math.ceil(res.length / postsPerPage)}
             page={page}
