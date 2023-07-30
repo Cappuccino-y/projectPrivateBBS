@@ -10,4 +10,9 @@ const create = async newObject => {
     const response = await axios.post(baseUrl, newObject)
     return response.data
 }
-export default {update, create}
+
+const getAll = async () => {
+    const response = await axios.get(baseUrl)
+    return response.data
+}
+export default {update, getAll, create}

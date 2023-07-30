@@ -62,7 +62,7 @@ const Togglable = forwardRef((props, ref) => {
                          handleAddComment={handleAddComment}/>
             </div>
             <div style={showWhenVisible}>
-                {props.children}
+
                 <Button variant='outlined' onClick={toggleVisibility}>cancel</Button>
             </div>
 

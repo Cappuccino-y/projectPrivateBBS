@@ -17,7 +17,7 @@ import {ExampleProvider} from "../components/ExampleContext";
 import SnackBlogbar from "../components/SnackBlogbar";
 
 
-const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
+const BlogPage = ({user, message, blogFormRef, setUser, notice, users}) => {
 
 // In your component
 //     const theme = useTheme();
@@ -152,7 +152,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                                    option1='Yes'
                                    option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
-                    <ExampleProvider val={{blog, updateBlog, user, blogs}}>
+                    <ExampleProvider val={{blog, updateBlog, user, blogs, users, addBlog}}>
                         <Togglable buttonLabel='new blog' ref={blogFormRef} blog={blog}
                                    updateBlog={updateBlog} user={user} blogs={blogs}>
                             <BlogForm createBlog={addBlog}/>

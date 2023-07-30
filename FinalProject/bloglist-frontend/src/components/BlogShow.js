@@ -14,7 +14,7 @@ import blogService from "../services/blogs";
 import ExampleContext from "./ExampleContext";
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
-const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen, commentShow}) => {
+const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, stateListen}) => {
     let res = [];
     blogs = blogs.map(blog => !blog.likes ? {...blog, likes: 0} : blog)
     const privateBlogs = blogs.filter(blog => blog.user.username === user.username)
@@ -35,7 +35,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
             res = [...blogs]
         }
     }
-
+    res = res.filter(blog => (blog.visible.includes(user.name) || blog.user.name === user.name))
     const [page, setPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(7);
     const [loading, setLoading] = useState(false)
@@ -95,12 +95,13 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
             }
 
         };
+
     }, [page]);
 
     useEffect(() => {
         if (page > Math.ceil(res.length / postsPerPage)) setPage(Math.ceil(res.length / postsPerPage))
         else if (page == 0) setPage(1)
-    }, [blogs])
+    }, [blogs.length])
 
     return <div>
         <TableContainer

@@ -82,7 +82,7 @@ const LoginPageBg = ({setMessage, message, handleLogin}) => {
     );
 }
 
-const BlogPageBg = ({user, message, setUser, blogFormRef, notice}) => {
+const BlogPageBg = ({user, message, setUser, blogFormRef, notice, users}) => {
     useEffect(() => {
         document.body.style = `background: url(bg3.jpg) left center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;`;
         return () => {
@@ -91,15 +91,27 @@ const BlogPageBg = ({user, message, setUser, blogFormRef, notice}) => {
     }, []);
 
     return (
-        <BlogPage user={user} message={message} setUser={setUser}
+        <BlogPage user={user} message={message} setUser={setUser} users={users}
                   blogFormRef={blogFormRef} notice={notice}/>
     );
 }
 const App = () => {
     const [user, setUser] = useState(null)
+    const [users, setUsers] = useState([])
     const [message, setMessage] = useState({content: '', sign: ''})
     const blogFormRef = useRef()
 
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const res = await userService.getAll()
+                setUsers(res)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchUsers()
+    }, [])
 
     const notice = (content, sign) => {
         setMessage(
@@ -178,7 +190,7 @@ const App = () => {
                         <Route path="/login" element={<LoginPageBg handleLogin={handleLogin} message={message}
                                                                    setMessage={setMessage}/>}/>
                         <Route path="/blogs"
-                               element={<BlogPageBg user={user} message={message} setUser={setUser}
+                               element={<BlogPageBg user={user} message={message} setUser={setUser} users={users}
                                                     blogFormRef={blogFormRef} notice={notice}/>}/>
                     </Routes>
                 </Router>

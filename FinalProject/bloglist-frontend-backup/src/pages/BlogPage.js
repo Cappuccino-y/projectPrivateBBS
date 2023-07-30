@@ -17,7 +17,7 @@ import {ExampleProvider} from "../components/ExampleContext";
 import {v4 as uuidv4} from "uuid";
 
 
-const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
+const BlogPage = ({user, message, blogFormRef, setUser, notice, users}) => {
 
 // In your component
     const theme = useTheme();
@@ -38,6 +38,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
 
     const navigate = useNavigate()
 
+    console.log(users)
 
     const sortedByLikes = () => {
         setButtonColor(buttonColor === 'grey' ? '#00a7d0' : 'grey');
@@ -111,7 +112,6 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
         setIsLoadingUser(false)
     }, [user])
 
-
     if (isLoadingUser) {
         return <div>Loading...</div>;
     }
@@ -148,11 +148,9 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice}) => {
                                    option1='Yes'
                                    option2='Cancel'/>
                     <Divider sx={{my: 2}} style={{marginBottom: '0px'}}/>
-                    <ExampleProvider val={{blog, updateBlog, setBlog, user, blogs, commentShow}}>
-                        <Togglable buttonLabel='new blog' ref={blogFormRef} blog={blog}
-                                   updateBlog={updateBlog} user={user} setBlog={setBlog} blogs={blogs}>
-                            <BlogForm createBlog={addBlog}/>
-                        </Togglable>
+                    <ExampleProvider val={{blog, updateBlog, setBlog, user, blogs, commentShow, users}}>
+                        <Togglable buttonLabel='new blog' ref={blogFormRef} blog={blog} addBlog={addBlog}
+                                   updateBlog={updateBlog} user={user} setBlog={setBlog} blogs={blogs}/>
                     </ExampleProvider>
                 </Box>
                 <Notification message={message}/>

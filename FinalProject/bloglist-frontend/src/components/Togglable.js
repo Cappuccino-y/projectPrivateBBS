@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '@mui/material/Button'
 import Comment from './Comment'
 import {v4 as uuidv4} from 'uuid';
+import BlogForm from "./BlogForm";
 
 const Togglable = forwardRef((props, ref) => {
     const [visible, setVisible] = useState(false)
@@ -54,8 +55,7 @@ const Togglable = forwardRef((props, ref) => {
                          handleAddComment={handleAddComment}/>
             </div>
             <div style={showWhenVisible}>
-                {props.children}
-                <Button variant='outlined' onClick={toggleVisibility}>cancel</Button>
+                <BlogForm toggleVisibility={toggleVisibility}/>
             </div>
 
         </div>
