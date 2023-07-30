@@ -40,6 +40,7 @@
 import {useState, useRef, useEffect} from 'react'
 import blogService from './services/blogs'
 import loginService from './services/login'
+import userService from './services/users'
 import LoginPage from './pages/LoginPage'
 import BlogPage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
@@ -51,6 +52,7 @@ import {
     BrowserRouter as Router,
     Routes, Route, Link, Navigate, useNavigate
 } from "react-router-dom"
+import ExampleContext, {ExampleProvider} from "./components/ExampleContext";
 
 
 const HomePageBg = () => {
@@ -107,7 +109,41 @@ const App = () => {
             setMessage({content: '', sign: ''})
         }, 3000)
     }
+    const handleSignUp = async (userInfo, setSnackbarOpen, setMessage) => {
+        try {
+            const user = await userService.create({
+                username: userInfo.username, password: userInfo.password, name: userInfo.name
+            })
+            setMessage('Create success, please log in')
+            setSnackbarOpen(true)
+            return
+        } catch (error) {
+            setMessage('Username or name registered and at least 3 words for password')
+            setSnackbarOpen(true)
+            return
+        }
+    }
 
+    const handleReset = async (userInfo, setSnackbarOpen, setMessage) => {
+        try {
+            await loginService.login({
+                username: userInfo.username, password: userInfo.oldPassword
+            })
+        } catch (error) {
+            setMessage('Wrong username or password')
+            setSnackbarOpen(true)
+            return
+        }
+        try {
+            window.localStorage.removeItem('loggedBlogappUser')
+            await userService.update(userInfo.username, userInfo.newPassword)
+            setMessage('Change successful')
+            setSnackbarOpen(true)
+        } catch (exception) {
+            setMessage('Change failed')
+            setSnackbarOpen(true)
+        }
+    }
 
     const handleLogin = async (username, password, navigate) => {
         try {
@@ -128,24 +164,26 @@ const App = () => {
             notice('Wrong username or password', 'error')
         }
     }
-    
+
     return (
         // <ThemeProvider theme={theme}>
         // <div style={{margin: '0vh 25vh 0vh 25vh'}}>
         // </div>
         <Container>
-            <Router>
-                <Routes>
-                    <Route path="" element={<Navigate to={'/home'}/>}/>
-                    <Route path="/home" element={<HomePageBg/>}/>
-                    <Route path="/login" element={<LoginPageBg handleLogin={handleLogin}
-                                                               message={message} setMessage={setMessage}/>}/>
-                    <Route path="/blogs"
-                           element={<BlogPageBg user={user} message={message} setUser={setUser}
-                                                blogFormRef={blogFormRef} notice={notice}/>}/>
-                </Routes>
-            </Router>
-            <FooterLink/>
+            <ExampleProvider val={{handleReset, handleSignUp}}>
+                <Router>
+                    <Routes>
+                        <Route path="" element={<Navigate to={'/home'}/>}/>
+                        <Route path="/home" element={<HomePageBg/>}/>
+                        <Route path="/login" element={<LoginPageBg handleLogin={handleLogin} message={message}
+                                                                   setMessage={setMessage}/>}/>
+                        <Route path="/blogs"
+                               element={<BlogPageBg user={user} message={message} setUser={setUser}
+                                                    blogFormRef={blogFormRef} notice={notice}/>}/>
+                    </Routes>
+                </Router>
+                <FooterLink/>
+            </ExampleProvider>
         </Container>
         // </ThemeProvider>
     )

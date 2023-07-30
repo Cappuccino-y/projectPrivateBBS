@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs')
 const usersRouter = require('express').Router()
 const User = require('../models/user')
+const saltRounds = 10
 
 usersRouter.get('/', async (request, response) => {
     const users = await User
@@ -10,6 +11,15 @@ usersRouter.get('/', async (request, response) => {
 usersRouter.delete('/:id', async (request, response) => {
     await User.findByIdAndRemove(request.params.id)
     response.status(204).end()
+})
+
+// 更新密码
+usersRouter.put('/:username', async (request, response, next) => {
+    const passwordHash = await bcrypt.hash(request.body.newPassword, saltRounds)
+    const updatedUser = await User.updateOne({username: request.params.username},
+        {$set: {passwordHash: passwordHash}}
+        , {new: true})
+    response.json(updatedUser)
 })
 
 usersRouter.post('/', async (request, response) => {
@@ -28,7 +38,6 @@ usersRouter.post('/', async (request, response) => {
         })
     }
 
-    const saltRounds = 10
     const passwordHash = await bcrypt.hash(password, saltRounds)
 
     const user = new User({

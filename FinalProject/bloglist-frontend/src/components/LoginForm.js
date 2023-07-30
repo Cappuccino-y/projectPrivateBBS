@@ -1,6 +1,9 @@
 import {useState} from 'react'
 import {useNavigate} from "react-router-dom";
 import {Button, Grid, TextField, Typography, Box} from '@mui/material';
+import DialogReset from "./DialogReset";
+import DialogSignUp from "./DialogSignUp";
+
 
 const LoginForm = ({handleLogin, setMessage}) => {
     const [username, setUsername] = useState('')
@@ -46,11 +49,13 @@ const LoginForm = ({handleLogin, setMessage}) => {
                     onChange={({target}) => setPassword(target.value)}
                 />
             </Grid>
-            <Grid item>
+            <Grid item style={{display: 'flex', justifyContent: 'space-evenly'}}>
                 <Button variant="contained" color="secondary" type="submit"
-                        sx={{fontFamily: 'Georgia, serif', fontSize: '1.2em'}}>
+                        sx={{fontFamily: 'Georgia, serif', fontSize: '1.2em', marginRight: '8px'}}>
                     Login
                 </Button>
+                <DialogReset/>
+                <DialogSignUp/>
             </Grid>
         </Grid>
     </Box>

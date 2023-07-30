@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="home amend">
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/DialogReset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/DialogSignUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Togglable.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Togglable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/controllers/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/blogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/controllers/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +125,8 @@
       <workItem from="1690607494180" duration="1754000" />
       <workItem from="1690609343782" duration="4030000" />
       <workItem from="1690613446539" duration="42000" />
-      <workItem from="1690637433676" duration="1352000" />
+      <workItem from="1690637433676" duration="1653000" />
+      <workItem from="1690683770037" duration="9736000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -252,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690613467803</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="home amend">
+      <option name="closed" value="true" />
+      <created>1690639107219</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1690639107219</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
