@@ -1,14 +1,16 @@
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import {useNavigate} from "react-router-dom";
 import {Button, Grid, TextField, Typography, Box} from '@mui/material';
 import DialogReset from "./DialogReset";
 import DialogSignUp from "./DialogSignUp";
+import ExampleContext from "./ExampleContext";
 
 
 const LoginForm = ({handleLogin, setMessage}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const val = useContext(ExampleContext)
 
 
     const userLogin = (event) => {
@@ -20,7 +22,7 @@ const LoginForm = ({handleLogin, setMessage}) => {
     }
 
 
-    return <Box component="form" onSubmit={userLogin} sx={{width: '55%', mt: 6, mx: 'auto'}}>
+    return <Box component="form" onSubmit={userLogin} sx={{width: '55%', mx: val.isMobile ? 'none' : 'auto'}}>
         <Grid container spacing={2} direction="column">
             <Grid item>
                 <Typography variant="h4" align="left" gutterBottom

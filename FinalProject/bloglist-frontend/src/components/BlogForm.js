@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import {Box, Typography, TextField, Button} from "@mui/material";
+import {Box, Typography, TextField, Button, useTheme, useMediaQuery} from "@mui/material";
 import {Autocomplete, Radio, RadioGroup, FormControlLabel} from '@mui/material';
 import {Grid} from "@mui/material";
 import MDEditor from '@uiw/react-md-editor';
@@ -17,7 +17,8 @@ const BlogForm = ({toggleVisibility}) => {
         label: user.name,
         value: user.name
     })).filter(user => user.value !== val.user.name) : []
-
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const handleChange = (event, newValue) => {
         setNewBlog({...newBlog, visible: newValue.map(val => val.value)});
         setVisibleUsers(newValue)
@@ -48,6 +49,7 @@ const BlogForm = ({toggleVisibility}) => {
     const handleBlogTagChange = (event) => {
         setNewBlog({...newBlog, tag: event.target.value})
     }
+    console.log(val.isMobile)
 
     return <Box my={2} style={{marginTop: '0px'}}>
         {/*<Typography variant="h5" component="h2" gutterBottom>*/}
@@ -59,7 +61,7 @@ const BlogForm = ({toggleVisibility}) => {
             <MDEditor
                 value={newBlog.content}
                 onChange={content => setNewBlog({...newBlog, content})}
-                height='46vh'
+                height={isMobile ? '43vh' : '46vh'}
                 commandsFilter={(command, isExtra) => {
                     if (command.name === 'image') {
                         // Replace the image command with your custom command

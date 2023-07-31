@@ -3,14 +3,17 @@ import {Button, Container, Typography, Grid, Box, Paper} from "@mui/material";
 import LoginIcon from '@mui/icons-material/Login';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
+import {useContext} from "react";
+import ExampleContext from "../components/ExampleContext";
 
 const HomePage = () => {
     const navigate = useNavigate()
+    const val = useContext(ExampleContext)
     const switchPage = () => {
         navigate('/login')
     }
     return <div className='animation-home'>
-        <Grid container style={{height: "92vh", background: "#f4f6f8"}}>
+        <Grid container style={{height: val.isMobile ? '90vh' : "92vh", background: "#f4f6f8"}}>
             <Grid item xs={12} md={6} style={{
                 backgroundSize: "cover",
                 backgroundPosition: "center",

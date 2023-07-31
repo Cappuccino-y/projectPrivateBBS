@@ -8,7 +8,7 @@ import {
     Grid,
     IconButton,
     Badge,
-    TextField
+    TextField, useTheme, useMediaQuery
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -57,6 +57,8 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     const hideWhenVisible = {display: visible ? 'none' : ''}
     const showWhenVisible = {display: visible ? '' : 'none'}
     const val = useContext(ExampleContext)
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const toggleVisibility = () => {
         setVisible(!visible)
@@ -81,9 +83,9 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     }
 
     return <Card sx={{my: 1, backgroundColor: 'transparent'}}>
-        <CardContent style={{paddingBottom: '8px'}}>
+        <CardContent style={{paddingBottom: '8px', paddingRight: '0'}}>
             <Grid container justifyContent="space-between" alignItems="center">
-                <Grid item md={6} xs={5}>
+                <Grid item md={8} xs={7}>
                     {editMode && isPrivate ?
                         <TextField label="Title" fullWidth margin="normal" value={updateValue.title} size='small'
                                    onChange={(event) => {
@@ -108,32 +110,10 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                     }}>
                             {blog.title}
                         </Typography>}
+                </Grid>
 
-                </Grid>
-                <Grid item md={3} xs={4} display='flex' justifyContent='flex-end' alignItems='center'>
-                    <Box display="flex" alignItems="center" justifyContent="flex-start" width="100%">
-                        <SellIcon sx={{color: stringToColor(blog.tag)}}/>
-                        {editMode && isPrivate ?
-                            <TextField label="Tag" fullWidth margin="normal" value={updateValue.tag}
-                                       sx={{
-                                           '& .MuiInputBase-root': {
-                                               fontSize: '6px',
-                                           },
-                                       }}
-                                       onChange={(event) => {
-                                           setUpdateValue({...updateValue, tag: event.target.value})
-                                       }}/> :
-                            <Typography gutterBottom style={{
-                                fontFamily: 'Roboto',
-                                fontSize: '16px',
-                                color: '#004d7a'
-                            }}>
-                                {blog.tag}
-                            </Typography>}
-                    </Box>
-                </Grid>
-                <Grid item md={3} xs={3}>
-                    <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                <Grid item md={4} xs={5}>
+                    <div style={{display: 'flex', justifyContent: 'end'}}>
                         <IconButton onClick={toggleVisibility}>
                             {visible ? <VisibilityOffIcon/> : <VisibilityIcon/>}
                         </IconButton>
@@ -147,7 +127,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                 <ThumbUpIcon/>
                             </Badge>
                         </IconButton>
-                        <IconButton color="black" onClick={() => {
+                        <IconButton style={{marginRight: '1vh'}} color="black" onClick={() => {
                             if (blog.likes !== undefined & blog.likes > 0) {
                                 blog.likes -= 1
                                 updateBlog(blog)
@@ -157,6 +137,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                         </IconButton>
                     </div>
                 </Grid>
+
             </Grid>
             {/*<CSSTransition*/}
             {/*    in={visible}*/}
@@ -187,13 +168,10 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                     </Typography>}
             </Box>
             {/*</CSSTransition>*/}
-            <Box>
-                <Typography gutterBottom style={{fontFamily: 'Roboto Mono', fontSize: '15px', color: '#004d7a'}}>
-                    {formatDate(blog.date)}
-                </Typography>
-            </Box>
+
+
             <Grid container justifyContent="space-between" alignItems="center">
-                <Grid item sx={{marginTop: '8px'}}>
+                <Grid item sx={{marginTop: '1vh'}}>
                     <Button variant="contained" color="primary"
                             style={{display: isPrivate ? '' : "none", marginRight: '10px'}}
                             onClick={() => editBlog(blog.id)} startIcon={<EditIcon/>} size='small'>
@@ -223,6 +201,43 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                                    option2='Cancel'/>
                 </Grid>
             </Grid>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Box style={{marginTop: '1vh', marginBottom: '0'}}>
+                    <Typography gutterBottom style={{fontFamily: 'Roboto Mono', fontSize: '15px', color: '#004d7a'}}>
+                        {formatDate(blog.date)}
+                    </Typography>
+                </Box>
+
+                <Box display='flex' justifyContent='end' alignItems='center'>
+                    <SellIcon sx={{color: stringToColor(blog.tag)}}/>
+                    {editMode && isPrivate ?
+                        <TextField label="Tag" fullWidth margin="normal" value={updateValue.tag}
+                                   sx={{
+                                       '& .MuiInputBase-root': {
+                                           fontSize: '6px',
+                                       },
+                                   }}
+                                   onChange={(event) => {
+                                       setUpdateValue({...updateValue, tag: event.target.value})
+                                   }}/> :
+                        <Typography style={{
+                            fontFamily: 'Roboto',
+                            fontSize: '16px',
+                            color: '#004d7a',
+                            marginRight: '2vh',
+                            width: '3vh',
+                            whiteSpace: 'nowrap'
+                        }}>
+                            {blog.tag}
+                        </Typography>}
+                </Box>
+                <Typography style={{display: 'flex', justifyContent: 'center', marginRight: '2vh'}} variant="h5"
+                            fontFamily="Comic Sans MS, cursive, sans-serif">
+                    {blog.user.name}
+                </Typography>
+
+            </div>
+
         </CardContent>
     </Card>
 }

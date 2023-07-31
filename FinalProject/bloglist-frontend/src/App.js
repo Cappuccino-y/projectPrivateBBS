@@ -45,7 +45,7 @@ import LoginPage from './pages/LoginPage'
 import BlogPage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
 import FooterLink from "./components/FootLink";
-import {Container} from '@mui/material'
+import {Container, useMediaQuery, useTheme} from '@mui/material'
 import {createTheme} from '@mui/material/styles';
 import {ThemeProvider} from "@mui/material";
 import {
@@ -53,6 +53,7 @@ import {
     Routes, Route, Link, Navigate, useNavigate
 } from "react-router-dom"
 import ExampleContext, {ExampleProvider} from "./components/ExampleContext";
+import SnackBlogbar from "./components/SnackBlogbar";
 
 
 const HomePageBg = () => {
@@ -99,7 +100,11 @@ const App = () => {
     const [user, setUser] = useState(null)
     const [users, setUsers] = useState([])
     const [message, setMessage] = useState({content: '', sign: ''})
+    const [snackMessage, setSnackMessage] = useState('')
+    const [snackOpen, setSnackOpen] = useState(false)
     const blogFormRef = useRef()
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -162,16 +167,16 @@ const App = () => {
             const user = await loginService.login({
                 username, password,
             })
-            notice("Successful login in", 'success')
+            setSnackOpen(true)
+            setSnackMessage('Login successful')
             window.localStorage.setItem(
                 'loggedBlogappUser', JSON.stringify(user)
             )
             blogService.setToken(user.token)
             setUser(user)
             setTimeout(() => {
-                setMessage({content: '', sign: ''})
                 navigate('/blogs')
-            }, 500)
+            }, 1000)
         } catch (exception) {
             notice('Wrong username or password', 'error')
         }
@@ -182,7 +187,7 @@ const App = () => {
         // <div style={{margin: '0vh 25vh 0vh 25vh'}}>
         // </div>
         <Container>
-            <ExampleProvider val={{handleReset, handleSignUp}}>
+            <ExampleProvider val={{handleReset, handleSignUp, isMobile}}>
                 <Router>
                     <Routes>
                         <Route path="" element={<Navigate to={'/home'}/>}/>
@@ -195,6 +200,7 @@ const App = () => {
                     </Routes>
                 </Router>
                 <FooterLink/>
+                <SnackBlogbar open={snackOpen} setOpen={setSnackOpen} message={snackMessage}/>
             </ExampleProvider>
         </Container>
         // </ThemeProvider>
