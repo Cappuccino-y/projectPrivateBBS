@@ -31,6 +31,12 @@ function DialogSignUp() {
             setOpen(false)
             return
         }
+        if (user.username === 'public' || user.name === 'public') {
+            setMessage('Unsupport characters in username or name')
+            setSnackbarOpen(true)
+            setOpen(false)
+            return
+        }
         val.handleSignUp(user, setSnackbarOpen, setMessage)
         setOpen(false)
     }

@@ -49,7 +49,7 @@ const stringToColor = (str) => {
 }
 
 
-const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
+const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs, editRef}) => {
     const [visible, setVisible] = useState(false)
     const [editMode, setEditMode] = useState(false)
     const [updateValue, setUpdateValue] = useState({...blog})
@@ -59,7 +59,8 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
     const val = useContext(ExampleContext)
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+    editRef.current = editMode
+    
     const toggleVisibility = () => {
         setVisible(!visible)
     }
@@ -235,9 +236,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs}) => {
                             fontFamily="Comic Sans MS, cursive, sans-serif">
                     {blog.user.name}
                 </Typography>
-
             </div>
-
         </CardContent>
     </Card>
 }

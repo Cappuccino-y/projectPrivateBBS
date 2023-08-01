@@ -5,16 +5,17 @@ const jwt = require('jsonwebtoken')
 
 blogsRouter.get('/', async (request, response) => {
 
-    const notes = await Blog
-        .find({}).populate('user', {username: 1, name: 1})
-
-    response.json(notes)
+    const blogs = await Blog
+        .find({})
+        .populate('user', {username: 1, name: 1})
+    // .sort({date: -1});
+    response.json(blogs)
 })
 
 blogsRouter.get('/:id', async (request, response) => {
-    const note = await Blog
+    const blog = await Blog
         .find({id: request.params.id}).populate('user', {username: 1, name: 1})
-    response.json(note)
+    response.json(blog)
 })
 
 blogsRouter.post('/', async (request, response) => {

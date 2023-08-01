@@ -218,7 +218,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice, users}) => {
             </Box>
             <ExampleProvider
                 val={{blogs, setBlogs, setOpenExpire, blogId, setBlogId, updateBlog}}>
-                <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs} blog={blog}
+                <BlogShow isPrivate={isPrivate} buttonColor={buttonColor} stateListen={blogs}
                           deleteItem={deleteItem} blogs={blogsShow} updateBlog={updateBlog} user={user}
                 />
             </ExampleProvider>

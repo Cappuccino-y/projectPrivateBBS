@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useRef, useState} from 'react'
 import {Box, Typography, TextField, Button, useTheme, useMediaQuery} from "@mui/material";
 import {Autocomplete, Radio, RadioGroup, FormControlLabel} from '@mui/material';
 import {Grid} from "@mui/material";
@@ -19,8 +19,8 @@ const BlogForm = ({toggleVisibility}) => {
     })).filter(user => user.value !== val.user.name) : []
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const submitConfirm = useRef(null)
     const handleChange = (event, newValue) => {
-        setNewBlog({...newBlog, visible: newValue.map(val => val.value)});
         setVisibleUsers(newValue)
     };
 
@@ -31,14 +31,25 @@ const BlogForm = ({toggleVisibility}) => {
             setVisibleUsers(users);
         } else if (event.target.value === 'none') {
             setVisibleUsers([]);
+        } else if (event.target.value === 'public') {
+            setVisibleUsers([{label: 'Public', value: 'public'}]);
         }
     };
 
+    useEffect(() => {
+        if (submitConfirm.current) {
+            createBlog({...newBlog})
+            submitConfirm.current = false
+            setNewBlog({title: '', content: '', tag: '', comments: [], visible: []})
+        }
+    }, [newBlog])
+
     const addBlog = (event) => {
         event.preventDefault()
-        console.log(newBlog)
-        createBlog({...newBlog})
-        setNewBlog({title: '', content: '', tag: ''})
+        submitConfirm.current = true
+        setNewBlog({...newBlog, visible: visibleUsers.map(val => val.value)});
+        setSelectAll(null);
+        setVisibleUsers([])
     }
     const handleBlogTitleChange = (event) => {
         setNewBlog({...newBlog, title: event.target.value})
@@ -49,7 +60,6 @@ const BlogForm = ({toggleVisibility}) => {
     const handleBlogTagChange = (event) => {
         setNewBlog({...newBlog, tag: event.target.value})
     }
-    console.log(val.isMobile)
 
     return <Box my={2} style={{marginTop: '0px'}}>
         {/*<Typography variant="h5" component="h2" gutterBottom>*/}
@@ -78,6 +88,7 @@ const BlogForm = ({toggleVisibility}) => {
             >
                 <FormControlLabel value="all" control={<Radio size='small'/>} label="All"/>
                 <FormControlLabel value="none" control={<Radio size='small'/>} label="None"/>
+                <FormControlLabel value="public" control={<Radio size='small'/>} label="Pubic"/>
             </RadioGroup>
             <Autocomplete
                 multiple

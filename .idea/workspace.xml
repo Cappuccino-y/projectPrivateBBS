@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="home amend">
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/pngwing.com.png" afterDir="false" />
+    <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="office amend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/Blog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/BlogShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/DialogSignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/DialogSignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/SnackBlogbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/SnackBlogbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/pages/BlogPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part4/controllers/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/part4/controllers/blogs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,32 +51,28 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WebStormProject/FinalProject/bloglist-frontend/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project_webcourse-master/FinalProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Scoop\\apps\\webstorm\\current\\IDE\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WebStormProject\FinalProject\bloglist-frontend\public" />
-      <recent name="D:\project_webcourse-master\FinalProject\bloglist-frontend\public" />
       <recent name="D:\project_webcourse-master\FinalProject" />
+      <recent name="D:\project_webcourse-master\FinalProject\bloglist-frontend\public" />
+      <recent name="D:\project_webcourse-master\FinalProject\bloglist-frontend\src" />
+      <recent name="D:\project_webcourse-master\FinalProject\bloglist-frontend\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project_webcourse-master\FinalProject\bloglist-frontend\src\components" />
       <recent name="D:\project_webcourse-master" />
     </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="y" />
-    </option>
   </component>
   <component name="RunManager" selected="Node.js.trial.js">
     <configuration name="t | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="5" requestIdentifier="#5" runType="Run single request">
@@ -127,18 +120,10 @@
       <workItem from="1690275112252" duration="119000" />
       <workItem from="1690333214979" duration="8367000" />
       <workItem from="1690344112782" duration="4994000" />
-      <workItem from="1690353035759" duration="7460000" />
-      <workItem from="1690601448778" duration="1832000" />
-      <workItem from="1690603930182" duration="3418000" />
-      <workItem from="1690607494180" duration="1754000" />
-      <workItem from="1690609343782" duration="4030000" />
-      <workItem from="1690613446539" duration="42000" />
-      <workItem from="1690637433676" duration="1653000" />
-      <workItem from="1690683770037" duration="9814000" />
-      <workItem from="1690703913838" duration="12600000" />
-      <workItem from="1690718952707" duration="341000" />
-      <workItem from="1690719365414" duration="362000" />
-      <workItem from="1690761687702" duration="13877000" />
+      <workItem from="1690353035759" duration="7655000" />
+      <workItem from="1690419277980" duration="22030000" />
+      <workItem from="1690532546623" duration="1811000" />
+      <workItem from="1690857151925" duration="10537000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -252,45 +237,45 @@
       <option name="project" value="LOCAL" />
       <updated>1690361125934</updated>
     </task>
-    <task id="LOCAL-00015" summary="home amend">
+    <task id="LOCAL-00015" summary="office amend">
       <option name="closed" value="true" />
-      <created>1690607359039</created>
+      <created>1690361704996</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1690607359039</updated>
+      <updated>1690361704996</updated>
     </task>
-    <task id="LOCAL-00016" summary="home amend">
+    <task id="LOCAL-00016" summary="office amend">
       <option name="closed" value="true" />
-      <created>1690613467803</created>
+      <created>1690420060131</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1690613467803</updated>
+      <updated>1690420060131</updated>
     </task>
-    <task id="LOCAL-00017" summary="home amend">
+    <task id="LOCAL-00017" summary="office amend">
       <option name="closed" value="true" />
-      <created>1690639107219</created>
+      <created>1690530986592</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1690639107219</updated>
+      <updated>1690530986592</updated>
     </task>
-    <task id="LOCAL-00018" summary="home amend">
+    <task id="LOCAL-00018" summary="office amend">
       <option name="closed" value="true" />
-      <created>1690693724494</created>
+      <created>1690531451309</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1690693724494</updated>
+      <updated>1690531451309</updated>
     </task>
-    <task id="LOCAL-00019" summary="home amend">
+    <task id="LOCAL-00019" summary="office amend">
       <option name="closed" value="true" />
-      <created>1690716669482</created>
+      <created>1690852413255</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1690716669482</updated>
+      <updated>1690852413255</updated>
     </task>
     <option name="localTasksCounter" value="20" />
     <servers />
@@ -316,7 +301,6 @@
     <MESSAGE value="s" />
     <MESSAGE value="home message" />
     <MESSAGE value="office amend" />
-    <MESSAGE value="home amend" />
-    <option name="LAST_COMMIT_MESSAGE" value="home amend" />
+    <option name="LAST_COMMIT_MESSAGE" value="office amend" />
   </component>
 </project>

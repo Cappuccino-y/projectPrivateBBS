@@ -34,7 +34,7 @@ const SnackBlogbar = ({message, open, setOpen}) => {
             <Snackbar
                 anchorOrigin={{vertical: 'top', horizontal: 'center'}}
                 open={open}
-                autoHideDuration={6000}
+                autoHideDuration={3000}
                 onClose={handleClose}
                 message={message}
                 action={action}

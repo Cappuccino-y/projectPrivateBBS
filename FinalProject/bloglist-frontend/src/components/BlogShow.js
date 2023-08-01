@@ -18,6 +18,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     let res = [];
     blogs = blogs.map(blog => !blog.likes ? {...blog, likes: 0} : blog)
     const privateBlogs = blogs.filter(blog => blog.user.username === user.username)
+    const editRef = useRef(null)
     if (isPrivate) {
         if (buttonColor !== 'grey') {
             res = privateBlogs.slice().sort((a, b) => {
@@ -35,7 +36,8 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
             res = [...blogs]
         }
     }
-    res = res.filter(blog => (blog.visible.includes(user.name) || blog.user.name === user.name))
+    res = res.filter(blog => (blog.visible.includes('public') ||
+        blog.visible.includes(user.name) || blog.user.name === user.name))
     const [page, setPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(7);
     const [loading, setLoading] = useState(false)
@@ -44,6 +46,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     const handlePageChange = (event, value) => setPage(value);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const debounceTimeout = useRef(null);
 
     const fetchBlogs = async () => {
         try {
@@ -57,40 +60,47 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     }
 
     const handleWheel = (e) => {
-        if (tableContainerRef.current.scrollTop === 0 && page === 1 && e.deltaY < 0) {
+        if (tableContainerRef.current.scrollTop === 0 && page === 1 && e.deltaY < 0 && !editRef.current) {
             setLoading(true)
             fetchBlogs()
         }
     };
+
+    const debounce = (func, delay) => {
+        if (debounceTimeout.current) {
+            clearTimeout(debounceTimeout.current);
+        }
+        debounceTimeout.current = (setTimeout(func, delay));
+    }
     const handleScroll = (e) => {
-        if (tableContainerRef.current.scrollTop === 0 && page === 1) {
+        if (tableContainerRef.current.scrollTop === 0 && page === 1 && !editRef.current) {
             setLoading(true)
             fetchBlogs()
         }
     };
 
     useEffect(() => {
-        setLoading(false)
+        setTimeout(() => setLoading(false), 2000)
     }, [val.blogs])
 
     useEffect(() => {
         const container = tableContainerRef.current;
         if (container) {
             if (!isMobile) {
-                container.addEventListener('wheel', handleWheel);
+                container.addEventListener('wheel', (e) => debounce(() => handleWheel(e), 500));
             }
             if (isMobile) {
-                container.addEventListener('scroll', handleScroll);
+                container.addEventListener('scroll', (e) => debounce(() => handleScroll(e), 500));
             }
         }
 
         return () => {
             if (container) {
                 if (!isMobile) {
-                    container.removeEventListener('wheel', handleWheel);
+                    container.removeEventListener('wheel', (e) => debounce(() => handleWheel(e), 500));
                 }
                 if (isMobile) {
-                    container.removeEventListener('scroll', handleScroll);
+                    container.removeEventListener('scroll', (e) => debounce(() => handleScroll(e), 500));
                 }
             }
 
@@ -131,17 +141,11 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
                                 classNames="item"
                             >
                                 <TableRow>
-                                    <TableCell style={{width: '95%'}}>
+                                    <TableCell style={{width: '100%'}}>
                                         <Blog blog={blog} isPrivate={isPrivate} blogs={stateListen}
                                               pagination={{page: page, setPage: setPage, postsPerPage: postsPerPage}}
-                                              deleteItem={deleteItem} updateBlog={updateBlog}
+                                              deleteItem={deleteItem} updateBlog={updateBlog} editRef={editRef}
                                         />
-                                    </TableCell>
-                                    <TableCell style={{width: '5%', verticalAlign: 'top'}}>
-                                        <br/>
-                                        <Typography variant="h5" fontFamily="Comic Sans MS, cursive, sans-serif">
-                                            {blog.user.name}
-                                        </Typography>
                                     </TableCell>
                                 </TableRow>
                             </CSSTransition>
