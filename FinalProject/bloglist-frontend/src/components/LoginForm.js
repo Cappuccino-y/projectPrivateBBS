@@ -25,7 +25,7 @@ const LoginForm = ({handleLogin, setMessage}) => {
     return <Box component="form" onSubmit={userLogin} sx={{width: '55%', mx: val.isMobile ? 'none' : 'auto'}}>
         <Grid container spacing={2} direction="column">
             <Grid item>
-                <Typography variant="h4" align="left" gutterBottom
+                <Typography variant="h4" align={val.isMobile ? 'center' : "left"}
                             sx={{fontFamily: '"Comic Sans MS", cursive, sans-serif', fontSize: '1.5em', color: '#333'}}>
                     Welcome, Storyteller!
                 </Typography>

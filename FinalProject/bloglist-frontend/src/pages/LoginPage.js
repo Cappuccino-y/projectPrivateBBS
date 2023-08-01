@@ -41,7 +41,7 @@ const LoginPage = ({handleLogin, message, setMessage}) => {
                 </Box>
             </Grid>
             <Grid item xs={12} md={5}>
-                <Box sx={{my: 4, textAlign: 'center'}}>
+                <Box sx={{my: 4, textAlign: 'center', marginLeft: '2vh'}}>
                     {/*<Typography variant="h4" component="h1" gutterBottom sx={{*/}
                     {/*    color: '#FF6347',*/}
                     {/*    fontFamily: 'Georgia, serif',*/}

@@ -24,13 +24,15 @@ const storage = multer.diskStorage({
         cb(null, dir);
     },
     filename: (req, file, cb) => {
-        cb(null, file.originalname);
+        const date = Date.now();
+        const newName = `${file.originalname}-${date}`;
+        cb(null, newName);
     }
 });
 
 const upload = multer({
     storage: storage, limits: {
-        fileSize: 5 * 1024 * 1024, // 50 MB
+        fileSize: 5 * 1024 * 1024, // 5 MB
     },
 });
 
