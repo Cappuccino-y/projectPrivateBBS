@@ -38,12 +38,10 @@
 //     },
 // });
 import {useState, useRef, useEffect} from 'react'
+import React, {Suspense, lazy} from 'react';
 import blogService from './services/blogs'
 import loginService from './services/login'
 import userService from './services/users'
-import LoginPage from './pages/LoginPage'
-import BlogPage from './pages/BlogPage'
-import HomePage from './pages/HomePage'
 import FooterLink from "./components/FootLink";
 import {Container, useMediaQuery, useTheme} from '@mui/material'
 import {createTheme} from '@mui/material/styles';
@@ -54,6 +52,10 @@ import {
 } from "react-router-dom"
 import ExampleContext, {ExampleProvider} from "./components/ExampleContext";
 import SnackBlogbar from "./components/SnackBlogbar";
+
+const HomePage = lazy(() => import('./pages/HomePage'))
+const LoginPage = lazy(() => import('./pages/LoginPage'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
 
 
 const HomePageBg = () => {
@@ -189,15 +191,17 @@ const App = () => {
         <Container>
             <ExampleProvider val={{handleReset, handleSignUp, isMobile}}>
                 <Router>
-                    <Routes>
-                        <Route path="" element={<Navigate to={'/home'}/>}/>
-                        <Route path="/home" element={<HomePageBg/>}/>
-                        <Route path="/login" element={<LoginPageBg handleLogin={handleLogin} message={message}
-                                                                   setMessage={setMessage}/>}/>
-                        <Route path="/blogs"
-                               element={<BlogPageBg user={user} message={message} setUser={setUser} users={users}
-                                                    blogFormRef={blogFormRef} notice={notice}/>}/>
-                    </Routes>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Routes>
+                            <Route path="" element={<Navigate to={'/home'}/>}/>
+                            <Route path="/home" element={<HomePageBg/>}/>
+                            <Route path="/login" element={<LoginPageBg handleLogin={handleLogin} message={message}
+                                                                       setMessage={setMessage}/>}/>
+                            <Route path="/blogs"
+                                   element={<BlogPageBg user={user} message={message} setUser={setUser} users={users}
+                                                        blogFormRef={blogFormRef} notice={notice}/>}/>
+                        </Routes>
+                    </Suspense>
                 </Router>
                 <FooterLink/>
                 <SnackBlogbar open={snackOpen} setOpen={setSnackOpen} message={snackMessage}/>

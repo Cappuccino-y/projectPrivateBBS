@@ -27,10 +27,6 @@ const HomePage = () => {
                     height="100%"
                     padding={2}
                 >
-                    {/*<Typography variant="h3" align="center" gutterBottom*/}
-                    {/*            sx={{color: '#483D8B', fontFamily: 'Pacifico', fontSize: '2.5em'}}>*/}
-                    {/*    Welcome to My Space!*/}
-                    {/*</Typography>*/}
                     <Typography variant="h3" align="center" gutterBottom
                                 sx={{color: '#008080', fontFamily: 'Pacifico', fontSize: '2.5em'}}>
                         Nai tiruvantel ar varyuvantel i Valar tielyanna nu vilya.

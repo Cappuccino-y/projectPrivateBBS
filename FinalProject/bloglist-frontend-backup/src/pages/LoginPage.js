@@ -18,8 +18,6 @@ const LoginPage = ({handleLogin, message, setMessage}) => {
     return <Grid container className={"flexCenter animation-login"} style={{
         minHeight: '90vh', flexDirection: 'column', backgroundSize: "cover",
         backgroundPosition: "center",
-        // backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/img.jpg)`
-        // backgroundImage: `url(/img.jpg)`
     }}>
         <Box style={{minHeight: '9vh'}}>
             <Notification message={message}/>
