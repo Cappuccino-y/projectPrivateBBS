@@ -45,6 +45,8 @@ import userService from './services/users'
 import FooterLink from "./components/FootLink";
 import {Container, useMediaQuery, useTheme} from '@mui/material'
 import {createTheme} from '@mui/material/styles';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import {ThemeProvider} from "@mui/material";
 import {
     BrowserRouter as Router,
@@ -191,7 +193,11 @@ const App = () => {
         <Container>
             <ExampleProvider val={{handleReset, handleSignUp, isMobile}}>
                 <Router>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={
+                        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}>
+                            <CircularProgress color='inherit' size={70}/>
+                        </Box>
+                    }>
                         <Routes>
                             <Route path="" element={<Navigate to={'/home'}/>}/>
                             <Route path="/home" element={<HomePageBg/>}/>
