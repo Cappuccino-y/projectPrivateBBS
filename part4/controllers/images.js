@@ -25,7 +25,9 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const date = Date.now();
-        const newName = `${file.originalname}-${date}`;
+        const name = path.parse(file.originalname).name;
+        const ext = path.parse(file.originalname).ext;
+        const newName = `${name}-${date}${ext}`;
         cb(null, newName);
     }
 });
@@ -42,7 +44,7 @@ imagesRouter.post('/', upload.single('file'), async (request, response) => {
         return response.status(400).json({error: 'No file uploaded'});
     }
     // 返回文件的访问路径（你可能需要根据你的设置来修改这个路径）
-    const url = 'https://www.mistysakura.top/' + path.join('images', username, file.originalname);
+    const url = 'https://www.mistysakura.top/' + path.join('images', username, file.filename);
     response.json({success: true, imageUrl: url});
 });
 
