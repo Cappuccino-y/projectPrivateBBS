@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {Provider, useDispatch, useSelector} from 'react-redux'
 import slices from './reducer'
 import {configureStore} from "@reduxjs/toolkit";
-import {ExampleProvider} from "./ExampleContext";
+import ExampleProvider from "./ExampleContext";
 import Button from "./Button";
 
 const store = configureStore({reducer: {evaluation: slices.reducer}})
@@ -19,7 +19,7 @@ const App = () => {
     const reset = () => dispatch(slices.actions.zero())
 
     return (
-        <ExampleProvider val={{good, bad, ok}}>
+        <Provider store={store}>
             <div>
                 <Button/>
                 <button onClick={ok}>ok</button>
@@ -29,7 +29,7 @@ const App = () => {
                 <div>ok {evaluation.ok}</div>
                 <div>bad {evaluation.bad}</div>
             </div>
-        </ExampleProvider>
+        </Provider>
     )
 }
 

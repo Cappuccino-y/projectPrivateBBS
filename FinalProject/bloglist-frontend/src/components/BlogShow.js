@@ -111,7 +111,7 @@ const BlogShow = ({isPrivate, user, deleteItem, updateBlog, blogs, buttonColor, 
     useEffect(() => {
         if (page > Math.ceil(res.length / postsPerPage)) setPage(Math.ceil(res.length / postsPerPage))
         else if (page == 0) setPage(1)
-    }, [blogs.length])
+    }, [res.length])
 
     return <div>
         <TableContainer

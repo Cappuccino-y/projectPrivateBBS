@@ -10,6 +10,7 @@ const imagesRouter = require('./controllers/images')
 const middleware = require('./utils/middleware')
 
 app.use(cors())
+
 // app.use(express.static('build'))
 // app.use(express.static('/root/images'))
 app.use(express.json())
