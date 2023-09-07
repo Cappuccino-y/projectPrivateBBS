@@ -28,6 +28,7 @@ import {useContext} from "react";
 import ExampleContext from "./ExampleContext";
 import formatDate from "../formatDate";
 import {CSSTransition} from 'react-transition-group';
+import Code from './Code'
 
 const transitionStyles = {
     entering: {height: '0'},
@@ -60,7 +61,7 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs, editR
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     editRef.current = editMode
-    
+
     const toggleVisibility = () => {
         setVisible(!visible)
     }
@@ -160,12 +161,18 @@ const Blog = ({blog, deleteItem, isPrivate, updateBlog, pagination, blogs, editR
                             // Return the command unchanged if it's not the image command
                             return command;
                         }}
+                        previewOptions={{
+                            components: {
+                                code: Code
+                            },
+                        }}
                         // style={{backgroundColor: 'transparent'}}
                     />
                     :
                     <Typography gutterBottom style={{fontFamily: 'Arial'}}>
-                        <MDEditor.Markdown className="markdown" source={blog.content}
-                                           style={{whiteSpace: 'pre-wrap', backgroundColor: 'transparent'}}/>
+                        <MDEditor.Markdown className="markdown" source={blog.content} components={{
+                            code: Code
+                        }} style={{whiteSpace: 'pre-wrap', backgroundColor: 'transparent'}}/>
                     </Typography>}
             </Box>
             {/*</CSSTransition>*/}

@@ -3,6 +3,8 @@ import {IconButton, Paper, TextField, Button, Divider, Typography} from '@mui/ma
 import ChatIcon from '@mui/icons-material/Chat';
 import CloseIcon from '@mui/icons-material/Close';
 import gptService from '../services/gpt'
+import MDEditor from "@uiw/react-md-editor";
+import Code from './Code'
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -12,7 +14,17 @@ const CustomerServiceChat = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [message, setMessage] = useState('');
     const [chatLog, setChatLog] = useState([
-        {"role": "system", "content": '这是基于GFT-4的对话窗口,可以问他任何事情！'}
+        {
+            "role": "system", "content": `
+            在接下来的你的回答中如果是行间公式请使用下列的形式进行回答:
+            \`\`\` Katex
+            公式内容
+            \`\`\`
+            如果需要是行内公式请使用下列的形式进行回答:
+            \` \$ 公式内容 \$\`
+        `
+        }
+
     ]);
     const messagesEndRef = useRef(null);
 
@@ -86,7 +98,25 @@ const CustomerServiceChat = () => {
                                     padding: '8px',
                                     backgroundColor: entry.role === 'user' ? '#fff2e6' : '#e6f7ff'
                                 }}>
-                                    <Typography variant="subtitle1">{entry.content}</Typography>
+                                    {entry.role === 'system' ?
+                                        <MDEditor.Markdown className="markdown"
+                                                           source={'这是基于GFT-4的对话窗口,可以问他任何事情！'}
+                                                           components={{
+                                                               code: Code
+                                                           }}
+                                                           style={{
+                                                               whiteSpace: 'pre-wrap',
+                                                               backgroundColor: 'transparent'
+                                                           }}/> :
+                                        <MDEditor.Markdown className="markdown" source={entry.content}
+                                                           components={{
+                                                               code: Code
+                                                           }}
+                                                           style={{
+                                                               whiteSpace: 'pre-wrap',
+                                                               backgroundColor: 'transparent'
+                                                           }}/>
+                                    }
                                 </div>
                             </div>
                         ))}

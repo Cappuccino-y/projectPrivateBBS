@@ -6,6 +6,8 @@ import MDEditor from '@uiw/react-md-editor';
 import customImageCommand from "../customImageCommand";
 import ExampleContext from "./ExampleContext";
 
+import Code from './Code'
+
 
 const BlogForm = ({toggleVisibility}) => {
     const [newBlog, setNewBlog] = useState({title: '', content: '', tag: '', comments: [], visible: []})
@@ -79,6 +81,11 @@ const BlogForm = ({toggleVisibility}) => {
                     }
                     // Return the command unchanged if it's not the image command
                     return command;
+                }}
+                previewOptions={{
+                    components: {
+                        code: Code
+                    },
                 }}
                 // style={{backgroundColor: 'transparent'}}
             />
