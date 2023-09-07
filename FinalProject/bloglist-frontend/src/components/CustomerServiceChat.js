@@ -115,7 +115,11 @@ const CustomerServiceChat = () => {
                     <div style={{padding: '16px'}}>
                         <TextField
                             fullWidth
+                            multiline
                             variant="outlined"
+                            inputProps={{
+                                style: {height: "5vh"}
+                            }}
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             placeholder="Type your message..."
