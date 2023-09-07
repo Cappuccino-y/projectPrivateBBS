@@ -235,6 +235,7 @@ const BlogPage = ({user, message, blogFormRef, setUser, notice, users}) => {
                            option2='Cancel'/>
             <SnackBlogbar open={openbar} setOpen={setOpenbar} message={caution}/>
         </Grid>
+
     </Grid>
 }
 export default BlogPage

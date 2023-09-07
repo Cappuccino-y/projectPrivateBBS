@@ -54,6 +54,7 @@ import {
 } from "react-router-dom"
 import ExampleContext, {ExampleProvider} from "./components/ExampleContext";
 import SnackBlogbar from "./components/SnackBlogbar";
+import CustomerServiceChat from "./components/CustomerServiceChat";
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
@@ -190,29 +191,33 @@ const App = () => {
         // <ThemeProvider theme={theme}>
         // <div style={{margin: '0vh 25vh 0vh 25vh'}}>
         // </div>
-        <Container>
-            <ExampleProvider val={{handleReset, handleSignUp, isMobile}}>
-                <Router>
-                    <Suspense fallback={
-                        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}>
-                            <CircularProgress color='inherit' size={70}/>
-                        </Box>
-                    }>
-                        <Routes>
-                            <Route path="" element={<Navigate to={'/home'}/>}/>
-                            <Route path="/home" element={<HomePageBg/>}/>
-                            <Route path="/login" element={<LoginPageBg handleLogin={handleLogin} message={message}
-                                                                       setMessage={setMessage}/>}/>
-                            <Route path="/blogs"
-                                   element={<BlogPageBg user={user} message={message} setUser={setUser} users={users}
-                                                        blogFormRef={blogFormRef} notice={notice}/>}/>
-                        </Routes>
-                    </Suspense>
-                </Router>
-                <FooterLink/>
-                <SnackBlogbar open={snackOpen} setOpen={setSnackOpen} message={snackMessage}/>
-            </ExampleProvider>
-        </Container>
+        <div>
+            <Container>
+                <ExampleProvider val={{handleReset, handleSignUp, isMobile}}>
+                    <Router>
+                        <Suspense fallback={
+                            <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}>
+                                <CircularProgress color='inherit' size={70}/>
+                            </Box>
+                        }>
+                            <Routes>
+                                <Route path="" element={<Navigate to={'/home'}/>}/>
+                                <Route path="/home" element={<HomePageBg/>}/>
+                                <Route path="/login" element={<LoginPageBg handleLogin={handleLogin} message={message}
+                                                                           setMessage={setMessage}/>}/>
+                                <Route path="/blogs"
+                                       element={<BlogPageBg user={user} message={message} setUser={setUser}
+                                                            users={users}
+                                                            blogFormRef={blogFormRef} notice={notice}/>}/>
+                            </Routes>
+                        </Suspense>
+                    </Router>
+                    <FooterLink/>
+                    <SnackBlogbar open={snackOpen} setOpen={setSnackOpen} message={snackMessage}/>
+                </ExampleProvider>
+            </Container>
+            {user && <CustomerServiceChat/>}
+        </div>
         // </ThemeProvider>
     )
 }
