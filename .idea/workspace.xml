@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="home amend">
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/token.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/CustomerServiceChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/CustomerServiceChat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/gpt.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/gpt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/.env" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-amd64" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-amd64" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-arm64" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-arm64" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-armv7" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-armv7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/conf/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/logs/clash.log" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/logs/clash.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/restart.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/clash_profile_conversion.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/clash_profile_conversion.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/get_cpu_arch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/get_cpu_arch.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/shutdown.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/shutdown.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/clash.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/clash.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/proxy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/proxy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/tools/subconverter/rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/‎DiscoveryPlus.list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/tools/subconverter/subconverter" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/tools/subconverter/subconverter" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +159,17 @@
       <workItem from="1694076051462" duration="49000" />
       <workItem from="1694076397180" duration="591000" />
       <workItem from="1694079128774" duration="6705000" />
-      <workItem from="1694092674870" duration="189000" />
+      <workItem from="1694092674870" duration="292000" />
+      <workItem from="1694093527250" duration="33000" />
+      <workItem from="1694148152796" duration="64000" />
+      <workItem from="1694173563324" duration="1904000" />
+      <workItem from="1694312965733" duration="684000" />
+      <workItem from="1694664790933" duration="1886000" />
+      <workItem from="1694790028395" duration="241000" />
+      <workItem from="1695045859511" duration="1858000" />
+      <workItem from="1695047855919" duration="368000" />
+      <workItem from="1695740563118" duration="1532000" />
+      <workItem from="1696754363487" duration="1570000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -351,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694086104617</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="home amend">
+      <option name="closed" value="true" />
+      <created>1694092938639</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1694092938639</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

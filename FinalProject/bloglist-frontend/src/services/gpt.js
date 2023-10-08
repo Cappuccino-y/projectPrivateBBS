@@ -1,14 +1,19 @@
 import axios from 'axios'
 
 const url = "https://ai.fakeopen.com/v1/chat/completions"
-
-const headers = {
-    "Authorization": "Bearer fk-loDf2CwxpKS7aslA5i666vh4xIwnMknP5HJ5SzR4rls",
-    "Content-Type": "application/json"
+const getTokenFromTxt = async () => {
+    const response = await fetch(`token.txt`);
+    const token = await response.text();
+    return token.trim();  // 确保去掉文本中的任何前后空格
 }
 
 
 const getReply = async data => {
+    const token = await getTokenFromTxt();
+    const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+    }
     const config = {
         headers: headers,
     }
