@@ -35,9 +35,8 @@ const CustomerServiceChat = () => {
     };
 
     const data = {
-        "model": "gpt-4",
-        "messages": chatLog,
-        "max_tokens": 150
+        "model": "gpt-3.5-turbo",
+        "messages": chatLog
     }
 
     const toggleChatBox = () => {

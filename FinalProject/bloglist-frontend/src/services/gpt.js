@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const url = "https://ai.fakeopen.com/v1/chat/completions"
+import OpenAI from 'openai';
+
+
 const getTokenFromTxt = async () => {
     const response = await fetch(`token.txt`);
     const token = await response.text();
@@ -10,15 +12,13 @@ const getTokenFromTxt = async () => {
 
 const getReply = async data => {
     const token = await getTokenFromTxt();
-    const headers = {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
-    }
-    const config = {
-        headers: headers,
-    }
-    const response = await axios.post(url, data, config)
-    return response.data.choices[0].message.content.trim();
+    const openai = new OpenAI({
+        apiKey: token, // This is the default and can be omitted
+        baseURL: "https://api.chatanywhere.tech/v1",
+        dangerouslyAllowBrowser: true
+    });
+    const chatCompletion = await openai.chat.completions.create(data);
+    return chatCompletion.choices[0].message.content.trim();
 }
 
 export default {getReply}

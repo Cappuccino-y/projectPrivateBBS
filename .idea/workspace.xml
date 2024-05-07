@@ -5,26 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50137872-e729-480b-86b1-575bbad6fa7f" name="Changes" comment="home amend">
-      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/token.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/try.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/try.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/public/token.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/CustomerServiceChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/components/CustomerServiceChat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/gpt.js" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/services/gpt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/.env" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-amd64" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-amd64" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-arm64" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-arm64" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-armv7" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/bin/clash-linux-armv7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/conf/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/logs/clash.log" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/logs/clash.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/restart.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/clash_profile_conversion.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/clash_profile_conversion.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/get_cpu_arch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/scripts/get_cpu_arch.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/shutdown.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/shutdown.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/clash.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/clash.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/proxy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/temp/proxy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/tools/subconverter/rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/‎DiscoveryPlus.list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileCloud/clash-for-linux/tools/subconverter/subconverter" beforeDir="false" afterPath="$PROJECT_DIR$/fileCloud/clash-for-linux/tools/subconverter/subconverter" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -57,6 +46,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Notification.DisplayName-DoNotAsk-JavaScript: Code Vision Performance&quot;: &quot;JavaScript: code vision performance watcher&quot;,
     &quot;Notification.DoNotAsk-JavaScript: Code Vision Performance&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -70,7 +60,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\Scoop\\apps\\webstorm\\current\\IDE\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -87,11 +77,17 @@
       <recent name="D:\project_webcourse-master" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.trial.js">
+  <component name="RunManager" selected="Node.js.try.js (1)">
     <configuration name="t | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/part4/t.rest" index="5" requestIdentifier="#5" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="try.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/WebStormProject/try.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="trial.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/trial.js" working-dir="$PROJECT_DIR$/FinalProject/bloglist-frontend/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="try.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/FinalProject/bloglist-frontend/try.js" working-dir="$PROJECT_DIR$/FinalProject/bloglist-frontend">
       <method v="2" />
     </configuration>
     <configuration name="try.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/FinalProject/bloglist-frontend/src/try.js" working-dir="$PROJECT_DIR$/FinalProject/bloglist-frontend/src">
@@ -99,9 +95,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.try.js (1)" />
+        <item itemvalue="JavaScript Debug.try.html" />
+        <item itemvalue="Node.js.try.js" />
         <item itemvalue="Node.js.trial.js" />
         <item itemvalue="HTTP Request.t | #5" />
-        <item itemvalue="Node.js.try.js" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +167,16 @@
       <workItem from="1695045859511" duration="1858000" />
       <workItem from="1695047855919" duration="368000" />
       <workItem from="1695740563118" duration="1532000" />
-      <workItem from="1696754363487" duration="1570000" />
+      <workItem from="1696754363487" duration="3185000" />
+      <workItem from="1697112753626" duration="708000" />
+      <workItem from="1697775757550" duration="11000" />
+      <workItem from="1697775788947" duration="367000" />
+      <workItem from="1697776183095" duration="5000" />
+      <workItem from="1714882244234" duration="1262000" />
+      <workItem from="1714972956405" duration="26000" />
+      <workItem from="1714972987539" duration="1777000" />
+      <workItem from="1715060221611" duration="4900000" />
+      <workItem from="1715065287338" duration="1671000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <option name="closed" value="true" />
@@ -387,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694092938639</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="home amend">
+      <option name="closed" value="true" />
+      <created>1696756170305</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1696756170305</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="0" http-equiv="expires">
+    <meta content="no-cache" http-equiv="pragma"/>
+    <meta content="no-cache" http-equiv="cache-control"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui"
+          name="viewport"/>
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>确认身份</title>
+    <link href="//cdn.mobimedical.cn/source/libs/weui/weui.min.css" rel="stylesheet"/>
+    <link href="//cdn.mobimedical.cn/source/common/css/normalize.css" rel="stylesheet"/>
+    <link href="//cdn.mobimedical.cn/ysd/tpl/Wap/static/YSD/css/list.css?v=0.0.1" rel="stylesheet"/>
+    <script src="//cdn.mobimedical.cn/source/libs/weui/weui.min.js"></script>
+    <script src="//cdn.mobimedical.cn/source/libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="//cdn.mobimedical.cn/ysd/tpl/Wap/static/libs/vue/vue.min.js"></script>
+    <script src="//cdn.mobimedical.cn/source/common/js/plugin.dialog.js"></script>
+    <link href="//cdn.mobimedical.cn/source/common/css/plugin.css" rel="stylesheet"/>
+    <style>
+        .List.payIndex section form [type='radio']:checked + label span:nth-of-type(2) i {
+            background-color: #00804f;
+        }
+
+        .addCard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 92vw;
+            margin: 0.63158rem 4vw;
+            padding: 0.85526rem 0;
+            position: relative;
+            text-indent: 4vw;
+            font-size: 0.73684rem
+        }
+
+        .addCard::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            border: 1px solid #d3d3d3;
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+            transform-origin: top left;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .downArrows {
+            position: relative
+        }
+
+        .downArrows::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 25px;
+            display: -webkit-flex;
+            display: flex;
+            height: 0.5rem;
+            width: 0.5rem;
+            border-width: 1px 1px 0 0;
+            border-color: #d3d3d3;
+            border-style: solid;
+            -moz-transform: rotate(45deg) translateY(calc(-50% - .125rem));
+            -ms-transform: rotate(45deg) translateY(calc(-50% - .125rem));
+            -webkit-transform: rotate(45deg) translateY(calc(-50% - .125rem));
+            transform: rotate(45deg) translateY(calc(-50% - .125rem));
+        }
+    </style>
+    <script>
+        var formalHospitalId = 105</script>
+    </meta></meta></head>
+<body>
+<div class="List payIndex">
+    <section><p class="">科室医生</p>
+        <ul>
+            <li style="color:#00804f">王魏新</li>
+            <li>科室：修复Ⅰ科</li>
+            <li>看诊时间：2024-05-09 
+                上午 09:00:00-10:00:00
+            </li>
+            <li>挂号费用：<i>￥30</i></li>
+        </ul>
+    </section>
+    <section><p class="">选择就诊人</p>
+        <form><input data-cardid="42568659" data-cardtype="3" id="42568659" name="CardUser" rel="3" type="radio"
+                     value="42568659"/><label for="42568659"><span><i>罗月阳<small class="tag_health">电子健康卡</small></i><i>电子健康卡:4205***7535</i></span><span><i><img
+                alt="" src="//cdn.mobimedical.cn/ysd/tpl/Wap/static/YSD/images/svg/tick-off.svg"/></i></span></label><a
+                class="addCard"
+                href="/index.php?g=Weixin&amp;m=CloudCard&amp;a=noCard&amp;wx=MbTXAN0k"><span>绑卡/建卡</span><span
+                class="downArrows"></span></a>
+            <div class="btn"><i onclick="createOrder()" style="background-color:#00804f">确 定</i></div>
+            <input name="__hash__" type="hidden"
+                   value="eb3f69e914d9194401df42a71f17c9f7_3dbb566b66bb96c6ff8ce47358c8d9f0"/></form>
+    </section><!-- 图形验证码 --><!--
+    图形验证码
+    相关依赖：jquery、weui、vue
+-->
+    <link href="//cdn.mobimedical.cn/ysd/tpl/Wap/static/css/imgverifiction.css" rel="stylesheet"/><!-- 验证码弹出框 -->
+    <div id="IMGVERIFICATION">
+        <transition name="transitionfade">
+            <div @click="cancel" class="mask_layer" v-if=" verifyImgSrc !='' "></div>
+        </transition>
+        <transition name="slide-fade-top">
+            <div class="verifyPopBox" v-if=" verifyImgSrc !='' ">
+                <div class="inner">
+                    <div class="btn">
+                        <button @click="cancel">取消</button>
+                        <button @click="confirmPostVerify" class="checkcode">确定</button>
+                    </div>
+                    <div class="checkimgBox"><img :src="verifyImgSrc" @click="addMarker" @load="verifyImgIsLoad=true"
+                                                  class="checkimg"><img class="imgloading"
+                                                                        src="//cdn.mobimedical.cn/ysd/tpl/Wap/static/images/loader.gif"
+                                                                        v-if="!verifyImgIsLoad"/>
+                        <div class="changeBtn_mask"><a @click="changeVerifyImg" class="changeBtn">换一张</a></div>
+                        <em :style="'left:'+item.x+'px; top:'+item.y+'px'" @click="delMarker(index)" class="marker"
+                            v-for="(item, index) in verifyMarker.show"><img
+                                src="//cdn.mobimedical.cn/ysd/tpl/Wap/static/images/optfor_red.png"
+                                width="24"/></em></img></div>
+                </div>
+            </div>
+        </transition>
+    </div><!-- 验证码弹出框 End -->
+    <script>
+        var w_height = $(window).height();
+        var IMGVERIFICATION = new Vue({
+            el: '#IMGVERIFICATION',
+            data: {
+                verifyImgSrc: '',
+                verifyMarker: {
+                    show: [],
+                    data: []
+                },
+                verifyImgIsLoad: false,
+                wxLoading: ''
+            },
+            created: function () {
+            },
+            methods: {
+                // ‘换一张’验证码图片
+                changeVerifyImg: function () {
+                    var _self = this;
+                    _self.verifyImgIsLoad = false;
+                    _self.verifyMarker = {
+                        show: [],
+                        data: []
+                    };
+                    $.post("/index.php?g=Weixin&m=Verify&a=createVerify&v=" + Math.random(), {}, function (res) {
+                        _self.verifyImgSrc = res;
+                    });
+
+
+                },
+                // 添加验证码标记, 并获取坐标
+                addMarker: function (e) {
+                    var _self = this;
+                    var img_offsetWidth = e.target.offsetWidth,
+                        img_offsetHeight = e.target.offsetHeight;
+                    // 计算图片与原始图的百分比
+                    var imgPerce = Math.round(img_offsetWidth / 824 * 10000) / 100.00;
+                    var page_X = e.clientX - e.target.offsetLeft,
+                        page_Y = e.clientY - (w_height - img_offsetHeight - e.target.offsetTop * 2)
+                    _self.verifyMarker.show.push({
+                        x: page_X,
+                        y: page_Y
+                    });
+                    _self.verifyMarker.data.push({
+                        x: Math.round(page_X / imgPerce * 100),
+                        y: Math.round(page_Y / imgPerce * 100)
+                    });
+                },
+                delMarker: function (id) {
+                    var _self = this;
+                    _self.verifyMarker.show.splice(id, 1);
+                    _self.verifyMarker.data.splice(id, 1);
+                },
+                // 验证码，选择“取消”
+                cancel: function () {
+                    var _self = this;
+                    _self.verifyImgSrc = '';
+                },
+                // 验证码，选择“确定”
+                confirmPostVerify: function () {
+                    var _self = this;
+                    if (_self.verifyMarker.data.length <= 0) {
+                        weui.topTips("请选择验证码图片", 1800);
+                        return false
+                    }
+                    _self.wxLoading = weui.loading('正在提交');
+                    // 坐标数组转成字符串格式
+                    var markerArray = '';
+                    for (var i = 0; i < _self.verifyMarker.data.length; i++) {
+                        markerArray += _self.verifyMarker.data[i].x + ',' + _self.verifyMarker.data[i].y + ';'
+                    }
+                    markerArray = markerArray.substr(0, (markerArray.length - 1));
+                    // 关闭验证码弹窗
+                    _self.cancel();
+                    // 提交验证
+                    _self.returnVerifyResult(markerArray);
+                },
+                // 提交验证码进行验证
+                returnVerifyResult: function (markerArray) {
+                    var _self = this;
+                    $.post("/index.php?g=Weixin&m=Verify&a=checkVerify", {
+                        tagArray: markerArray
+                    }, function (res) {
+                        _self.wxLoading.hide();
+                        if (res.code == 1) {
+                            confirmCreateOrder()
+                        } else {
+                            weui.topTips("验证码错误！", 2000);
+                        }
+                    });
+                },
+            }
+        });
+    </script>
+    <footer><p>温馨提示</p>
+        <p>
+        <p>
+            支付后需等待微信反馈消息，若消息提示成功方可认为挂号成功，若失败，费用会7个工作日原路返回，若没有消息返回需等待确认。
+        </p>
+        <p>
+            <br/>
+        </p></p></footer><!-- 12.10 流行病学调查 -->
+    <div class="count-down-box">
+        <div class="down-box">
+            <div class="svg-box">
+                <svg height="100%" version="1.1" width="100%">
+                    <circle class="svg-show" cx="50%" cy="50%" r="50px"></circle>
+                </svg>
+                <div class="time-down"></div>
+            </div>
+            <span class="down-out">加载中,请稍后...</span></div>
+    </div>
+</div>
+</body>
+<script>
+    var isUpdate = "1";
+    var verifySwitch = "1";
+    var regType = "";
+    var loading;
+    var isClose = false;
+    $(function () {
+        if (formalHospitalId == 97 && regType == 1) {
+            changeCardType();
+        }
+    });
+
+    // 判断选中卡类型
+    function changeCardType() {
+        $('input[type=radio][name="CardUser"]').change(function () {
+            var cardType = $('input:radio[name="CardUser"]:checked').data('cardtype');
+            if (cardType != 3) {
+                alertRegCardType();
+            } else {
+                loading.hide();
+            }
+        });
+    }
+
+    // 获取路由参数
+    function getQueryString(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        let r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    //生成微信订单
+    function createOrder() {
+        //获取缓存
+        if (sessionStorage.getItem('isOnloadSubmit') == 1) {
+            weui.confirm("<p style='color: black'>该医生号源已预约完，请返回上一页重新选择号源</p>", {
+                title: '温馨提示',
+                buttons: [{
+                    label: '确定',
+                    type: 'primary',
+                    onClick: function () {
+                        window.history.back();
+                    }
+                }]
+            });
+            return
+        }
+        var chooseCard = $('input:radio[name="CardUser"]:checked')
+        var cardType = $('input:radio[name="CardUser"]:checked').data('cardtype');
+        if (chooseCard.length == 0) {
+            weui.alert('请先选择就诊人', function () {
+            });
+            return
+        }
+        if (cardType != 3) {
+            var cardId = $('input:radio[name="CardUser"]:checked').data('cardid');
+            weui.confirm("该卡不是电子健康卡，无法进行预约挂号，请升级为电子健康卡，升级后原就诊卡保存就诊信息将关联到电子健康卡。是否确认升级？", {
+                title: '温馨提示',
+                buttons: [{
+                    label: '取消',
+                    type: 'default',
+                    onClick: function () {
+                        console.log('no')
+                    }
+                }, {
+                    label: '确定',
+                    type: 'primary',
+                    onClick: function () {
+                        window.location.href = '/index.php?g=Weixin&m=CloudTencentHealthCard&a=identityConfirm&id=' + cardId
+                    }
+                }]
+            });
+            return;
+        }
+        judgeHasImgVerify()
+    }
+
+    // 判断是否需要路过图形验证码
+    function judgeHasImgVerify() {
+        if (verifySwitch == 1 && formalHospitalId == 105) {
+            // 唤起图形验证码验证
+            IMGVERIFICATION.changeVerifyImg();
+        } else {
+            confirmCreateOrder();
+        }
+    }
+
+    // 确认订单信息，并准备发起订单
+    function confirmCreateOrder() {
+        //是否使用支付中心支付
+        var isUsePayCenter = "0";
+        var scheduleCode = "535526870188894";
+        var periodScheduleCode = "";
+        var deptHisId = "086028000A000520";
+        var docHisId = "1368";
+        var scheduleDate = "2024-05-09";
+        var period = "am";
+        var startTime = "09:00:00";
+        var endTime = "10:00:00";
+        var queueNo = "";
+        var radio = $('input:radio[name="CardUser"]:checked').val();
+        var periodCode = "";
+        var schedulId = "";
+        var depName = "修复Ⅰ科";
+        var fee = "30";
+        var tips = (isUpdate == 1) ? '请您先选择一张电子健康卡！' : '请您先选择一张就诊卡！';
+        if (radio == null) {
+            if (radio == null) {
+                weui.alert(tips, function () {
+                });
+            }
+        } else {
+            var userId = $('input:radio[name="CardUser"]:checked').val();
+            var params = {
+                userId: userId,
+                isUsePayCenter: isUsePayCenter,
+                scheduleCode: scheduleCode,
+                periodScheduleCode: periodScheduleCode,
+                deptHisId: deptHisId,
+                docHisId: docHisId,
+                scheduleDate: scheduleDate,
+                period: period,
+                startTime: startTime,
+                endTime: endTime,
+                queueNo: queueNo,
+                periodCode: getQueryString('ArrangeDoctorPlanTimeSectionID'),
+                schedulId: schedulId
+            }
+            if (formalHospitalId == 165) {
+                patientInforQuery(params);  // 165医院需要查询患者信息
+            } else if (formalHospitalId == 59 && deptHisId == 1161 && docHisId == 1 && depName == '计免室') {
+                freeOrder(params);
+            } else if ((formalHospitalId == 128 || formalHospitalId == 129) && fee == 0) {//双流中医0元免费挂号
+                freeOrder(params);
+            } else {
+                goCreateOrder(params);
+            }
+        }
+    }
+
+    // 查询患者信息，患者信息不全需要补充患者信息
+    function patientInforQuery(params) {
+        $.ajax({
+            url: "/index.php?g=Weixin&m=CloudCard&a=patientInforQuery",
+            timeout: 30000,
+            type: "POST",
+            data: {
+                'userId': params.userId,
+            },
+            success: function (json) {
+                if (json.code == 400) {
+                    weui.confirm("您的个人信息需要完善后才能进行挂号缴费，请点击确定进行完善", {
+                        title: '温馨提示',
+                        buttons: [{
+                            label: '取消',
+                            type: 'default',
+                            onClick: function () {
+                            }
+                        }, {
+                            label: '确定',
+                            type: 'primary',
+                            onClick: function () {
+                                window.location.href = "/index.php?g=Weixin&m=CloudCard&a=patientInfo&userId=" + params.userId + "&deptHisId=086028000A000520&docHisId=1368&date=2024-05-09&period=am&RbasId=535526870188894&startTime=09:00:00&endTime=10:00:00&periodCode=&queueNo=";
+                            }
+                        }]
+                    });
+                } else {
+                    goCreateOrder(params)
+                }
+            }
+        })
+    }
+
+    //南充四计免直接挂号
+    function freeOrder(params) {
+        $.ajax({
+            url: "/index.php?g=Weixin&m=CloudRegisterOne&a=directRegster",
+            timeout: 30000,
+            type: "POST",
+            data: {
+                'userId': params.userId,
+                'deptHisId': params.deptHisId,
+                'docHisId': params.docHisId,
+                'scheduleCode': params.scheduleCode,
+                'periodScheduleCode': params.periodScheduleCode,
+                'scheduleDate': params.scheduleDate,
+                'schedulePeriod': params.period,
+                'startTime': params.startTime,
+                'endTime': params.endTime,
+                'queueNo': params.queueNo,
+                'periodCode': params.periodCode,
+            },
+            beforeSend: function () {
+                loading = weui.loading("正在挂号");
+            },
+            success: function (json) {
+                loading.hide();
+                if (json.code == 200) {
+                    window.location.href = json.data.linkUrl;
+                } else {
+                    weui.alert(json.msg, function () {
+                    });
+                }
+            },
+            error: function () {
+                loading.hide();
+                weui.alert('服务器繁忙，请重试！', function () {
+                });
+                clicked = 0;
+                $(".btn i").text("重试");
+            }
+        });
+    }
+
+    //倒计时
+    function downTime() {
+        document.querySelector(".count-down-box").style.display = 'flex';
+        var cir = document.querySelector(".svg-show");
+        var leg = 314;
+        if (cir.getTotalLength) {
+            leg = Math.ceil(cir.getTotalLength());
+        }
+        //在js中结算，这样是最准确的
+        cir.style.strokeDasharray = leg + 1;                 //+1是为了避免最后有一点没有闭合
+        cir.style.strokeDashoffset = leg;					//js设置偏移
+        var index = 0;
+        var timeout = setInterval(() => {
+            index++;
+            //下面这一条等于每秒减去周长的1%
+            cir.style.strokeDashoffset = leg - (index * leg / 60);
+            document.querySelector('.time-down').innerHTML = 60 - index + "s"	//值传给div
+            if (index >= 60) {										//清楚定时器节省资源
+                clearInterval(timeout);
+                document.querySelector('.down-out').innerHTML = '请求超时，即将返回上一页!';
+                document.querySelector('.down-out').style.color = "red";
+                setTimeout(function () {
+                    document.querySelector(".count-down-box").style.display = 'none';
+                    window.history.back();
+                }, 2000)
+            }
+            if (isClose) {
+                clearInterval(timeout);
+                document.querySelector(".count-down-box").style.display = 'none';
+            }
+        }, 1000)
+    }
+
+    // 创建订单接口
+    function goCreateOrder(params) {
+        //开启倒计时
+        downTime();
+        $.ajax({
+            url: "/index.php?g=Weixin&m=CloudRegisterOne&a=createOrder&wx=MbTXAN0k&KQmark=HXKQ",
+            timeout: 30000,
+            type: "POST",
+            data: {
+                'userId': params.userId,
+                'deptHisId': params.deptHisId,
+                'docHisId': params.docHisId,
+                'scheduleCode': params.scheduleCode,
+                'periodScheduleCode': params.periodScheduleCode,
+                'scheduleDate': params.scheduleDate,
+                'schedulePeriod': params.period,
+                'startTime': params.startTime,
+                'endTime': params.endTime,
+                'queueNo': params.queueNo,
+                'periodCode': params.periodCode,
+                'schedulId': params.schedulId,
+                'ArrangeDoctorPlanTimeSectionID': params.ArrangeDoctorPlanTimeSectionID
+            },
+            beforeSend: function () {
+                loading = weui.loading("正在挂号");
+            },
+            success: function (json) {
+                isClose = true;
+                loading.hide();
+                if (json.code == 200) {
+                    var payData = json.data;
+                    //判断是否走支付中心
+                    if (params.isUsePayCenter == 1) {
+                        //调用支付中心支付
+                        params.regId = payData.regId;
+                        doPayCenterPay(params);
+                        return;
+                    } else {
+                        //调用微信支付
+                        callWeixinPay(payData.jsApiParameters, payData.regId);
+                    }
+                } else if ((json.code == 300)) {
+                    //存在未支付订单
+                    confirmUnPay(json.data, json)
+                } else if ((json.code == 400)) {
+                    // 缓存刷新提交
+                    sessionStorage.setItem('isOnloadSubmit', '1');
+                    weui.alert(json.msg, function () {
+                        window.location.replace(document.referrer)
+                    });
+                } else if ((json.code == 401)) {
+                    // 缓存刷新提交
+                    sessionStorage.setItem('isOnloadSubmit', '1');
+                    weui.alert(json.msg, function () {
+                        window.location.replace(document.referrer)
+                    });
+
+                } else if ((json.code == 911)) {
+                    // 缓存刷新提交
+                    isClose = false;
+                    downTime();
+                    sessionStorage.setItem('isOnloadSubmit', '1');
+                    setTimeout(function () {
+                        isClose = true;
+                        weui.alert('系统繁忙', function () {
+                            window.location.replace(document.referrer)
+                        });
+                    }, 30000)
+                }
+            },
+            error: function () {
+                loading.hide();
+                isClose = true;
+                clicked = 0;
+                $(".btn i").text("重试");
+                $(".btn i").attr("onclick", 'paySuccess(' + id + ')');
+                weui.alert('服务器繁忙，请重试！', function () {
+                    window.location.replace(document.referrer)
+                });
+            }
+        });
+    }
+
+    // 未支付订单提醒
+    function confirmUnPay(url, json) {
+        weui.confirm(json.msg, {
+            title: '温馨提示',
+            buttons: [{
+                label: '取消',
+                type: 'default',
+                onClick: function () {
+                }
+            }, {
+                label: '确定',
+                type: 'primary',
+                onClick: function () {
+                    window.location.href = url;
+                }
+            }]
+        });
+    }
+
+    var clicked = 0;
+
+    //微信支付方法
+    function jsApiCall(jsApiParameters, regId) {
+        jsApiParameters = jQuery.parseJSON(jsApiParameters);
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',
+            jsApiParameters,
+            function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    window.location.href = "/index.php?g=Wap&m=CloudRegister&a=processing&wx=MbTXAN0k&regId=" + regId;
+                } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                    alert("支付已取消");
+                    clicked = 0;
+                } else {
+                    alert(res.err_code + "2--" + res.err_desc + "--" + res.err_msg);
+                }
+            }
+        );
+    }
+
+    //调用微信支付
+    function callWeixinPay(jsApiParameters, regId) {
+        if (clicked == 1)
+            return;
+        clicked = 1;
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        } else {
+            jsApiCall(jsApiParameters, regId);
+        }
+    }
+
+    //跳转支付中心支付
+    function doPayCenterPay(params) {
+        var url = "/index.php?g=Weixin&m=CloudRegisterOne&a=doPayCenterPay"
+            + "&userId=" + params.userId
+            + "&deptHisId=" + params.deptHisId
+            + "&docHisId=" + params.docHisId
+            + "&scheduleCode=" + params.scheduleCode
+            + "&periodScheduleCode=" + params.periodScheduleCode
+            + "&scheduleDate=" + params.scheduleDate
+            + "&schedulePeriod=" + params.period
+            + "&startTime=" + params.startTime
+            + "&endTime=" + params.endTime
+            + "&queueNo=" + params.queueNo
+            + "&regId=" + params.regId;
+        window.location.href = url;
+    }
+</script>
+</html>
